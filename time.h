@@ -34,16 +34,13 @@ friend Time operator-(const Time &t1, const Time &t2) {
 	}
 }	
 friend ostream &operator<<(ostream &out, const Time &t) {
-	out << t.d << “:” << t.h << “:” << t.m;
+	out << t.d << " " << t.h << " " << t.m;
 return out;	
 }
 
-friend ifstream &operator>>(ifstream &in, const Time &t) {
-	string buf;
+friend ifstream &operator>>(ifstream &in, Time &t) {
 	in>>t.d;
-	getline(in,buf,":");
 	in>>t.h;
-	getline(in,buf,":");
 	in>>t.m;
 }	
 };
