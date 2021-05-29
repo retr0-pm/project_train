@@ -1,3 +1,5 @@
+
+
 class Time {
 
 private:
@@ -34,13 +36,22 @@ friend Time operator-(const Time &t1, const Time &t2) {
 	}
 }	
 friend ostream &operator<<(ostream &out, const Time &t) {
-	out << t.d << " " << t.h << " " << t.m;
+	out << t.get_d() << " " << t.get_h() << " " << t.get_m();
 return out;	
 }
 
-friend ifstream &operator>>(ifstream &in, Time &t) {
-	in>>t.d;
-	in>>t.h;
-	in>>t.m;
+friend istream &operator>>(ifstream &in, Time &t) {
+
+	int da;
+	int hu;
+	int mi;
+	
+	in>>da;
+	in>>hu;
+	in>>mi;
+	
+	t.set_d(da);
+	t.set_h(hu);
+	t.set_mi(mi);
 }	
 };

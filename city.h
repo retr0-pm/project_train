@@ -29,17 +29,14 @@ void set_coordinates(float a, float b){
 	city_x = a;
 	city_y = b;
 }
-friend ostraem& operator<<(ostream &out, const City &t){
+friend ostraem &operator<<(ostream &out, const City &t){
 
-	out<<t.city_name;
-	out>>"\n";
-	out<<t.city_x;
-	out>>"\n";
-	out<<t.city_y;
-	out>>"\n";
+	out<<t.city_name()<<"\n";
+	out<<t.city_x()<<"\n";
+	out<<t.city_y()<<"\n";
 	
 }
-friend ifstream operator>>(ifstream &in, City &t){
+friend istream &operator>>(ifstream &in, City &t){
 	
 	string n;
 	float x;
@@ -47,8 +44,8 @@ friend ifstream operator>>(ifstream &in, City &t){
 	getline(in,n);
 	in>>x;
 	in>>y;
-	set_sity_name(n);
-	set_coordinates(x, y);
+	t.set_sity_name(n);
+	t.set_coordinates(x, y);
 	
 	
 }
