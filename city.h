@@ -31,9 +31,10 @@ void set_coordinates(float a, float b){
 }
 friend ostraem &operator<<(ostream &out, const City &t){
 
-	out<<t.city_name()<<"\n";
-	out<<t.city_x()<<"\n";
-	out<<t.city_y()<<"\n";
+	out<<t.city_name<<"\n";
+	out<<t.city_x<<"\n";
+	out<<t.city_y<<"\n";
+	return out;
 	
 }
 friend istream &operator>>(ifstream &in, City &t){
@@ -46,7 +47,7 @@ friend istream &operator>>(ifstream &in, City &t){
 	in>>y;
 	t.set_sity_name(n);
 	t.set_coordinates(x, y);
-	
+	return in;
 	
 }
 };

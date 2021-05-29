@@ -15,6 +15,41 @@ private:
     int cost_kupe; // цена купе
     int cost_plackart; // цена плацкарта
 public:
+friend ostream &operator<<(ostream &out, const Train &t){
+		out<<t.get_train_number()<<"\n";
+		out<<t.get_train_speed()<<"\n";
+		out<<t.get_train_sity_from()<<"\n";
+		out<<t.get_train_sity_to()<<"\n";
+		out<<t.get_distance()<<"\n";
+		out<<t.get_time_otb()<<"\n";
+		out<<t.get_time_prib()<<"\n";
+		out<<t.get_time_puti()<<"\n";
+		out<<t.get_capacity_kupe()<<"\n";
+		out<<t.get_capacity_plackart<<"\n";
+		out<<t.get_train_vagoni_plackart()<<"\n";
+		out<<t.get_train_vagoni_kupe()<<"\n";
+		out<<t.get_train_cost_kupe()<<"\n";
+		out<<t.get_train_cost_plackart()<<"\n";
+		return out;
+		
+	}
+friend istream &operator>>(istream &in, Train &t){
+    in>>number;
+    in>>speed;
+    in>>from;
+    in>>to;
+    in>>distance;
+    in>>t_otb;
+    in>>t_prib;
+    in>>t_puti;
+    in>>capacity_kupe;
+    in>>capacity_plackart;
+    in>>vagoni_plackart;
+    in>>vagoni_kupe;
+    in>>cost_kupe;
+    in>>cost_plackart;
+	return in;
+}
     int get_train_number(){
         return  number;
     }
@@ -27,14 +62,25 @@ public:
     string get_train_sity_to(){
         return  to;
     }
+    float get_distance(){
+    	return distance;
+    }
     Time get_time_otb() {
-	return time_otb;
+	return t_otb;
     }
 
     Time get_time_prib() {
-	return time_prib;
+	return t_prib;
     }
-
+    Time get_time_puti(){
+    	return t_puti;
+    }
+    int get_capacity_kupe(){
+    	return capacity_kupe;
+    }
+    int get_capacity_plackart(){
+    	return capacity_plackart;
+    }
     int get_train_vagoni_plackart(){
         return  vagoni_plackart;
     }
@@ -52,35 +98,34 @@ public:
             train_number = a;
         }
     void set_train_speed(float a){
-        if (a > 0.0){
             train_speed = a;
-            }else{
-                cout<<"не корректно"<<endl;
-                }
         }
     void set_train_from(string a){
-        if (a != " "){
             train_from = a;
-            }else{
-                cout<<"не корректно"<<endl;
-                }
         }
     void set_train_to(string a){
-        if (a != " "){
             train_to = a;
-            }else{
-                cout<<"не корректно"<<endl;
-                }
         }
+     void set_distance(float a){
+	train_speed = a;
+     }
 
-    void set_t_otb(Time t) {
+    void set_time_otb(Time t) {
 	t_otb = t;
     }
 
-    void set_t_prib(Time t) {
+    void set_time_prib(Time t) {
 	t_prib = t;
     }
-
+    void set_time_puti(Time t) {
+    	t_puti = t;
+    }
+    void set_capacity_kupe(int a){
+    	capacity_kupe = a;
+    }
+    void set_capacity_plackart(int a){
+    	capacity_plackart = a;
+    }
     void set_train_vagoni_kupe(int a){
             train_vagoni_kupe = a;
         }
@@ -93,5 +138,4 @@ public:
     void set_train_cost_plackart(int a){
             train_cost_plackart = a;
         }
-
 };

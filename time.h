@@ -53,5 +53,6 @@ friend istream &operator>>(ifstream &in, Time &t) {
 	t.set_d(da);
 	t.set_h(hu);
 	t.set_mi(mi);
+	return in;
 }	
 };

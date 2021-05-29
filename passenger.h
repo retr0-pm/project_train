@@ -45,6 +45,7 @@ public:
 		out<<t.get_n_mesta()<<"\n";
 		out<<t.get_city_from()<<"\n";
 		out<<t.get_city_to()<<"\n";
+		return out;
 		
 	} 
 	friend istream &operator>>(istream &in, Passenger &t){
@@ -81,6 +82,7 @@ public:
 		t.set_n_mesta(n_m);
 		t.set_sity_from(c_f);
 		t.set_city_to(c_t);
+		return in;
 		
 	}
 };
