@@ -50,21 +50,14 @@ public:
 	} 
 	friend istream &operator>>(istream &in, Passenger &t){
 		
-		string buf;
-		
-		getline(in, t.name);
+		in>>t.name;
 		in>>t.age;
-		getline(in, buf);
 		in>>t.train_number;
-		getline(in, buf);
 		in>>t.spot;
-		getline(in, buf);
 		in>>t.n_vagona;
-		getline(in, buf);
 		in>>t.n_mesta;
-		getline(in, buf);
-		getline(in, t.city_from);
-		getline(in, t.city_to);
+		in>>t.city_from;
+		in>>t.city_to;
 
 		return in;
 		

@@ -34,34 +34,22 @@ friend ostream &operator<<(ostream &out, const Train &t){
 		
 	}
 friend istream &operator>>(istream &in, Train &t){
-	string buf;
 	
     in>>t.number;
-    getline(in, buf);
     in>>t.speed;
-    getline(in, buf);
-    getline(in, t.from);//
-    getline(in, t.to);//
+    in>>t.from;
+    in>>t.to;
     in>>t.distance;
-    getline(in, buf);
     in>>t.t_otb;
-    getline(in, buf);
     in>>t.t_prib;
-    getline(in, buf);
     in>>t.t_puti;
-    getline(in, buf);
     in>>t.capacity_kupe;
-    getline(in, buf);
     in>>t.capacity_plackart;
-    getline(in, buf);
     in>>t.vagoni_plackart;
-    getline(in, buf);
     in>>t.vagoni_kupe;
-    getline(in, buf);
     in>>t.cost_kupe;
-    getline(in, buf);
     in>>t.cost_plackart;
-    getline(in, buf);
+    
 	return in;
 }
     int get_train_number(){

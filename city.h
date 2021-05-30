@@ -39,13 +39,9 @@ friend ostraem &operator<<(ostream &out, const City &t){
 }
 friend istream &operator>>(ifstream &in, City &t){
 	
-	string buf;
-	
-	getline(in, t.city_name);
+	in>>t.city_name;
 	in>>t.city_x;
-	getline(in, buf);
 	in>>t.city_y;
-	getline(in, buf);
 	return in;
 	
 }
