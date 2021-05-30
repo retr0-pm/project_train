@@ -1,3 +1,71 @@
+void Core::addPassenger(){
+	if(sizeT < 1){
+		cout<<"Нет ни одного маршрута"<<endl;
+		return;
+	}
+	
+	Passenger pas;
+	while(1){
+		string buf_;
+		cout<<"введите имя:";
+		cin<<buf_;
+		cout<<endl;
+		if(buf_ != " "){
+			pas.set_name(buf_);
+			break;
+		}else
+			cout<<"переданно неверное значение"<<endl;
+	}
+	while(1){
+		int buf_
+		cout<<"введите возраст:";
+		cin<<buf_;
+		cout<<endl;
+		if(buf_ > 0){
+			pas.set_age(buf_);
+			break;
+		}else
+			cout<<"переданно неверное значение"<<endl;
+	}
+	while(1){
+		while(1){
+			int flag1, flag2;
+			
+			string buf1_;
+			cout<<"введите город отбытия:";
+			cin<<buf1_;
+			cout<<endl;
+			
+			if(buf1_ == " "){
+				pas.set_city_from(buf1_);
+			}else{cout<<"переданно неверное значение"<<endl;}
+			
+			string buf2_;
+			cout<<"введите город прибытия:";
+			cin<<buf2_;
+			cout<<endl;
+			
+			if(buf2_ == " "){
+				pas.set_city_to(buf2_);
+			}else{cout<<"переданно неверное значение"<<endl;}
+			int buf_;
+			cout<<"введите тип места 0-купэ, 1-плацкарт:";
+			cin<<buf_;
+			cout<<endl;
+			if(buf_ == 0 or buf_ ==1){
+				pas.set_spot(buf_);
+			}else{cout<<"переданно неверное значение"<<endl;}
+			flag1 = calcNumber(pas);
+			flag2 = calcMesta(pas);
+			
+			if(flag1 == 0 or flag == 0){
+				return;
+			}
+		}
+	}
+	
+		
+}
 void Core::rewindTime() {
 	int _d, _h, _m;
 	Time shift;
@@ -44,7 +112,7 @@ void Core::rewindTime() {
 
 bool Core::calcNumber(Passenger b) {
 	for(int i = 0; i < sizeT; i++) {
-		if (arrTrain[i].get_train_city_to() == b.get_city_to) && (arrTrain[i].get_train_city_from() == b.get_city_from) {
+		if (arrTrain[i].get_train_city_to() == b.get_city_to() && (arrTrain[i].get_train_city_from() == b.get_city_from) {
 			b.get_train_number = arrTraint.get_number;
 			return true;
 			break;

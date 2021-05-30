@@ -3,7 +3,7 @@ private:
 	string name; //
 	int age; // возраст пассажира
 	int train_number; // номер поезда (id маршрута) (*)
-	Time time_ot;
+	Time time_ot;//(*)
 	int spot; //Вид места пассажира, где 0 - купэ, 1 - плацкарт
 	int n_vagona; //номер вагона пассажира (*)
 	int n_mesta; //номер места пассажира в вагоне (*)
