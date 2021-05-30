@@ -29,11 +29,12 @@ void clArrTrain(); //ochistka pamyati massiva reisov
 void clArrPassenger(); //ochistka pamyati massiva passagirov
 
 //Train
-void addTrain(); //Dobavit'
-void removeTrain(); //Udalit'
-void changeTrain(); // Izmenit'
+bool addTrain(); //Dobavit'
+bool removeTrain(); //Udalit'
+bool changeTrain(); // Izmenit'
 void outputTrain(); // Vivesti polniy spisok
-void searchTrain(); // Poisk
+void searchTrainNumber(); // Poisk reisa po nomeru
+void searchTrainPoint(); // Poisk reias po gorodam
 
 void calcTime(); // Calulation distance, t_puti, t_prib
 
