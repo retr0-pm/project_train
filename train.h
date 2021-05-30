@@ -57,10 +57,10 @@ friend istream &operator>>(istream &in, Train &t){
     float get_train_speed(){
         return  speed;
     }
-    string get_train_sity_from(){
+    string get_train_city_from(){
         return from ;
     }
-    string get_train_sity_to(){
+    string get_train_city_to(){
         return  to;
     }
     float get_distance(){
