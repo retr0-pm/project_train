@@ -45,15 +45,17 @@ void calcPosition(Passanger t){ //we are have this in core.cpp after the moment 
 	
 void Core::searchCity(){
 	string buf;
-	bool flag=false;
+	cout << "Enter the name of city: ";
+	cin.getline(buf,256,'\n');
+	cout << endl;
 	for (i=0, i<sizeC, i++){
-		if (buf == arrCity[i].city_name){
-			cout<<"City name: "<<arrCity[i].get_city_name;
-			cout<<"City x: "<<arrCity[i].get_city_x;
-			cout<<"City y: "<<arrCity[i].get_city_y;
-			flag=true;
+		if (buf == arrCity[i].get_city_name){
+			cout << i << ". ";
+			cout <<"City name: " << arrCity[i].get_city_name;
+			cout <<", City x: " << arrCity[i].get_city_x;
+			cout <<", City y: " << arrCity[i].get_city_y << endl;
+			break;
 		}
-		if (flag == true){break;}
 	}
 	
 void Core::outputCity(){

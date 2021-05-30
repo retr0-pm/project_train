@@ -90,11 +90,54 @@ void Core::calcTime() {
 	_distance = sqrt(pow((x1-x2),2) + pow((y1-y2),2));
 
 	//calculation t_puti
-	int tm; 
+	int tm;
 	tm = _distance / (_speed / 60);
 	_t_puti = MtoT(tm);
 
 	//calculation t_prib
 	_t_prib = _t_otb + _t_puti;
 	_t_prib.d = 0;
+}
+
+void Core::addTrain() {
+	Train tr;
+	cout << "Enter info about this route:" << endl;
+
+	while(true){
+		int buf;
+		bool flag = true;
+		cout << "Number of the route: ";
+		cin << buf;
+		for(int i = 0; i < sizeT; i++)
+			if(buf == arrTrain[i].get_train_number){
+				flag = false;
+			}
+		if(flag) {
+			tr.get_train_number(buf);
+			break;
+		}
+		else {
+			cout << "This number already exist. Please try again" << endl;
+		}
+	}
+
+        while(true){
+                float buf;
+                bool flag = true;
+                cout << "Speed: ";
+                cin << buf;
+                for(int i = 0; i < sizeT; i++)
+                        if(buf == arrTrain[i].get_train_number){
+                                flag = false;
+                        }
+                if(flag) {
+                        tr.get_train_number(buf);
+                        break;
+                }
+                else {
+                        cout << "This number already exist. Please try again" << endl;
+                }
+        }
+
+
 }
