@@ -78,8 +78,15 @@ Train Core::calcTime(Train t) {
 }
 
 //Train
-void Core::addTrain() {
+bool Core::addTrain() {
+
+	if(sizeC < 2) {
+		cout << "Not enought points" << endl;
+		return false;
+	}
+
 	Train tr;
+
 	cout << "Enter info about this route:" << endl;
 
 	while(true){
@@ -249,6 +256,7 @@ void Core::addTrain() {
 		f << arrTrain[i];
 	}
 	f << tr;
+	return false;
 }
 
 bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(obj.removeTrain())
@@ -257,11 +265,45 @@ bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 	cout << "Enter the number of the direction: ";
 	cin >> buf_;
 	cout << endl;
+
 	for(int i = 0; i < sizeT; i++) {
-		if(arrTrain[i].get_train_number == buf_) {
-			
+		if(arrTrain[i].get_train_number() == buf_) {
+			flag = true;
 		}
 	}
+	if(!flag) {
+		cout << "This number of the direction doesn't exist" << endl;
+		return false;
+	}
+
+	for(int i = 0; i < sizeP; i++) {
+		if((arrPassenger[i].get_condition() < 2) && (arrPassenger[i].get_train_number())) {
+			flag = false;
+			break;
+		}
+	}
+	if(!flag) {
+		cout << "This route is used by passengers right now. Try do this later" << endl;
+		return false;
+	}
+
+	ifstream f;
+	f.open(fPassenger);
+	for(int i = 0; i < sizeP; i++) {
+		if(arrPassenger[i].get_train_number() != buf_) {
+			f << arrPassenger[i];
+		}
+	}
+	f.close();
+
+	f.open(fTrain);
+        for(int i = 0; i < sizeT; i++) {
+                if(arrTrain[i].get_train_number() != buf_) {
+                        f << arrPassenger[i];
+                }
+        }
+	f.close();
+	return false;
 }
 
 
