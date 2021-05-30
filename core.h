@@ -44,7 +44,7 @@ void changePassenger();
 void outputPassenger();
 void searchPassenger();
 
-void calcNumber(); // Vichislenie nomera reisa po dvum gorodam
+bool calcNumber(); // Vichislenie nomera reisa po dvum gorodam
 void calcPosition(); // Vishislenie tekushey koordinati
 void calcMesta(); // Vichislenie nomera vagona i mesta v nem
 
