@@ -1,3 +1,28 @@
+void Core::calcPosition(Passanger t){
+	Train buf;
+	for(i=0, i<sizeT, i++){
+		if(arrTrain[i].train_number == t.train_number;){
+			buf = arrTrain[i];
+		}
+	}
+	City buf1, buf2;
+	for(i=0, i<sizeC, i++){
+		if(arrCity[i].city_name == buf.from;){
+			buf1 = arrCity[i];
+		}
+	}
+	for(i=0, i<sizeC, i++){
+		if(arrCity[i].city_name == buf.to;){
+			buf2 = arrCity[i];
+		}
+	}
+	Time t_in_d=gt-t.time_ot;
+	int minuts1=gt.TtoM;
+	int minuts2=t_in_d.TtoM;
+	float m=((minuts1-munuts2)*sqrt((buf2.x-buf1.x)*(buf2.x-buf1.x)+(buf2.y-buf1.y)*(buf2.y-buf1.y)))/buf.speed;//koeff. for formula
+	float Xx=(buf1.x+m*buf2.x)/(1+m);//final x of time's moment
+	float Yy=(buf1.y+m*buf2.y)/(1+m);//final y of time's moment
+}
 void Core::sizeCity(){
 	ofsteram f;
 	f.open(fCity);
