@@ -50,17 +50,18 @@ void Core::searchCity(){
 	cout << endl;
 	for (i=0, i<sizeC, i++){
 		if (buf == arrCity[i].get_city_name){
-			cout << i << ". ";
+			cout << i+1 << ". ";
 			cout <<"City name: " << arrCity[i].get_city_name;
 			cout <<", City x: " << arrCity[i].get_city_x;
 			cout <<", City y: " << arrCity[i].get_city_y << endl;
 			break;
 		}
 	}
+}
 	
 void Core::outputCity(){
 	for (i=0, i<sizeC, i++){
-		cout<<i+1<<". "<<arrCity[i].get_city_name<<" ("<<arrCity[i].get_city_x<<";"<<arrCity[i].get_city_y;<<")";
+		cout<<i+1<<". "<<arrCity[i].get_city_name<<" ("<<arrCity[i].get_city_x<<";"<<arrCity[i].get_city_y;<<")" << endl;;
 	}
 }
 
@@ -68,7 +69,7 @@ void Core::addCity(){
 	string buf_n;
 	float buf_x;
 	float buf_y;
-	arrCity[sizeC++].set_city_name(buf_n);
+	arrCity[sizeC++].set_city_name(buf_n); //Eto tak ne rabotaet
 	arrCity[sizeC++].set_coordinates(buf_x, buf_y);
 }
 
