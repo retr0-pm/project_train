@@ -18,8 +18,8 @@ public:
 friend ostream &operator<<(ostream &out, const Train &t){
 		out<<t.number<<"\n";
 		out<<t.speed<<"\n";
-		out<<t.from<<"\n";
-		out<<t.to<<"\n";
+		getline(out,t.from);
+		getline(out,t.to);
 		out<<t.distance<<"\n";
 		out<<t.t_otb<<"\n";
 		out<<t.t_prib<<"\n";
@@ -31,10 +31,9 @@ friend ostream &operator<<(ostream &out, const Train &t){
 		out<<t.cost_kupe<<"\n";
 		out<<t.cost_plackart<<"\n";
 		return out;
-		
 	}
 friend istream &operator>>(istream &in, Train &t){
-	
+
     in>>t.number;
     in>>t.speed;
     in>>t.from;
