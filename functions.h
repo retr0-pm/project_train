@@ -316,7 +316,7 @@ bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 	return false;
 }
 
-bool Core::changeTrain() {
+bool Core::changeTrain() { //Change of direction by number of direction
 	if(sizeT == 0) {
 		cout << "The list of directions is empty" << endl;
 		return false;
@@ -539,16 +539,16 @@ bool Core::changeTrain() {
                         cout << "Name: " << arrPassenger[i].get_name();
 			cout << ", Age: " << arrPassenger[i].get_age();
 			cout << ", Sending time: " << arrPassenger[i].get_time_ot();
-			if(arrPassenger[i].get_spot == 0) {
+			if(arrPassenger[i].get_spot() == 0) {
                         	cout << ", Kupe";
 			}
 			else {
                         	cout << ", Plackart";
 			}
-                        cout << ", Car number: " << arrPassenger[i].get_n_vagona;
-                        cout << ", Seat number: " << arrPassenger[i].get_n_mesta;
-                        cout << ", From: " << arrPassenger[i].get_city_from;
-                        cout << ", To: " << arrPassenger[i].get_city_to << endl;
+                        cout << ", Car number: " << arrPassenger[i].get_n_vagona();
+                        cout << ", Seat number: " << arrPassenger[i].get_n_mesta();
+                        cout << ", From: " << arrPassenger[i].get_city_from();
+                        cout << ", To: " << arrPassenger[i].get_city_to() << endl;
                 }
         }
 	f.close();
@@ -556,8 +556,25 @@ bool Core::changeTrain() {
 	return false;
 }
 
-
-
+bool Core::outputTrain() {
+	cout << "The list of the directions:" << endl;
+	for(int i = 0; i < sizeT; i++) {
+		cout << "Number of the direction: " << arrTrain[i].get_train_number();
+                cout << ", Speed: " << arrTrain[i].get_train_speed();
+                cout << ", From: " << arrTrain[i].get_train_city_from();
+                cout << ", To: " << arrTrain[i].get_train_city_to();
+                cout << ", Distance: " << arrTrain[i].get_distance();
+                cout << ", Sending time: " << arrTrain[i].get_time_otb();
+                cout << ", Arrival time: " << arrTrain[i].get_time_prib();
+                cout << ", Travel time: " << arrTrain[i].get_time_puti();
+                cout << ", Kupe capacity: " << arrTrain[i].get_capacity_kupe();
+                cout << ", Plackart capacity: " << arrTrain[i].get_capacity_plackart();
+                cout << ", Number of cars kupe: " << arrTrain[i].get_train_vagoni_kupe();
+                cout << ", Number of cars plackart: " << arrTrain[i].get_train_vagoni_plackart();
+                cout << ", Kupe cost: " << arrTrain[i].get_train_cost_kupe();
+                cout << ", Plackart cost: " << arrTrain[i].get_train_cost_plackart() << endl;
+	}
+}
 
 
 
