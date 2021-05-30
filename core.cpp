@@ -1,4 +1,89 @@
-void Core::calcMesto(Passenger t){
+void Core::rewindTime() {
+	int _d, _h, _m;
+	Time shift;
+	cout << "Пожалуйста, введите время, на которое вы хотите перемотать:" << endl;
+
+	cout << "Дни: ";
+	cin >> _d;
+	cout << endl;
+	shift.set_d(_d);
+
+	while(true) {
+		cout << "Часы: ";
+		cin >> _h;
+		if ((_h < 24) && (_h >= 0)) {
+			shift.set_h(_h);
+			break;
+			cout << endl;
+		}
+		else {
+			cout << "Неверное значение";
+		}
+	}
+
+        while(true) {
+                cout << "Минуты: ";
+                cin >> _m;
+                if ((_m < 60) && (_m >= 0)) {
+                        shift.set_m(_m);
+                        break;
+                        cout << endl;
+                }
+                else {
+                        cout << "Неверное значение" << endl;
+                }
+        }
+
+
+	gt = gt + shift;
+	ifstream f;
+	f.open(fTime);
+	f << gt;
+	f.close();
+}
+
+bool Core::calcNumber(Passenger b) {
+	for(int i = 0; i < sizeT; i++) {
+		if (arrTrain[i].get_train_city_to() == b.get_city_to) && (arrTrain[i].get_train_city_from() == b.get_city_from) {
+			b.get_train_number = arrTraint.get_number;
+			return true;
+			break;
+		}
+		else {
+			cout << "Неправильное направление" << endl;
+			return false;
+		}
+	}
+}
+
+void Core::calcTime() {
+	//calculation distance
+	float x1,x2,y1,y2;
+	for(int i = 0; i < sizeC; i++) {
+		if (_city_from == arrCity[i].get_name) {
+			x1 = arrCity[i].get_city_x;
+			y1 = arrCity[i].get_city_y;
+		}
+
+                if (_city_to == arrCity[i].get_name) {
+                        x2 = arrCity[i].get_city_x;
+                        y2 = arrCity[i].get_city_y;
+                }
+
+	}
+	_distance = sqrt(pow((x1-x2),2) + pow((y1-y2),2));
+
+	//calculation t_puti
+	int tm; 
+	tm = _distance / (_speed / 60);
+	_t_puti = MtoT(tm);
+
+	//calculation t_prib
+	_t_prib = _t_otb + _t_puti;
+	_t_prib.d = 0;
+}
+
+int Core::calcMesta(Passenger t){
 	int kol=0;
 	
 	Train buf;
@@ -16,7 +101,7 @@ void Core::calcMesto(Passenger t){
 	if(t.spot == 1){
 		if(kol>=buf.capacity_plackart*buf.vagoni_plackart){
 			cin<<"в плацкарте мест нет";
-			return;
+			return 0;
 		}else{
 			t.n_vagona=kol/capacity_plackart+1;
 			t.n_mesta=kol/vagoni_plackart+1;
@@ -25,12 +110,13 @@ void Core::calcMesto(Passenger t){
 	if(t.spot == 0){
 		if(kol>=buf.capacity_kupe*buf.vagoni_kupe){
 			cin<<"в купе мест нет";
-			return;
+			return 0;
 		}else{
 			t.n_vagona=kol/capacity_kupe+1;
 			t.n_mesta=kol/vagoni_kupe+1;
 		}
 	}
+	return 1;
 }
 
 void Core::calcPosition(Passanger t){
@@ -63,43 +149,14 @@ void Core::calcPosition(Passanger t){
 	cout <<"Координата по х, на данный момент:"<< Xx;
 	cout <<"Координата по у, на данный момент:"<< Yy;
 }
-void Core::calcPosition(Passanger t){
-	Train buf;
-	for(i=0, i<sizeT, i++){
-		if(arrTrain[i].get_train_number() == t.train_number;){
-			buf = arrTrain[i];
-			break;
-		}
-	}
-	City buf1, buf2;
-	for(i=0, i<sizeC, i++){
-		if(arrCity[i].get_city_name() == buf.from;){
-			buf1 = arrCity[i];
-			break;
-		}
-	}
-	for(i=0, i<sizeC, i++){
-		if(arrCity[i].get_city_name() == buf.to;){
-			buf2 = arrCity[i];
-			break;
-		}
-	}
-	Time t_in_d=gt-t.time_ot;
-	int minuts1=gt.TtoM;
-	int minuts2=t_in_d.TtoM;
-	float m=((minuts1-munuts2)*sqrt((buf2.x-buf1.x)*(buf2.x-buf1.x)+(buf2.y-buf1.y)*(buf2.y-buf1.y)))/buf.speed;//koeff. for formula
-	float Xx=(buf1.x+m*buf2.x)/(1+m);//final x of time's moment
-	float Yy=(buf1.y+m*buf2.y)/(1+m);//final y of time's moment
-	cout <<"Координата по х, на данный момент:"<< Xx;
-	cout <<"Координата по у, на данный момент:"<< Yy;
-}
+
 void Core::sizeCity(){
 	ofsteram f;
 	f.open(fCity);
 	size = 0;
-	string buf;
+	string b;
 	while(f.peek() != EOF){
-		getline (f,buf);
+		getline (f,b);
 		size++;
 	}
 	sizeC=size/3;
@@ -109,9 +166,9 @@ void Core::sizeTrain(){
 	ofsteram f;
 	f.open(fTrain);
 	size = 0;
-	string buf;
+	string b;
 	while(f.peek() != EOF){
-		getline (f,buf);
+		getline (f,b);
 		size++;
 	}
 	sizeT=size/14;
@@ -121,9 +178,9 @@ void Core::sizePassenger(){
 	ofsteram f;
 	f.open(fPassenger);
 	size = 0;
-	string buf;
+	string b;
 	while(f.peek() != EOF){
-		getline (f,buf);
+		getline (f,b);
 		size++;
 	}
 	sizeP=size/8;
