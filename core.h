@@ -29,16 +29,34 @@ void clArrTrain(); //ochistka pamyati massiva reisov
 void clArrPassenger(); //ochistka pamyati massiva passagirov
 
 //Train
+void addTrain(); //Dobavit'
+void removeTrain(); //Udalit'
+void changeTrain(); // Izmenit'
+void outputTrain(); // Vivesti polniy spisok
+void searchTrain(); // Poisk
+
 void calcTime(); // Calulation distance, t_puti, t_prib
 
 //Passenger
+void addPassenger();
+void removePassenger();
+void changePassenger();
+void outputPassenger();
+void searchPassenger();
+
 void calcNumber(); // Vichislenie nomera reisa po dvum gorodam
 void calcPosition(); // Vishislenie tekushey koordinati
 void calcMesta(); // Vichislenie nomera vagona i mesta v nem
 
 //City
+void addCity();
+void removeCity();
+void changeCity();
+void outputCity();
+void searchCity();
 
 //Time
-void rewindTime();
+void checkTime(); // Vivod tekushego vremeni
+void rewindTime(); // Smehenie tekushego vremeni
 
 };
