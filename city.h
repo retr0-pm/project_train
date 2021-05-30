@@ -39,14 +39,9 @@ friend ostraem &operator<<(ostream &out, const City &t){
 }
 friend istream &operator>>(ifstream &in, City &t){
 	
-	string n;
-	float x;
-	float y;
-	getline(in,n);
-	in>>x;
-	in>>y;
-	t.set_sity_name(n);
-	t.set_coordinates(x, y);
+	in>>t.city_name;
+	in>>t.city_x;
+	in>>t.city_y;
 	return in;
 	
 }

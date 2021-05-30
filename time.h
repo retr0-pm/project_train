@@ -36,23 +36,16 @@ friend Time operator-(const Time &t1, const Time &t2) {
 	}
 }	
 friend ostream &operator<<(ostream &out, const Time &t) {
-	out << t.get_d() << " " << t.get_h() << " " << t.get_m();
+	out << t.d << " " << t.h << " " << t;
 return out;	
 }
 
 friend istream &operator>>(ifstream &in, Time &t) {
-
-	int da;
-	int hu;
-	int mi;
 	
-	in>>da;
-	in>>hu;
-	in>>mi;
+	in>>t.d;
+	in>>t.h;
+	in>>t.m;
 	
-	t.set_d(da);
-	t.set_h(hu);
-	t.set_mi(mi);
 	return in;
 }	
 };
