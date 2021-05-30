@@ -250,3 +250,47 @@ void Core::addTrain() {
 	}
 	f << tr;
 }
+
+bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(obj.removeTrain())
+	int buf_;
+	bool flag = false;
+	cout << "Enter the number of the direction: ";
+	cin >> buf_;
+	cout << endl;
+	for(int i = 0; i < sizeT; i++) {
+		if(arrTrain[i].get_train_number == buf_) {
+			
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
