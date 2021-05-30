@@ -16,38 +16,52 @@ private:
     int cost_plackart; // цена плацкарта
 public:
 friend ostream &operator<<(ostream &out, const Train &t){
-		out<<t.get_train_number()<<"\n";
-		out<<t.get_train_speed()<<"\n";
-		out<<t.get_train_sity_from()<<"\n";
-		out<<t.get_train_sity_to()<<"\n";
-		out<<t.get_distance()<<"\n";
-		out<<t.get_time_otb()<<"\n";
-		out<<t.get_time_prib()<<"\n";
-		out<<t.get_time_puti()<<"\n";
-		out<<t.get_capacity_kupe()<<"\n";
-		out<<t.get_capacity_plackart<<"\n";
-		out<<t.get_train_vagoni_plackart()<<"\n";
-		out<<t.get_train_vagoni_kupe()<<"\n";
-		out<<t.get_train_cost_kupe()<<"\n";
-		out<<t.get_train_cost_plackart()<<"\n";
+		out<<t.number<<"\n";
+		out<<t.speed<<"\n";
+		out<<t.from<<"\n";
+		out<<t.to<<"\n";
+		out<<t.distance<<"\n";
+		out<<t.t_otb<<"\n";
+		out<<t.t_prib<<"\n";
+		out<<t.t_puti<<"\n";
+		out<<t.capacity_kupe<<"\n";
+		out<<t.capacity_plackart<<"\n";
+		out<<t.vagoni_plackart<<"\n";
+		out<<t.vagoni_kupe<<"\n";
+		out<<t.cost_kupe<<"\n";
+		out<<t.cost_plackart<<"\n";
 		return out;
 		
 	}
 friend istream &operator>>(istream &in, Train &t){
-    in>>number;
-    in>>speed;
-    in>>from;
-    in>>to;
-    in>>distance;
-    in>>t_otb;
-    in>>t_prib;
-    in>>t_puti;
-    in>>capacity_kupe;
-    in>>capacity_plackart;
-    in>>vagoni_plackart;
-    in>>vagoni_kupe;
-    in>>cost_kupe;
-    in>>cost_plackart;
+	string buf;
+	
+    in>>t.number;
+    getline(in, buf);
+    in>>t.speed;
+    getline(in, buf);
+    getline(in, t.from);//
+    getline(in, t.to);//
+    in>>t.distance;
+    getline(in, buf);
+    in>>t.t_otb;
+    getline(in, buf);
+    in>>t.t_prib;
+    getline(in, buf);
+    in>>t.t_puti;
+    getline(in, buf);
+    in>>t.capacity_kupe;
+    getline(in, buf);
+    in>>t.capacity_plackart;
+    getline(in, buf);
+    in>>t.vagoni_plackart;
+    getline(in, buf);
+    in>>t.vagoni_kupe;
+    getline(in, buf);
+    in>>t.cost_kupe;
+    getline(in, buf);
+    in>>t.cost_plackart;
+    getline(in, buf);
 	return in;
 }
     int get_train_number(){
