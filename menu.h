@@ -4,9 +4,9 @@
 using namespace std;
 
 class Menu {
-	public:
-		Menu();
-		void Start();
-		~Menu();
+public:
+	Menu();
+	void Start();
+	~Menu();
 };
 
