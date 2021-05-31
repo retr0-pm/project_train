@@ -67,13 +67,19 @@ Train Core::calcTime(Train t) {
 
 	}
 	_distance = sqrt(pow((x1-x2),2) + pow((y1-y2),2));
+	t.set_distance(_distance);
 
 	//calculation t_puti
 	int tm;
+	Time _t_puti;
 	tm = _distance / (_speed / 60);
 	_t_puti = MtoT(tm);
+	t.set_time_puti(_t_puti);
 
 	//calculation t_prib
 	_t_prib = _t_otb + _t_puti;
-	_t_prib.d = 0;
+	_t_prib.set_d(0);
+	t.set_time_prib(_t_brib);
+
+	return t;
 }
