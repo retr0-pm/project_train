@@ -6,7 +6,7 @@ using namespace std;
 class Menu {
 public:
 	Menu();
-	void Start();
+	void Start(Core &obj);
 	~Menu();
 };
 
