@@ -41,7 +41,7 @@ void Menu::Start(Core &obj) {
                         cout << "5. Nayti po nazaniyu" << endl;
                         cout << "0. nazad" << endl;
                         cout << "Vash vibor: ";
-			cin << swp;
+			cin >> swp;
 			cout << endl;
 			switch(swp) {
 				case 0:
@@ -122,13 +122,204 @@ void Menu::Start(Core &obj) {
 
 			break;
 		case 2:
-			
+			cout << "Viberite deystvie iz predlozhennih:" << endl;
+			cout << "1. Dobavit reis" << endl;
+                        cout << "2. Udalit reis" << endl;
+                        cout << "3. Redaktirovat reis" << endl;
+                        cout << "4. prosmotret vse" << endl;
+                        cout << "5. Nayti po nomeru" << endl;
+			cout < "6. Nayti po gorodam" << endl;
+                        cout << "0. nazad" << endl;
+                        cout << "Vash vibor: ";
+			cin >> swp;
+			cout << endl;
+			switch(swp) {
+				case 0:
+					break;
+				case 1:
+					obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+					obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+					obj.getGT();
+					obj.addTrain();
+					obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				case 2:
+	                                obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+					obj.removeTrain();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				case 3:
+                                        obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+					obj.changeTrain();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				case 4:
+                                        obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+					obj.ouputTrain();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				case 5:
+                                        obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+					obj.searchTrainNumber();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+                                case 6:
+                                        obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+                                        obj.searchTrainPoint();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+                                        break;
+
+				default:
+					break;
+			}
 			break;
 		case 3:
-			
+                        cout << "Viberite deystvie iz predlozhennih:" << endl;
+                        cout << "1. Dobavit passagira" << endl;
+                        cout << "2. Udalit passagira" << endl;
+                        cout << "3. prosmotret vseh" << endl;
+                        cout << "4. Nayti passagira" << endl;
+                        cout << "0. nazad" << endl;
+                        cout << "Vash vibor: ";
+                        cin >> swp;
+                        cout << endl;
+			switch(swp) {
+				case 0:
+					break;
+				case 1:
+					obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+					obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+					obj.getGT();
+					obj.addPassenger();
+					obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				case 2:
+	                                obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+					obj.removePassenger();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				case 3:
+                                        obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+					obj.ouputPassenger();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				case 4:
+                                        obj.sizeCity();
+                                        obj.sizeTrain();
+                                        obj.sizePassenger();
+                                        obj.fArrCity();
+                                        obj.fArrTrain();
+                                        obj.fArrPassenger();
+                                        obj.getGT();
+					obj.searchPassenger();
+                                        obj.clArrCity();
+                                        obj.clArrTrain();
+                                        obj.clArrPassenger();
+
+					break;
+				default:
+					break;
+			}
 			break;
 		case 4:
-			
+			cout << "Viberite deystvie:" << endl;
+			cout << "1. Prosmotret tekushee vremya" << endl;
+                        cout << "2. Peremotat vremya" << endl;
+                        cout << "0. Nazad" << endl;
+			cout << "Vash vibor: ";
+			cin >> swp;
+			cout << endl;
+			switch(swp) {
+				case 0:
+					break;
+				case 1:
+					obj.getGT();
+					obj.checkTime();
+				case 2:
+					obj.getGT();
+					obj.rewindTime();
+					obj.getGT();
+					obj.checkTime();
+				default:
+					break;
+			}
 			break;
 		case 5:
 			fl = true;
@@ -146,3 +337,4 @@ void Menu::Start(Core &obj) {
 		cin >> sw;
 		cout << endl;
 	}
+}
