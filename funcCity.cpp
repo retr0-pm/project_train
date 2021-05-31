@@ -44,10 +44,10 @@ void Core::addCity() {
 
 }
 
-bool Core::removeCity() {
+void Core::removeCity() {
 	if(sizeC < 1) {
 		cout << "There are no one point" << endl;
-		return false;
+		return;
 	}
 
 	string buf_;
@@ -64,7 +64,7 @@ bool Core::removeCity() {
 	}
 	if(!flag_) {
 		cout << "This point doesn't exist" << endl;
-		return false;
+		return;
 	}
 
 	for(int i = 0; i < sizeP; i++) {
@@ -75,7 +75,7 @@ bool Core::removeCity() {
 	}
 	if(!flag_) {
 		cout << "This point is used by passneger right now. Try do this later" << endl;
-		return false;
+		return;
 	}
 
 	ifstream f;
@@ -110,13 +110,13 @@ bool Core::removeCity() {
 	}
 	f.close();
 
-	return false;
+	return;
 }
 
-bool Core::changeCity() {
+void Core::changeCity() {
         if(sizeC < 1) {
                 cout << "There are no one point" << endl;
-                return false;
+                return;
         }
 
         string buf_;
@@ -133,7 +133,7 @@ bool Core::changeCity() {
         }
         if(!flag_) {
                 cout << "This point doesn't exist" << endl;
-                return false;
+                return;
         }
 
         for(int i = 0; i < sizeP; i++) {
@@ -144,7 +144,7 @@ bool Core::changeCity() {
         }
         if(!flag_) {
                 cout << "This point is used by passneger right now. Try do this later" << endl;
-                return false;
+                return;
         }
 
         City bufC;
@@ -210,13 +210,47 @@ bool Core::changeCity() {
         }
         f.close();
 
-        return false;
+        return;
 }
 
+void Core::outputCity() {
+	if(sizeC < 1) {
+		cout << "The list of points is empty" << endl;
+		return;
+	}
 
+	cout << "The list of points: " << endl;
+	for(int i = 0; i < sizeC; i++) {
+		arrCity[i].outCity();
+	}
 
+	return;
+}
 
+void Core::searchCity() {
+	if(sizeC < 1) {
+		cout << "The list of points is empty" << endl;
+		return;
+	}
 
+	cout << "Enter the name of the point:";
+	string buf_;
+	bool flag_ = false;
+	cin.getline(buf_, 256, '\n');
+	cout << endl;
+	for(int i = 0; i < sizeC; i++) {
+		if(arrCity[i].get_city_name == buf) {
+			arrCity[i].outCity();
+			flag_ = true;
+			break;
+		}
+	}
+	if(!flag_) {
+		cout << "The point with this name doesn't exist" << endl;
+	}
+
+	return;
+}
 
 
 
