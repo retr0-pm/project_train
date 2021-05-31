@@ -2,7 +2,7 @@
 #include <cmath>
 #include <string>
 #include <fstream>
-
+#include "core.h"
 
 using namespace std;
 

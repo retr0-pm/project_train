@@ -13,3 +13,9 @@ Time Time::MtoT(int t) {
 	buf.m = t % 60;
 	return buf;
 }
+
+Time::Time(int a, int b, int c) {
+	d = a;
+	h = b;
+	m = c;
+}

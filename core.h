@@ -1,3 +1,8 @@
+#include <fstream>
+#include "city.h"
+
+using namespace std;
+
 class Core {
 private:
 char *fCity;  //Названия файла БД gorodov
@@ -24,7 +29,7 @@ void sizePassenger(); //Opredelenie razmera massiva passagirov
 void fArrCity(); //zanesenie iz faila v massiv gorodov
 void fArrTrain(); //zanesenie iz faila v massiv reisov
 void fArrPassenger(); //zanesenie iz faila v massiv passagirov
-void getGT; //zanesenie iz faila globalnogo vremeni
+void getGT(); //zanesenie iz faila globalnogo vremeni
 
 void clArrCity(); //ochistka pamyati massiva gorodov
 void clArrTrain(); //ochistka pamyati massiva reisov
@@ -47,9 +52,9 @@ void changePassenger();
 void outputPassenger();
 void searchPassenger();
 
-bool calcNumber(); // Vichislenie nomera reisa po dvum gorodam
-void calcPosition(); // Vishislenie tekushey koordinati
-void calcMesta(); // Vichislenie nomera vagona i mesta v nem
+int calcNumber(Passenger &b); // Vichislenie nomera reisa po dvum gorodam
+void calcPosition(Passenger &t); // Vishislenie tekushey koordinati
+int calcMesta(Passenger &t); // Vichislenie nomera vagona i mesta v nem
 
 //City
 void addCity();

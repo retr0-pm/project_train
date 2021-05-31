@@ -1,3 +1,10 @@
+#include <string>
+#include <iostream>
+#include <fstream>
+#include "time.h"
+
+using namespace std;
+
 class Train {
 private:
     int number; // номер поезда (id маршрута)
@@ -21,8 +28,8 @@ public:
 	friend ostream &operator<<(ostream &out, const Train &t){
 		out<<t.number<<"\n";
 		out<<t.speed<<"\n";
-		getline(out,t.from);
-		getline(out,t.to);
+		out<<t.from<<"\n";
+		out<<t.to<<"\n";
 		out<<t.distance<<"\n";
 		out<<t.t_otb<<"\n";
 		out<<t.t_prib<<"\n";
@@ -39,12 +46,22 @@ public:
 
 		in>>t.number;
 		in>>t.speed;
-		in>>t.from;
-		in>>t.to;
+		getline(in,t.from);
+		getline(in,t.to);
 		in>>t.distance;
-		in>>t.t_otb;
-		in>>t.t_prib;
-		in>>t.t_puti;
+		int a,b,c;
+		in >> a >> b >> c;
+		t.t_otb.set_d(a);
+		t.t_otb.set_h(b);
+		t.t_otb.set_m(c);
+                in >> a >> b >> c;
+                t.t_prib.set_d(a);
+                t.t_prib.set_h(b);
+                t.t_prib.set_m(c);
+                in >> a >> b >> c;
+                t.t_puti.set_d(a);
+                t.t_puti.set_h(b);
+                t.t_puti.set_m(c);
 		in>>t.capacity_kupe;
 		in>>t.capacity_plackart;
 		in>>t.vagoni_plackart;
@@ -99,19 +116,19 @@ public:
     }
 
     void set_train_number(int a){
-            train_number = a;
+            number = a;
         }
     void set_train_speed(float a){
-            train_speed = a;
+            speed = a;
         }
     void set_train_from(string a){
-            train_from = a;
+            from = a;
         }
     void set_train_to(string a){
-            train_to = a;
+            to = a;
         }
      void set_distance(float a){
-	train_speed = a;
+	distance = a;
      }
 
     void set_time_otb(Time t) {
@@ -131,15 +148,15 @@ public:
     	capacity_plackart = a;
     }
     void set_train_vagoni_kupe(int a){
-            train_vagoni_kupe = a;
+            vagoni_kupe = a;
         }
     void set_train_vagoni_plackart(int a){
-            train_vagoni_plackart = a;
+            vagoni_plackart = a;
         }
     void set_train_cost_kupe(int a){
-            train_cost_kupe = a;
+            cost_kupe = a;
         }
     void set_train_cost_plackart(int a){
-            train_cost_plackart = a;
+            cost_plackart = a;
         }
 };

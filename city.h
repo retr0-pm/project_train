@@ -1,3 +1,9 @@
+#include <string>
+#include <fstream>
+#include "passenger.h"
+
+using namespace std;
+
 class City {
 private:
 	string city_name; //название города
@@ -6,7 +12,7 @@ private:
 
 public:
 	string get_city_name(){
-		return  name;
+		return city_name;
 	}
 	float get_city_x(){
 		return city_x;
@@ -25,7 +31,7 @@ void set_coordinates(float a, float b){
 
 void outCity();
 
-friend ostraem &operator<<(ostream &out, const City &t){
+friend ostream &operator<<(ostream &out, const City &t){
 
 	out<<t.city_name<<"\n";
 	out<<t.city_x<<"\n";

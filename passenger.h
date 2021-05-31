@@ -1,9 +1,15 @@
+#include <string>
+#include <fstream>
+#include "train.h"
+using namespace std;
+
 class Passenger{
 private:
 	string name; //
 	int age; // возраст пассажира
 	int train_number; // номер поезда (id маршрута) (*)
 	Time time_ot;//(*)
+	Time time_prib;
 	int spot; //Вид места пассажира, где 0 - купэ, 1 - плацкарт
 	int n_vagona; //номер вагона пассажира (*)
 	int n_mesta; //номер места пассажира в вагоне (*)
@@ -15,10 +21,12 @@ public:
 	
 	int get_train_number(){return train_number;}
 	
-	int get_age{return age;}
+	int get_age(){return age;}
 	
-	Time get_time_ot{return time_ot};
-	
+	Time get_time_ot(){return time_ot;}
+
+	Time get_time_prib(){return time_ot;}
+
 	int get_spot(){return spot;}
 	
 	int get_n_vagona(){return n_vagona;}
@@ -31,12 +39,15 @@ public:
 	
 	int get_condition(){return condition;}
 	
-	void get_condition(int a){condition =a;}
-	void get_n_mesta(int a){n_mesta = a;}
+	void set_condition(int a){condition = a;}
+
+	void set_n_mesta(int a){n_mesta = a;}
 	
-	void get_n_vagona(int a){n_vagona = a;}
+	void set_n_vagona(int a){n_vagona = a;}
 	
 	void set_time_ot(Time t){time_ot = t;}
+
+	void set_time_prib(Time t){time_prib = t;}
 	
 	void set_train_number(int a){ train_number = a;}
 	
@@ -56,8 +67,9 @@ public:
 	
 		out<<t.name<<"\n";
 		out<<t.age<<"\n";
-		out<<t.train_numder<<"\n";
+		out<<t.train_number<<"\n";
 		out<<t.time_ot<<"\n";
+		out<<t.time_prib<<"\n";
 		out<<t.spot<<"\n";
 		out<<t.n_vagona<<"\n";
 		out<<t.n_mesta<<"\n";
@@ -65,14 +77,22 @@ public:
 		out<<t.city_to<<"\n";
 		out<<t.condition<<"\n";
 		return out;
-		
-	} 
+
+	}
 	friend istream &operator>>(istream &in, Passenger &t){
-		
+
 		getline(in,t.name);
 		in>>t.age;
 		in>>t.train_number;
-		in>>t.time_ot;
+		int a,b,c;
+		in >> a >> b >> c;
+		t.time_ot.set_d(a);
+                t.time_ot.set_h(b);
+                t.time_ot.set_m(c);
+                in >> a >> b >> c;
+                t.time_prib.set_d(a);
+                t.time_prib.set_h(b);
+                t.time_prib.set_m(c);
 		in>>t.spot;
 		in>>t.n_vagona;
 		in>>t.n_mesta;
@@ -81,7 +101,7 @@ public:
 		in>>t.condition;
 
 		return in;
-		
+
 	}
 };
 
