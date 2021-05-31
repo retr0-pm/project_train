@@ -4,30 +4,31 @@
 using namespace std;
 
 void Passenger::outPassenger() {
-	cout << "Name: " << name;
-	cout << ", Age: " << age;
-	cout << ", The number of the direction: " << train_number;
-	cout << ", Sending time: " << time_ot;
+	cout << "Имя: " << name;
+	cout << ", Возраст: " << age;
+	cout << ", Рейс №: " << train_number;
+	cout << ", Время отправления: " << time_ot;
+	cout << ", Время прибытия: " << time_ot;
 	if(spot == 0) {
-                 	cout << ", Kupe";
+                 	cout << ", Купе";
 	}
 	else {
-                    	cout << ", Plackart";
+                    	cout << ", Плацкарт";
 	}
-	cout << ", Car number: " << n_vagona;
-	cout << ", Seat number: " << n_mesta;
-	cout << ", From: " << city_from;
-	cout << ", To: " << city_to;
-	cout << ", Condition: ";
+	cout << ", Номер вагона: " << n_vagona;
+	cout << ", Номер места: " << n_mesta;
+	cout << ", Пункт отправления: " << city_from;
+	cout << ", Пункт назначения: " << city_to;
+	cout << ", Состояние: ";
 	switch(condition) {
 		case 0:
-			cout << "Waiting" << endl;
+			cout << "Ожидает" << endl;
 			break;
 		case 1:
-			cout << "On the way" << endl;
+			cout << "В пути" << endl;
 			break;
 		case 2:
-			cout << "Arrived" << endl;
+			cout << "Приехал" << endl;
 			break;
 	}
 }

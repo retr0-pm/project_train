@@ -1,3 +1,71 @@
+void Core::searchPassenger(){
+	if(sizeP == 0){cout<<"База данных о пассажирах пуста"<<endl; return;}
+	int a;
+	cout<<"1 - поиск по имени. 2 - поиск по номеру рейса";
+	cin>>a;
+	switch(a):
+		case(1):	
+			string buf1_;
+			cout<<"введие имя:";
+			cin>>buf1_;
+			int s = 0;
+			for(int i = 0; i < sizeP; i++) {
+				if(arrPassenger.get_name() == buf1_){
+					arrPassenger[i].outPassenger();
+					if(arrPassenger[i].get_condition == 1){
+						calcPosition(arrPassenger[i]);
+					}
+					s++;
+					break;
+				}
+			}if(s == 0){cout<<"ничего не найдени";}
+		break;
+		case(2):
+			string buf1_;
+			cout<<"введие номер:";
+			cin>>buf1_;
+			int s = 0;
+			for(int i = 0; i < sizeP; i++) {
+				if(arrPassenger[i].get_train_number() == buf1_){
+					arrPassenger[i].outPassenger();
+				}
+				if(arrPassenger[i].get_condition == 1){
+					calcPosition(arrPassenger[i]);
+				}
+			}if (s == 0 ){cout<<"ничего не найдени";}
+		break;
+		case(3):{
+			return;
+		}	 
+}
+void Core::outputPassenger(){
+	for(int i = 0; i < sizeP; i++) {
+		if(arrPassenger.get_name() != buf1_){
+			arrPassenger[i].outPassenger();
+			if(arrPassenger[i].get_condition == 1){
+				calcPosition(arrPassenger[i]);
+			}
+		}
+	}
+}
+void Core::removePassenger(){
+	if(sizeP == 0){cout<<"База данных о пассажирах пуста"<<endl;}
+	string buf1_;
+	cout<<"введие имя:";
+	cin>>buf1_;
+	ifstream f;
+	f.open(fPassenger);
+	for(int i = 0; i < sizeP; i++) {
+		if(arrPassenger.get_name() != buf1_){
+			f << arrPassenger[i];
+		} else if(arrPassenger[i].get_conditions == 1) {
+			cout<<"вы успешно убили человека"<<endl;
+		}
+	}
+	f.close();
+	return;
+}
+
 void Core::addPassenger(){
 	if(sizeT < 1){
 		cout<<"Нет ни одного маршрута"<<endl;
@@ -8,7 +76,7 @@ void Core::addPassenger(){
 	while(1){
 		string buf_;
 		cout<<"введите имя:";
-		cin<<buf_;
+		cin>>buf_;
 		cout<<endl;
 		if(buf_ != " "){
 			pas.set_name(buf_);
@@ -19,7 +87,7 @@ void Core::addPassenger(){
 	while(1){
 		int buf_
 		cout<<"введите возраст:";
-		cin<<buf_;
+		cin>>buf_;
 		cout<<endl;
 		if(buf_ > 0){
 			pas.set_age(buf_);
@@ -33,7 +101,7 @@ void Core::addPassenger(){
 				
 			string buf1_;
 			cout<<"введите город отбытия:";
-			cin<<buf1_;
+			cin>>buf1_;
 			cout<<endl;
 				
 			if(buf1_ == " "){
@@ -42,7 +110,7 @@ void Core::addPassenger(){
 				
 			string buf2_;
 			cout<<"введите город прибытия:";
-			cin<<buf2_;
+			cin>>buf2_;
 			cout<<endl;	
 			if(buf2_ == " "){
 				pas.set_city_to(buf2_);
@@ -50,7 +118,7 @@ void Core::addPassenger(){
 			
 			int buf_;
 			cout<<"введите тип места 0-купэ, 1-плацкарт:";
-			cin<<buf_;
+			cin>>buf_;
 			cout<<endl;
 			if(buf_ == 0 or buf_ ==1){
 				pas.set_spot(buf_);
@@ -61,9 +129,11 @@ void Core::addPassenger(){
 			if(flag1 == 0 or flag == 0){return;}
 			}
 			Time buf3_;
+			Time buf4_;
 			for(int i = 0; i < sizeT; i++) {
 				if (arrTrain[i].get_number() == pas.trian_nubmer) {
 					buf3_ =  arrTrain.get_time_otb();
+					buf4_ = arrTrain.get_time_puti();
 					break;
 				}
 			}
@@ -72,10 +142,12 @@ void Core::addPassenger(){
 				buf3_.set_d(gt.get_d() + 1);
 				pas.set_time_otb(buf3_);
 				pas.set_condition(0);
+				pas.set_time_prib(buf3_ + buf4_);
 			}else{
 				buf3_.set_d(gt.get_d());
 				pas.set_time_otb(buf3_);
 				pas.set_condition(0);
+				pas.set_time_prib(buf3_ + buf4_);
 			}
 			ifstream f;
 			f.open(fPassenger);
@@ -83,6 +155,7 @@ void Core::addPassenger(){
 				f << arrPassenger[i];
 			}
 			f << pas;
+			f.colse();
 			return;
 		}
 	}
@@ -186,7 +259,7 @@ int Core::calcMesta(Passenger t){
 	}
 	if(t.spot == 1){
 		if(kol>=buf.capacity_plackart*buf.vagoni_plackart){
-			cin<<"в плацкарте мест нет";
+			cout<<"в плацкарте мест нет";
 			return 0;
 		}else{
 			t.n_vagona=kol/capacity_plackart+1;
@@ -195,7 +268,7 @@ int Core::calcMesta(Passenger t){
 	}
 	if(t.spot == 0){
 		if(kol>=buf.capacity_kupe*buf.vagoni_kupe){
-			cin<<"в купе мест нет";
+			cout<<"в купе мест нет";
 			return 0;
 		}else{
 			t.n_vagona=kol/capacity_kupe+1;
