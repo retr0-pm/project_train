@@ -31,7 +31,7 @@ void Core::addCity() {
 	float a,b;
 	cout << "Enter coordinates in format (x:y): (";
 	cin >> "(" >> a >> ":" >> b >> ")";
-	cout >> endl;
+	cout << endl;
 	bufC.set_coordinates(a,b);
 
 	ifsteam f;
@@ -172,7 +172,7 @@ void Core::changeCity() {
         float a,b;
         cout << "Enter coordinates in format (x:y): (";
         cin >> "(" >> a >> ":" >> b >> ")";
-        cout >> endl;
+        cout << endl;
         bufC.set_coordinates(a,b);
 
 	ifstream f;

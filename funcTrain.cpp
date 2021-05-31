@@ -20,7 +20,7 @@ bool Core::addTrain() {
 		int buf_;
 		bool flag = true;
 		cout << "Number of the route: ";
-		cin << buf;
+		cin >> buf;
 		cout << endl;
 		for(int i = 0; i < sizeT; i++)
 			if(buf_ == arrTrain[i].get_train_number()){
@@ -39,7 +39,7 @@ bool Core::addTrain() {
         while(true){
                 float buf_;
                 cout << "Speed: ";
-                cin << buf_;
+                cin >> buf_;
 		cout << endl;
                 if(buf > 0) {
                         tr.set_speed(buf_);
@@ -83,7 +83,7 @@ bool Core::addTrain() {
 	}
 	while(true) {
 		cout << "Departure Minute: ";
-		cin << buf_m;
+		cin >> buf_m;
 		cout << endl;
                 if((buf_m < 60) && (buf_m >= 0)) {
                         break;
@@ -285,7 +285,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
 		int buf_;
 		bool flag = true;
 		cout << "Number of the route: ";
-		cin << buf;
+		cin >> buf;
 		cout << endl;
 		if(buf_ != buff){
 			for(int i = 0; i < sizeT; i++)
@@ -305,7 +305,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
         while(true){
                 float buf_;
                 cout << "Speed: ";
-                cin << buf_;
+                cin >> buf_;
 		cout << endl;
                 if(buf > 0) {
                         tr.set_speed(buf_);
@@ -348,7 +348,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
 		}
 	while(true) {
 		cout << "Departure Minute: ";
-		cin << buf_m;
+		cin >> buf_m;
 		cout << endl;
                 if((buf_m < 60) && (buf_m >= 0)) {
                         break;
