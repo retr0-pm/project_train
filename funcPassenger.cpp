@@ -124,6 +124,86 @@ void Core::addPassenger() {
 	f.close();
 }
 
+void Core::removePassenger() {
+	if(sizeP < 1) {
+		cout << "Nekogo udalat" << endl;
+		return;
+	}
+
+	string bufname;
+	while(True) {
+		cout << "Imya kogo udalit:";
+		getline(cin,bufname);
+		cout << endl;
+		bool proverka = true;
+
+		for(int i = 0; i < sizeP; i++) {
+			if(arrPassenger[i].get_name() == bufname) {
+				proverka = false;
+				break;
+			}
+		}
+
+		if(proverka) {
+			cout << "Net takogo cheloveka. Poprobuyte esche raz" << endl;
+		}
+	}
+
+	ifstream f;
+	fopen(fPassenger);
+	for(int i = 0; i < sizeP; i++) {
+		if(arrPassenger[i].get_name() != bufname;) {
+			f << arrPassenger[i];
+		}
+	}
+	f.close();
+}
+
+void Core::outputPassenger() {
+	if(sizeP < 1) {
+		cout << "Pusto" << endl;
+		return;
+	}
+
+	for(int i = 0; i < sizeP; ) {
+		arrPassenger[i].outPassenger();
+	}
+}
+
+void Core::searchPassengerName() {
+        if(sizeP < 1) {
+                cout << "Pusto" << endl;
+                return;
+	}
+
+}
+
+void Core::searchPassengerTrain() {
+        if(sizeP < 1) {
+                cout << "Pusto" << endl;
+                return;
+        }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
