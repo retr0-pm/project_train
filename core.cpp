@@ -67,18 +67,23 @@ void Core::addPassenger(){
 					break;
 				}
 			}
-			int m = TtoM(gt) - gt.get_d*1440;
+			int m = TtoM(gt) - gt.get_d()*1440;
 			if(TtoM(buf3_) >= m){
 				buf3_.set_d(gt.get_d() + 1);
 				pas.set_time_otb(buf3_);
 				pas.set_condition(0);
-				return;
 			}else{
 				buf3_.set_d(gt.get_d());
 				pas.set_time_otb(buf3_);
 				pas.set_condition(0);
-				return;
 			}
+			ifstream f;
+			f.open(fPassenger);
+			for(int i = 0; i < sizeP; i++) {
+				f << arrPassenger[i];
+			}
+			f << pas;
+			return;
 		}
 	}
 }
