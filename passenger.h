@@ -50,7 +50,7 @@ public:
 	
 	void set_city_to(string a){city_to = a;}
 	
-	
+	void outPassenger();
 	
 	friend ostream &operator<<(ostream &out, Passenger &t){
 	

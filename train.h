@@ -15,7 +15,10 @@ private:
     int cost_kupe; // цена купе
     int cost_plackart; // цена плацкарта
 public:
-friend ostream &operator<<(ostream &out, const Train &t){
+
+	void outTrain();
+
+	friend ostream &operator<<(ostream &out, const Train &t){
 		out<<t.number<<"\n";
 		out<<t.speed<<"\n";
 		getline(out,t.from);
@@ -32,24 +35,24 @@ friend ostream &operator<<(ostream &out, const Train &t){
 		out<<t.cost_plackart<<"\n";
 		return out;
 	}
-friend istream &operator>>(istream &in, Train &t){
+	friend istream &operator>>(istream &in, Train &t){
 
-    in>>t.number;
-    in>>t.speed;
-    in>>t.from;
-    in>>t.to;
-    in>>t.distance;
-    in>>t.t_otb;
-    in>>t.t_prib;
-    in>>t.t_puti;
-    in>>t.capacity_kupe;
-    in>>t.capacity_plackart;
-    in>>t.vagoni_plackart;
-    in>>t.vagoni_kupe;
-    in>>t.cost_kupe;
-    in>>t.cost_plackart;
-    
-	return in;
+		in>>t.number;
+		in>>t.speed;
+		in>>t.from;
+		in>>t.to;
+		in>>t.distance;
+		in>>t.t_otb;
+		in>>t.t_prib;
+		in>>t.t_puti;
+		in>>t.capacity_kupe;
+		in>>t.capacity_plackart;
+		in>>t.vagoni_plackart;
+		in>>t.vagoni_kupe;
+		in>>t.cost_kupe;
+		in>>t.cost_plackart;
+
+		return in;
 }
     int get_train_number(){
         return  number;

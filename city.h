@@ -5,14 +5,6 @@ private:
 	float city_y; //кооридната по оси oy этого города
 
 public:
-	City(string a, float b, float c){
-		city_name = a;
-		city_x = b;
-		city_y =c;
-	}
-	void a() {
-	cout << a;
-	}
 	string get_city_name(){
 		return  name;
 	}
@@ -25,10 +17,14 @@ public:
 	void set_city_name(string n){
 		city_name = n;
 	}
+
 void set_coordinates(float a, float b){
 	city_x = a;
 	city_y = b;
 }
+
+void outCity();
+
 friend ostraem &operator<<(ostream &out, const City &t){
 
 	out<<t.city_name<<"\n";

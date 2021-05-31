@@ -2,6 +2,7 @@
 #include <cmath>
 #include <string>
 #include <fstream>
+#include "core.h"
 
 
 using namespace std;
@@ -303,6 +304,11 @@ bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 		if(arrPassenger[i].get_train_number() != buf_) {
 			f << arrPassenger[i];
 		}
+		else {
+                        cout << "This person also will be removed from the list of passengers - ";
+			arrPassenger[i].outPassenger();
+                }
+
 	}
 	f.close();
 
@@ -536,19 +542,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 }
                 else {
 			cout << "This person will be removed from the list of passengers - ";
-                        cout << "Name: " << arrPassenger[i].get_name();
-			cout << ", Age: " << arrPassenger[i].get_age();
-			cout << ", Sending time: " << arrPassenger[i].get_time_ot();
-			if(arrPassenger[i].get_spot() == 0) {
-                        	cout << ", Kupe";
-			}
-			else {
-                        	cout << ", Plackart";
-			}
-                        cout << ", Car number: " << arrPassenger[i].get_n_vagona();
-                        cout << ", Seat number: " << arrPassenger[i].get_n_mesta();
-                        cout << ", From: " << arrPassenger[i].get_city_from();
-                        cout << ", To: " << arrPassenger[i].get_city_to() << endl;
+			arrPassenger[i].outPassenger();
                 }
         }
 	f.close();
@@ -559,20 +553,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
 void Core::outputTrain() {
 	cout << "The list of the directions:" << endl;
 	for(int i = 0; i < sizeT; i++) {
-		cout << "Number of the direction: " << arrTrain[i].get_train_number();
-                cout << ", Speed: " << arrTrain[i].get_train_speed();
-                cout << ", From: " << arrTrain[i].get_train_city_from();
-                cout << ", To: " << arrTrain[i].get_train_city_to();
-                cout << ", Distance: " << arrTrain[i].get_distance();
-                cout << ", Sending time: " << arrTrain[i].get_time_otb();
-                cout << ", Arrival time: " << arrTrain[i].get_time_prib();
-                cout << ", Travel time: " << arrTrain[i].get_time_puti();
-                cout << ", Kupe capacity: " << arrTrain[i].get_capacity_kupe();
-                cout << ", Plackart capacity: " << arrTrain[i].get_capacity_plackart();
-                cout << ", Number of cars kupe: " << arrTrain[i].get_train_vagoni_kupe();
-                cout << ", Number of cars plackart: " << arrTrain[i].get_train_vagoni_plackart();
-                cout << ", Kupe cost: " << arrTrain[i].get_train_cost_kupe();
-                cout << ", Plackart cost: " << arrTrain[i].get_train_cost_plackart() << endl;
+		arrTrain[i].outTrain();
 	}
 }
 
@@ -584,20 +565,7 @@ void Core::searchTrainNumber() {
 	cout << endl;
 	for(int i = 0; i < sizeT; i++) {
 		if(buf_ == arrTrain[i].get_train_number()) {
-	                cout << "Number of the direction: " << arrTrain[i].get_train_number();
-        	        cout << ", Speed: " << arrTrain[i].get_train_speed();
-                	cout << ", From: " << arrTrain[i].get_train_city_from();
-                	cout << ", To: " << arrTrain[i].get_train_city_to();
-                	cout << ", Distance: " << arrTrain[i].get_distance();
-                	cout << ", Sending time: " << arrTrain[i].get_time_otb();
-                	cout << ", Arrival time: " << arrTrain[i].get_time_prib();
-                	cout << ", Travel time: " << arrTrain[i].get_time_puti();
-                	cout << ", Kupe capacity: " << arrTrain[i].get_capacity_kupe();
-                	cout << ", Plackart capacity: " << arrTrain[i].get_capacity_plackart();
-                	cout << ", Number of cars kupe: " << arrTrain[i].get_train_vagoni_kupe();
-                	cout << ", Number of cars plackart: " << arrTrain[i].get_train_vagoni_plackart();
-                	cout << ", Kupe cost: " << arrTrain[i].get_train_cost_kupe();
-                	cout << ", Plackart cost: " << arrTrain[i].get_train_cost_plackart() << endl;
+			arrTrain[i].outTrain();
 			flag = true;
 			break;
 		}
@@ -619,20 +587,7 @@ void Core::searchTrainPoint() {
 
         for(int i = 0; i < sizeT; i++) {
                 if((bufFrom == arrTrain[i].get_train_city_from()) && (bufTo == arrTrain[i].get_train_city_to())) {
-                        cout << "Number of the direction: " << arrTrain[i].get_train_number();
-                        cout << ", Speed: " << arrTrain[i].get_train_speed();
-                        cout << ", From: " << arrTrain[i].get_train_city_from();
-                        cout << ", To: " << arrTrain[i].get_train_city_to();
-                        cout << ", Distance: " << arrTrain[i].get_distance();
-                        cout << ", Sending time: " << arrTrain[i].get_time_otb();
-                        cout << ", Arrival time: " << arrTrain[i].get_time_prib();
-                        cout << ", Travel time: " << arrTrain[i].get_time_puti();
-                        cout << ", Kupe capacity: " << arrTrain[i].get_capacity_kupe();
-                        cout << ", Plackart capacity: " << arrTrain[i].get_capacity_plackart();
-                        cout << ", Number of cars kupe: " << arrTrain[i].get_train_vagoni_kupe();
-                        cout << ", Number of cars plackart: " << arrTrain[i].get_train_vagoni_plackart();
-                        cout << ", Kupe cost: " << arrTrain[i].get_train_cost_kupe();
-                        cout << ", Plackart cost: " << arrTrain[i].get_train_cost_plackart() << endl;
+			arrTrain[i].outTrain();
                         flag = true;
                         break;
                 }
