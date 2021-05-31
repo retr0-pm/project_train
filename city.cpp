@@ -4,6 +4,6 @@
 using namespace std;
 
 void City::outCity {
-	cout << "Point: " << city_name;
-	cout << ", Coordinates: (" << city_x << ":" << city_y << ")" << endl;
+	cout << "Название города: " << city_name;
+	cout << ", Координаты: (" << city_x << ":" << city_y << ")" << endl;
 }

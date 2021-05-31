@@ -405,7 +405,7 @@ bool Core::isitokay() {
 		f.close();
 	}
 	else {
-		cout << "Some troubles with the file: " << fCity << endl;
+		cout << "Какие-то проблемы с файлом: " << fCity << endl;
 		return false;
 	}
 
@@ -414,7 +414,7 @@ bool Core::isitokay() {
                 f.close();
         }
         else {
-                cout << "Some troubles with the file: " << fTrain << endl;
+                cout << "Какие-то проблемы с файлом: " << fTrain << endl;
                 return false;
         }
 
@@ -423,7 +423,7 @@ bool Core::isitokay() {
                 f.close();
         }
         else {
-                cout << "Some troubles with the file: " << fPassenger << endl;
+                cout << "Какие-то проблемы с файлом: " << fPassenger << endl;
                 return false;
         }
 
@@ -437,7 +437,7 @@ bool Core::isitokay() {
                 f.close();
         }
         else {
-                cout << "Some troubles with the file: " << fTime << endl;
+                cout << "Какие-то проблемы с файлом: " << fTime << endl;
                 return false;
         }
 	if(pust) {

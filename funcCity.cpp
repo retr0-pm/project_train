@@ -9,7 +9,7 @@ void Core::addCity() {
 	City bufC;
 
 	while(true){
-		cout << "Enter the name of the point: ";
+		cout << "Введите название города: ";
 		string buf_;
 		bool flag_ = true;
 		cin.getline(buf_, 256, '\n');
@@ -24,12 +24,12 @@ void Core::addCity() {
 			break;
 		}
 		else {
-			cout << "The point with this name already exist. Please try any other name" << endl;
+			cout << "Город с таким название уже имеется в базе данных." << endl;
 		}
 	}
 
 	float a,b;
-	cout << "Enter coordinates in format (x:y): (";
+	cout << "Введите координаты в формате (x:y): ";
 	cin >> "(" >> a >> ":" >> b >> ")";
 	cout << endl;
 	bufC.set_coordinates(a,b);
@@ -46,12 +46,12 @@ void Core::addCity() {
 
 void Core::removeCity() {
 	if(sizeC < 1) {
-		cout << "There are no one point" << endl;
+		cout << "База данных городов пуста" << endl;
 		return;
 	}
 
 	string buf_;
-	cout << "Enter the name of the point:";
+	cout << "Ведите название города:";
 	cin.getline(buf_, 256, '\n');
 	cout << endl;
 
@@ -63,7 +63,7 @@ void Core::removeCity() {
 		}
 	}
 	if(!flag_) {
-		cout << "This point doesn't exist" << endl;
+		cout << "Данного города нет в базе данных" << endl;
 		return;
 	}
 
@@ -74,7 +74,7 @@ void Core::removeCity() {
 		}
 	}
 	if(!flag_) {
-		cout << "This point is used by passneger right now. Try do this later" << endl;
+		cout << "Вы не можете удалить этот город сейчас. Попробуйте позже." << endl;
 		return;
 	}
 
@@ -93,7 +93,7 @@ void Core::removeCity() {
 			f << arrTrain[i];
 		}
 		else {
-			cout << "This direction also will be removed - ";
+			cout << "Этот рейс будет удален - ";
 			arrTrain[i].outTrain;
 		}
 	}
@@ -104,7 +104,7 @@ void Core::removeCity() {
                         f << arrTrain[i];
                 }
                 else {
-			cout << "This person also will be removed from the list of passengers - ";
+			cout << "Этот человек будет удален из списка пассажиров - ";
 			arrPassenger[i].outPassenger();
 		}
 	}
@@ -115,12 +115,12 @@ void Core::removeCity() {
 
 void Core::changeCity() {
         if(sizeC < 1) {
-                cout << "There are no one point" << endl;
+                cout << "База данных городов пуста" << endl;
                 return;
         }
 
         string buf_;
-        cout << "Enter the name of the point:";
+        cout << "Ведите название города:";
         cin.getline(buf_, 256, '\n');
         cout << endl;
 
@@ -132,7 +132,7 @@ void Core::changeCity() {
                 }
         }
         if(!flag_) {
-                cout << "This point doesn't exist" << endl;
+                cout << "Данного города нет в базе данных" << endl;
                 return;
         }
 
@@ -143,13 +143,13 @@ void Core::changeCity() {
                 }
         }
         if(!flag_) {
-                cout << "This point is used by passneger right now. Try do this later" << endl;
+                cout << "Вы не можете изменить этот город сейчас. Попробуйте позже." << endl;
                 return;
         }
 
         City bufC;
         while(true){
-                cout << "Enter the new name of the point: ";
+                cout << "Введите новое название: ";
                 string buff;
                 cin.getline(buff, 256, '\n');
 		if(buff != buf_) {
@@ -165,12 +165,12 @@ void Core::changeCity() {
                         break;
                 }
                 else {
-                        cout << "The point with this name already exist. Please try any other name" << endl;
+                        cout << "Город с таким название уже имеется в базе данных." << endl;
                 }
         }
 
         float a,b;
-        cout << "Enter coordinates in format (x:y): (";
+        cout << "Введите координаты в формате (x:y): ";
         cin >> "(" >> a >> ":" >> b >> ")";
         cout << endl;
         bufC.set_coordinates(a,b);
@@ -193,7 +193,7 @@ void Core::changeCity() {
                         f << arrTrain[i];
                 }
                 else {
-                        cout << "This direction also will be removed - ";
+                        cout << "Этот рейс будет удален - ";
                         arrTrain[i].outTrain;
                 }
         }
@@ -204,7 +204,7 @@ void Core::changeCity() {
                         f << arrTrain[i];
                 }
                 else {
-                        cout << "This person also will be removed from the list of passengers - ";
+                        cout << "Этот человек будет удален из списка пассажиров - ";
                         arrPassenger[i].outPassenger();
                 }
         }
