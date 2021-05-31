@@ -7,6 +7,10 @@
 
 using namespace std;
 
+void Core::checkTime() {
+	cout << "Global Time: " << gt << endl;
+}
+
 void Core::rewindTime() {
 	int _d, _h, _m;
 	Time shift;
@@ -43,11 +47,25 @@ void Core::rewindTime() {
                 }
         }
 
-
 	gt = gt + shift;
 	ifstream f;
 	f.open(fTime);
 	f << gt;
+	f.close();
+
+	f.open(fPassenger);
+	for(int i = 0; i < sizeC; i++) {
+		if(TtoM(arrPassenger[i].get_time_ot()) > TtoM(gt)) {
+			arrPassenger[i].set_condition(0);
+		}
+		else if(TtoM(arrPassenger[i].get_time_prib()) >= TtoM(gt))
+			arrPassenger[i].set_condition(2);
+		}
+		else {
+			arrPassenger[i].set_condition(1);
+		}
+		f << arrPassenger[i];
+	}
 	f.close();
 }
 

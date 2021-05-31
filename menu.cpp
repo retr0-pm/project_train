@@ -15,3 +15,6 @@ Menu::~Menu() {
         system("clear");
         system("figlet -ctk -f slant Come again :)");
 }
+
+Menu::Start() {
+
