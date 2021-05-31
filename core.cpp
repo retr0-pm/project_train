@@ -389,3 +389,72 @@ void Core::clArrTrain{
 void Core::clArrPassenger(){
 	delete [] arrPassenger;
 } //ochistka pamyati massiva passagirov
+
+Core::Core(char *_fCity, char *_fTrain, char *_fPassenger, char *_fTime) {
+	fCity = _fCity;
+	fTrain = _fTrain;
+	fPassenger = _fPassenger;
+	fTime = _fTime;
+}
+
+bool Core::isitokay() {
+	fstream f;
+
+	f.open(fCity,ios::in);
+	if (f) {
+		f.close();
+	}
+	else {
+		cout << "Some troubles with the file: " << fCity << endl;
+		return false;
+	}
+
+        f.open(fTrain,ios::in);
+        if (f) {
+                f.close();
+        }
+        else {
+                cout << "Some troubles with the file: " << fTrain << endl;
+                return false;
+        }
+
+        f.open(fPassenger,ios::in);
+        if (f) {
+                f.close();
+        }
+        else {
+                cout << "Some troubles with the file: " << fPassenger << endl;
+                return false;
+        }
+
+
+	bool pust = true;
+        f.open(fTime,ios::in);
+        if (f) {
+		if(f.peek() != EOF) {
+			pust = false;
+		}
+                f.close();
+        }
+        else {
+                cout << "Some troubles with the file: " << fTime << endl;
+                return false;
+        }
+	if(pust) {
+		f.open(fTime,ios::out);
+		f << "0 0 0";
+		f.close();
+	}
+
+	return true;
+}
+
+
+
+
+
+
+
+
+
+

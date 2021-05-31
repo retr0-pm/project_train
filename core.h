@@ -15,6 +15,8 @@ public:
 
 Core (char *_fCity, char *_fTrain, char *_fPassenger, char *_fTime);
 
+bool isitokay();
+
 void sizeCity(); //Opredelenie razmera massiva gorodov
 void sizeTrain(); //Opredelenie razmera massiva reisov
 void sizePassenger(); //Opredelenie razmera massiva passagirov
