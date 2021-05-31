@@ -1,5 +1,7 @@
 #include <fstream>
-#include "city.h"
+#include <string>
+#include <iostream>
+#include "classes.h"
 
 using namespace std;
 
