@@ -52,7 +52,8 @@ void Core::removeCity() {
 	}
 
 	string buf_;
-	cout << "Ведите название города:";
+	cout << "Ведите название города:" << endl;
+	cin.get();
 	getline(cin,buf_);
 	cout << endl;
 
@@ -121,7 +122,8 @@ void Core::changeCity() {
         }
 
         string buf_;
-        cout << "Ведите название города:";
+        cout << "Ведите название города:" << endl;
+	cin.get();
         getline(cin,buf_);
         cout << endl;
 
@@ -152,9 +154,9 @@ void Core::changeCity() {
         while(true){
                 cout << "Введите новое название: " << endl;
                 string buff;
-		cin.get(); // fix
+		//cin.get(); //fix
                 getline(cin,buff);
-		cout << endl;
+		cout << buff << endl;//proverka
 		if(buff != buf_) {
                 	for(int i = 0; i < sizeC; i++) {
                         	if(arrCity[i].get_city_name() == buff) {
@@ -164,7 +166,7 @@ void Core::changeCity() {
                 	}
 		}
                 if(flag_) {
-                        bufC.set_city_name(buf_);
+                        bufC.set_city_name(buff);
                         break;
                 }
                 else {
@@ -181,7 +183,7 @@ void Core::changeCity() {
 	ofstream f;
 	f.open(fCity);
 	for(int i = 0; i < sizeC; i++) {
-		if(arrCity[i].get_city_name() == bufC.get_city_name()) {
+		if(arrCity[i].get_city_name() == buf_) {
 			f << bufC;
 		}
 		else {

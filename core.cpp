@@ -58,184 +58,7 @@ void Core::searchPassenger(){
 			break;
 	}
 }
-
-/* void Core::outputPassenger(){
-	for(int i = 0; i < sizeP; i++) {
-		arrPassenger[i].outPassenger();
-		if(arrPassenger[i].get_condition() == 1){
-			calcPosition(arrPassenger[i]);
-		}
-	}
-}
-
-void Core::removePassenger(){
-	if(sizeP == 0){cout<<"База данных о пассажирах пуста"<<endl;}
-	string buf1_;
-	cout<<"введие имя: ";
-	getline(cin,buf1_);
-	cout << endl;
-	ofstream f;
-	f.open(fPassenger);
-	for(int i = 0; i < sizeP; i++) {
-		if(arrPassenger[i].get_name() != buf1_){
-			f<<arrPassenger[i];
-		} else if(arrPassenger[i].get_condition() == 1) {
-			cout<<"вы успешно убили человека"<<endl;
-		}
-	}
-	f.close();
-	return;
-}
-
-void Core::addPassenger(){
-	if(sizeT < 1){
-		cout<<"Нет ни одного маршрута"<<endl;
-		return;
-	}
-
-	Passenger *pas;
-	while(1){
-		char* buf_;
-		cout<<"введите имя: ";
-		cin.getline(buf_,256,'\n');
-		cout << endl;
-		if(buf_ != " "){
-			pas->set_name(buf_);
-			break;
-		}
-		else {
-			cout<<"переданно неверное значение"<<endl;
-		}
-	}
-
-	while(1){
-		int buf_;
-		cout<<"введите возраст: ";
-		cin>>buf_;
-		cout<<endl;
-		if(buf_ > 0){
-			pas->set_age(buf_);
-			break;
-		}
-		else {
-			cout<<"переданно неверное значение"<<endl;
-		}
-	}
-
-	while(1){
-		while(1){
-			int flag1, flag2;
-
-			char* buf1_;
-			cout<<"введите город отбытия: ";
-			cin.getline(buf1_,256,'\n');
-			cout<<endl;
-
-			if(buf1_ == " "){
-				pas->set_city_from(buf1_);
-			}else{cout<<"переданно неверное значение"<<endl; break;}
-
-			string buf2_;
-			cout<<"введите город прибытия:";
-			cin>>buf2_;
-			cout<<endl;
-			if(buf2_ == " "){
-				pas->set_city_to(buf2_);
-			}else{cout<<"переданно неверное значение"<<endl; break;}
-
-			int buf_;
-			cout<<"введите тип места 0-купэ, 1-плацкарт:";
-			cin>>buf_;
-			cout<<endl;
-			if(buf_ == 0 || buf_ ==1){
-				pas->set_spot(buf_);
-			}else{cout<<"переданно неверное значение"<<endl; break;}
-
-			flag1 = calcNumber(*pas);
-			flag2 = calcMesta(*pas);
-			if(flag1 == 0 || flag2 == 0){return;}
-			Time buf3_;
-			Time buf4_;
-			for(int i = 0; i < sizeT; i++) {
-				if (arrTrain[i].get_train_number() == pas->get_train_number()) {
-					buf3_ = arrTrain[i].get_time_otb();
-					buf4_ = arrTrain[i].get_time_puti();
-					break;
-				}
-			}
-			int m = TtoM(gt) - gt.get_d()*1440;
-			if(TtoM(buf3_) >= m){
-				buf3_.set_d(gt.get_d() + 1);
-				pas->set_time_ot(buf3_);
-				pas->set_condition(0);
-				pas->set_time_prib(buf3_ + buf4_);
-			}else{
-				buf3_.set_d(gt.get_d());
-				pas->set_time_ot(buf3_);
-				pas->set_condition(0);
-				pas->set_time_prib(buf3_ + buf4_);
-			}
-			ofstream f;
-			f.open(fPassenger);
-			for(int i = 0; i < sizeP; i++) {
-				f << arrPassenger[i];
-			}
-			f << pas;
-			f.close();
-			return;
-		}
-	}
-} */
-
-/*int Core::calcNumber(Passenger &b) {
-	for(int i = 0; i < sizeT; i++) {
-		if ((arrTrain[i].get_train_city_to() == b.get_city_to()) && (arrTrain[i].get_train_city_from() == b.get_city_from())) {
-			b.train_number() = arrTraint.get_number();
-			return 1;
-		}
-	}
-	cout << "Неправильное направление" << endl;
-	return 0;
-}
-
-int Core::calcMesta(Passenger &t){
-	int kol=0;
-
-	Train buf;
-	for(int i=0; i<sizeT; i++){
-		if(arrTrain[i].get_train_number() == t.get_train_number()){
-			buf = arrTrain[i];
-			break;
-		}
-	}
-	for(int i=0; i<sizeP; i++){
-		if(buf.get_train_number() == arrPassenger[i].get_train_number() && buf.get_spot() == arrPassenger[i].get_spot() && arrPassenger[i].get_condition() == 0){
-			kol++;
-		}
-	}
-	if(t.get_spot() == 1){
-		if(kol>=(buf.get_capacity_plackart()*buf.get_train_vagoni_plackart())){
-			cout<<"в плацкарте мест нет";
-			return 0;
-		}
-		else{
-			t.set_n_vagona(kol/capacity_plackart+1);
-			t.set_n_mesta=(kol/vagoni_plackart+1);
-		}
-	}
-	if(t.get_spot() == 0){
-		if(kol>=buf.get_capacity_kupe()*buf.get_vagoni_kupe()){
-			cout<<"в купе мест нет";
-			return 0;
-		}
-		else{
-			t.set_n_vagona=(kol/capacity_kupe+1);
-			t.set_n_mesta=(kol/vagoni_kupe+1);
-		}
-	}
-	return 1;
-}
-
+/*
 void Core::calcPosition(Passenger &t){
 	Train buf;
 	for(i=0; i<sizeT; i++){
@@ -310,7 +133,7 @@ void Core::fArrCity(){
 	f.open(fCity,ios::in);
 	for (int i = 0; i < sizeC; i++) {
 		f >> arrCity[i];
-		f.get(); //fix
+		f.get();
 	}
 	f.close();
 } //zanesenie iz faila v massiv gorodov
@@ -320,7 +143,7 @@ void Core::fArrTrain(){
 	f.open(fTrain,ios::in);
 	for (int i = 0; i < sizeT; i++) {
 		f >> arrTrain[i];
-		f.get(); //fix
+		f.get();
 	}
 	f.close();
 } //zanesenie iz faila v massiv reisov
@@ -330,7 +153,7 @@ void Core::fArrPassenger(){
 	f.open(fPassenger,ios::in);
 	for (int i = 0; i < sizeP; i++) {
 		f >> arrPassenger[i];
-		f.get(); //fix
+		f.get();
 	}
 	f.close();
 } //zanesenie iz faila v massiv passagirov

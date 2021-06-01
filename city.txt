@@ -1,6 +1,3 @@
-Nizhniy Novgorod
-14
-42
-Astana
-456
-3412
+Krutoy gorod
+1234
+312
