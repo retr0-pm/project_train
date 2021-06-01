@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <cmath>
 #include <string>
 #include <fstream>
@@ -90,3 +90,4 @@ void Core::calcTime() {
 	_t_prib = _t_otb + _t_puti;
 	_t_prib.d = 0;
 }
+*/

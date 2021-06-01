@@ -45,7 +45,7 @@ void outputTrain(); // Vivesti polniy spisok
 void searchTrainNumber(); // Poisk reisa po nomeru
 void searchTrainPoint(); // Poisk reias po gorodam
 
-void calcTime(); // Calulation distance, t_puti, t_prib
+Train calcTime(Train &t); // Calulation distance, t_puti, t_prib
 
 //Passenger
 void addPassenger();
@@ -68,5 +68,6 @@ void searchCity();
 //Time
 void checkTime(); // Vivod tekushego vremeni
 void rewindTime(); // Smehenie tekushego vremeni
-
+int TtoM(Time t);
+Time MtoT(int t);
 };

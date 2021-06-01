@@ -12,7 +12,8 @@ void Core::addCity() {
 		cout << "Введите название города: ";
 		string buf_;
 		bool flag_ = true;
-		cin.getline(buf_, 256, '\n');
+		getline(cin,buf_);
+		cout << endl;
 		for(int i = 0; i < sizeC; i++) {
 			if(arrCity[i].get_city_name() == buf_) {
 				flag_ = false;
@@ -30,11 +31,11 @@ void Core::addCity() {
 
 	float a,b;
 	cout << "Введите координаты в формате (x:y): ";
-	cin >> "(" >> a >> ":" >> b >> ")";
+	cin >> a >> b;
 	cout << endl;
 	bufC.set_coordinates(a,b);
 
-	ifsteam f;
+	ofstream f;
 	f.open(fCity);
 	for (int i = 0; i < sizeC; i++) {
 		f << arrCity[i];
@@ -52,12 +53,12 @@ void Core::removeCity() {
 
 	string buf_;
 	cout << "Ведите название города:";
-	cin.getline(buf_, 256, '\n');
+	getline(cin,buf_);
 	cout << endl;
 
 	bool flag_ = false;
 	for (int i = 0; i < sizeC; i++) {
-		if(buf_ == arrCity[i].get_city_name())
+		if(buf_ == arrCity[i].get_city_name()) {
 			flag_ = true;
 			break;
 		}
@@ -78,7 +79,7 @@ void Core::removeCity() {
 		return;
 	}
 
-	ifstream f;
+	ofstream f;
 	f.open(fCity);
 	for(int i = 0; i < sizeC; i++) {
 		if(arrCity[i].get_city_name() != buf_) {
@@ -94,7 +95,7 @@ void Core::removeCity() {
 		}
 		else {
 			cout << "Этот рейс будет удален - ";
-			arrTrain[i].outTrain;
+			arrTrain[i].outTrain();
 		}
 	}
 	f.close();
@@ -121,12 +122,12 @@ void Core::changeCity() {
 
         string buf_;
         cout << "Ведите название города:";
-        cin.getline(buf_, 256, '\n');
+        getline(cin,buf_);
         cout << endl;
 
         bool flag_ = false;
         for (int i = 0; i < sizeC; i++) {
-                if(buf_ == arrCity[i].get_city_name())
+                if(buf_ == arrCity[i].get_city_name()) {
                         flag_ = true;
                         break;
                 }
@@ -151,7 +152,8 @@ void Core::changeCity() {
         while(true){
                 cout << "Введите новое название: ";
                 string buff;
-                cin.getline(buff, 256, '\n');
+                getline(cin,buff);
+		cout << endl;
 		if(buff != buf_) {
                 	for(int i = 0; i < sizeC; i++) {
                         	if(arrCity[i].get_city_name() == buff) {
@@ -171,14 +173,14 @@ void Core::changeCity() {
 
         float a,b;
         cout << "Введите координаты в формате (x:y): ";
-        cin >> "(" >> a >> ":" >> b >> ")";
+        cin >> a >> b;
         cout << endl;
         bufC.set_coordinates(a,b);
 
-	ifstream f;
+	ofstream f;
 	f.open(fCity);
 	for(int i = 0; i < sizeC; i++) {
-		if(arrCity[i].get_city_name() == buf) {
+		if(arrCity[i].get_city_name() == bufC.get_city_name()) {
 			f << bufC;
 		}
 		else {
@@ -194,7 +196,7 @@ void Core::changeCity() {
                 }
                 else {
                         cout << "Этот рейс будет удален - ";
-                        arrTrain[i].outTrain;
+                        arrTrain[i].outTrain();
                 }
         }
         f.close();
@@ -236,10 +238,10 @@ void Core::searchCity() {
 	cout << "Enter the name of the point:";
 	string buf_;
 	bool flag_ = false;
-	cin.getline(buf_, 256, '\n');
+	getline(cin,buf_);
 	cout << endl;
 	for(int i = 0; i < sizeC; i++) {
-		if(arrCity[i].get_city_name == buf) {
+		if(arrCity[i].get_city_name() == buf_) {
 			arrCity[i].outCity();
 			flag_ = true;
 			break;

@@ -2,13 +2,13 @@
 #include <cmath>
 #include <string>
 #include <fstream>
-#include "functions.h"
+#include "core.h"
 
 
 using namespace std;
 
 void Core::checkTime() {
-	cout << "Global Time: " << gt << endl;
+	cout << "Global Time: " << gt.get_d() << gt.get_h() << gt.get_m() << endl;
 }
 
 void Core::rewindTime() {
@@ -48,7 +48,7 @@ void Core::rewindTime() {
         }
 
 	gt = gt + shift;
-	ifstream f;
+	ofstream f;
 	f.open(fTime);
 	f << gt;
 	f.close();
@@ -69,7 +69,7 @@ void Core::rewindTime() {
 	f.close();
 }
 
-Train Core::calcTime(Train t) {
+Train Core::calcTime(Train &t) {
 	//calculation distance
 	float x1,x2,y1,y2;
 	for(int i = 0; i < sizeC; i++) {

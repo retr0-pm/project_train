@@ -5,11 +5,11 @@
 
 using namespace std;
 
-bool Core::addTrain() {
+void Core::addTrain() {
 
 	if(sizeC < 2) {
 		cout << "Not enought points" << endl;
-		return false;
+		return;
 	}
 
 	Train tr;
@@ -20,9 +20,9 @@ bool Core::addTrain() {
 		int buf_;
 		bool flag = true;
 		cout << "Number of the route: ";
-		cin >> buf;
+		cin >> buf_;
 		cout << endl;
-		for(int i = 0; i < sizeT; i++)
+		for(int i = 0; i < sizeT; i++) {
 			if(buf_ == arrTrain[i].get_train_number()){
 				flag = false;
 			}
@@ -41,8 +41,8 @@ bool Core::addTrain() {
                 cout << "Speed: ";
                 cin >> buf_;
 		cout << endl;
-                if(buf > 0) {
-                        tr.set_speed(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_speed(buf_);
                         break;
                 }
                 else {
@@ -54,14 +54,35 @@ bool Core::addTrain() {
                 string buf_;
                 bool flag = true;
                 cout << "Sending point: ";
-                cin.getline(buf_,256,'\n');
+                getline(cin,buf_);
 		cout << endl;
-                for(int i = 0; i < sizeC; i++)
+                for(int i = 0; i < sizeC; i++) {
                         if(buf_ == arrCity[i].get_city_name()){
                                 flag = false;
                         }
+		}
                 if(flag) {
-                        tr.set_train_city_from(buf_);
+                        tr.set_train_from(buf_);
+                        break;
+                }
+                else {
+                        cout << "This point doesn't exist. Please try again" << endl;
+                }
+        }
+
+        while(true){
+                string buf_;
+                bool flag = true;
+                cout << "Kuda edet: ";
+                getline(cin,buf_);
+                cout << endl;
+                for(int i = 0; i < sizeC; i++) {
+                        if(buf_ == arrCity[i].get_city_name()){
+                                flag = false;
+                        }
+		}
+                if(flag) {
+                        tr.set_train_to(buf_);
                         break;
                 }
                 else {
@@ -93,7 +114,11 @@ bool Core::addTrain() {
                 }
 	}
 
-	tr.set_train_time_otb(MtoT(buf_h * 60 + buf_m));
+	Time bufff;
+	bufff.set_h(buf_h);
+	bufff.set_m(buf_m);
+
+	tr.set_time_otb(bufff);
 
 	tr = calcTime(tr);
 
@@ -102,7 +127,7 @@ bool Core::addTrain() {
                 cout << "Numbers of cars kupe: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
+                if(buf_ > 0) {
 			tr.set_train_vagoni_kupe(buf_);
                         break;
                 }
@@ -116,8 +141,8 @@ bool Core::addTrain() {
                 cout << "Numbers of cars plackart: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
-                        tr.set_train_vagoni_kupe(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_vagoni_plackart(buf_);
                         break;
                 }
                 else {
@@ -130,7 +155,7 @@ bool Core::addTrain() {
                 cout << "Cupe capacity: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
+                if(buf_ > 0) {
                         tr.set_capacity_kupe(buf_);
                         break;
                 }
@@ -144,7 +169,7 @@ bool Core::addTrain() {
                 cout << "Plackart capacity: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
+                if(buf_ > 0) {
                         tr.set_capacity_plackart(buf_);
                         break;
                 }
@@ -158,8 +183,8 @@ bool Core::addTrain() {
                 cout << "Cost kupe: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
-                        tr.set_cost_kupe(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_cost_kupe(buf_);
                         break;
                 }
                 else {
@@ -172,8 +197,8 @@ bool Core::addTrain() {
                 cout << "Cost plackart: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
-                        tr.set_cost_plackart(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_cost_plackart(buf_);
                         break;
                 }
                 else {
@@ -181,19 +206,18 @@ bool Core::addTrain() {
                 }
         }
 
-	ifstream f;
+	ofstream f;
 	f.open(fTrain);
 	for(int i = 0; i < sizeT; i++) {
 		f << arrTrain[i];
 	}
 	f << tr;
-	return false;
 }
 
-bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(obj.removeTrain())
+void Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(obj.removeTrain())
 	if(sizeT == 0) {
 		cout << "The list of directions is empty" << endl;
-		return false;
+		return;
 	}
 
 	int buf_;
@@ -210,7 +234,7 @@ bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 	}
 	if(!flag) {
 		cout << "This number of the direction doesn't exist" << endl;
-		return false;
+		return;
 	}
 
 	for(int i = 0; i < sizeP; i++) {
@@ -221,10 +245,10 @@ bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 	}
 	if(!flag) {
 		cout << "This route is used by passengers right now. Try do this later" << endl;
-		return false;
+		return;
 	}
 
-	ifstream f;
+	ofstream f;
 	f.open(fPassenger);
 	for(int i = 0; i < sizeP; i++) {
 		if(arrPassenger[i].get_train_number() != buf_) {
@@ -240,13 +264,12 @@ bool Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
                 }
         }
 	f.close();
-	return false;
 }
 
-bool Core::changeTrain() { //Change of direction by number of direction
+void Core::changeTrain() { //Change of direction by number of direction
 	if(sizeT == 0) {
 		cout << "The list of directions is empty" << endl;
-		return false;
+		return;
 	}
 
         int buff;
@@ -263,7 +286,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
         }
         if(!flag) {
                 cout << "This number of the direction doesn't exist" << endl;
-                return false;
+                return;
         }
 
         for(int i = 0; i < sizeP; i++) {
@@ -274,7 +297,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
         }
         if(!flag) {
                 cout << "This route is used by passengers right now. Try do this later" << endl;
-                return false;
+                return;
         }
 
 	Train tr;
@@ -285,14 +308,15 @@ bool Core::changeTrain() { //Change of direction by number of direction
 		int buf_;
 		bool flag = true;
 		cout << "Number of the route: ";
-		cin >> buf;
+		cin >> buf_;
 		cout << endl;
 		if(buf_ != buff){
-			for(int i = 0; i < sizeT; i++)
+			for(int i = 0; i < sizeT; i++) {
 				if(buf_ == arrTrain[i].get_train_number()){
 					flag = false;
 				}
 			}
+		}
 		if(flag) {
 			tr.set_train_number(buf_);
 			break;
@@ -307,8 +331,8 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 cout << "Speed: ";
                 cin >> buf_;
 		cout << endl;
-                if(buf > 0) {
-                        tr.set_speed(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_speed(buf_);
                         break;
                 }
                 else {
@@ -320,20 +344,42 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 string buf_;
                 bool flag = true;
                 cout << "Sending point: ";
-                cin.getline(buf_,256,'\n');
+                getline(cin,buf_);
 		cout << endl;
-                for(int i = 0; i < sizeC; i++)
+                for(int i = 0; i < sizeC; i++) {
                         if(buf_ == arrCity[i].get_city_name()){
                                 flag = false;
                         }
+		}
                 if(flag) {
-                        tr.set_train_city_from(buf_);
+                        tr.set_train_from(buf_);
                         break;
                 }
                 else {
                         cout << "This point doesn't exist. Please try again" << endl;
                 }
         }
+
+        while(true){
+                string buf_;
+                bool flag = true;
+                cout << "Kuda edet: ";
+                getline(cin,buf_);
+                cout << endl;
+                for(int i = 0; i < sizeC; i++) {
+                        if(buf_ == arrCity[i].get_city_name()){
+                                flag = false;
+                        }
+                }
+                if(flag) {
+                        tr.set_train_to(buf_);
+                        break;
+                }
+                else {
+                        cout << "This point doesn't exist. Please try again" << endl;
+                }
+        }
+
 
 	int buf_h, buf_m;
         while(true) {
@@ -346,6 +392,8 @@ bool Core::changeTrain() { //Change of direction by number of direction
 		else {
 			cout << "Incorrect input. Please try again" << endl;
 		}
+	}
+
 	while(true) {
 		cout << "Departure Minute: ";
 		cin >> buf_m;
@@ -356,7 +404,12 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 else {
                         cout << "Incorrect input. Please try again" << endl;
                 }
-	tr.set_train_time_otb(MtoT(buf_h * 60 + buf_m));
+	}
+
+        Time bufff;
+        bufff.set_h(buf_h);
+        bufff.set_m(buf_m);
+        tr.set_time_otb(bufff);
 
 	tr = calcTime(tr);
 
@@ -365,7 +418,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 cout << "Numbers of cars kupe: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
+                if(buf_ > 0) {
 			tr.set_train_vagoni_kupe(buf_);
                         break;
                 }
@@ -379,8 +432,8 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 cout << "Numbers of cars plackart: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
-                        tr.set_train_vagoni_kupe(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_vagoni_plackart(buf_);
                         break;
                 }
                 else {
@@ -393,7 +446,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 cout << "Cupe capacity: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
+                if(buf_ > 0) {
                         tr.set_capacity_kupe(buf_);
                         break;
                 }
@@ -407,7 +460,7 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 cout << "Plackart capacity: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
+                if(buf_ > 0) {
                         tr.set_capacity_plackart(buf_);
                         break;
                 }
@@ -421,8 +474,8 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 cout << "Cost kupe: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
-                        tr.set_cost_kupe(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_cost_kupe(buf_);
                         break;
                 }
                 else {
@@ -435,8 +488,8 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 cout << "Cost plackart: ";
                 cin >> buf_;
                 cout << endl;
-                if(buf_ > 0)) {
-                        tr.set_cost_plackart(buf_);
+                if(buf_ > 0) {
+                        tr.set_train_cost_plackart(buf_);
                         break;
                 }
                 else {
@@ -444,87 +497,47 @@ bool Core::changeTrain() { //Change of direction by number of direction
                 }
         }
 
-	ifstream f;
+	ofstream f;
 	f.open(fTrain);
 	for(int i = 0; i < sizeT; i++) {
-		if(arrTrain.get_train_number() == buff) {
+		if(arrTrain[i].get_train_number() == buff) {
 			f << tr;
 		}
 		else {
 			f << arrTrain[i];
 		}
 	}
-	f.close(fTrain);
+	f.close();
 
 	f.open(fPassenger);
         for(int i = 0; i < sizeP; i++) {
-                if(arrPassenger.get_train_number() != buff) {
+                if(arrPassenger[i].get_train_number() != buff) {
                         f << arrPassenger[i];
                 }
                 else {
 			cout << "This person will be removed from the list of passengers - ";
-                        cout << "Name: " << arrPassenger[i].get_name();
-			cout << ", Age: " << arrPassenger[i].get_age();
-			cout << ", Sending time: " << arrPassenger[i].get_time_ot();
-			if(arrPassenger[i].get_spot() == 0) {
-                        	cout << ", Kupe";
-			}
-			else {
-                        	cout << ", Plackart";
-			}
-                        cout << ", Car number: " << arrPassenger[i].get_n_vagona();
-                        cout << ", Seat number: " << arrPassenger[i].get_n_mesta();
-                        cout << ", From: " << arrPassenger[i].get_city_from();
-                        cout << ", To: " << arrPassenger[i].get_city_to() << endl;
+			arrPassenger[i].outPassenger();
                 }
         }
 	f.close();
-
-	return false;
 }
 
 void Core::outputTrain() {
 	cout << "The list of the directions:" << endl;
 	for(int i = 0; i < sizeT; i++) {
-		cout << "Number of the direction: " << arrTrain[i].get_train_number();
-                cout << ", Speed: " << arrTrain[i].get_train_speed();
-                cout << ", From: " << arrTrain[i].get_train_city_from();
-                cout << ", To: " << arrTrain[i].get_train_city_to();
-                cout << ", Distance: " << arrTrain[i].get_distance();
-                cout << ", Sending time: " << arrTrain[i].get_time_otb();
-                cout << ", Arrival time: " << arrTrain[i].get_time_prib();
-                cout << ", Travel time: " << arrTrain[i].get_time_puti();
-                cout << ", Kupe capacity: " << arrTrain[i].get_capacity_kupe();
-                cout << ", Plackart capacity: " << arrTrain[i].get_capacity_plackart();
-                cout << ", Number of cars kupe: " << arrTrain[i].get_train_vagoni_kupe();
-                cout << ", Number of cars plackart: " << arrTrain[i].get_train_vagoni_plackart();
-                cout << ", Kupe cost: " << arrTrain[i].get_train_cost_kupe();
-                cout << ", Plackart cost: " << arrTrain[i].get_train_cost_plackart() << endl;
+		arrTrain[i].outTrain();
 	}
 }
 
 void Core::searchTrainNumber() {
-	cout << "Enter the number of the direction: "
+	cout << "Enter the number of the direction: ";
 	int buf_;
 	bool flag = false;
 	cin >> buf_;
 	cout << endl;
 	for(int i = 0; i < sizeT; i++) {
 		if(buf_ == arrTrain[i].get_train_number()) {
-	                cout << "Number of the direction: " << arrTrain[i].get_train_number();
-        	        cout << ", Speed: " << arrTrain[i].get_train_speed();
-                	cout << ", From: " << arrTrain[i].get_train_city_from();
-                	cout << ", To: " << arrTrain[i].get_train_city_to();
-                	cout << ", Distance: " << arrTrain[i].get_distance();
-                	cout << ", Sending time: " << arrTrain[i].get_time_otb();
-                	cout << ", Arrival time: " << arrTrain[i].get_time_prib();
-                	cout << ", Travel time: " << arrTrain[i].get_time_puti();
-                	cout << ", Kupe capacity: " << arrTrain[i].get_capacity_kupe();
-                	cout << ", Plackart capacity: " << arrTrain[i].get_capacity_plackart();
-                	cout << ", Number of cars kupe: " << arrTrain[i].get_train_vagoni_kupe();
-                	cout << ", Number of cars plackart: " << arrTrain[i].get_train_vagoni_plackart();
-                	cout << ", Kupe cost: " << arrTrain[i].get_train_cost_kupe();
-                	cout << ", Plackart cost: " << arrTrain[i].get_train_cost_plackart() << endl;
+			arrTrain[i].outTrain();
 			flag = true;
 			break;
 		}
@@ -535,32 +548,20 @@ void Core::searchTrainNumber() {
 }
 
 void Core::searchTrainPoint() {
-        cout << "Enter the point from: "
-        int bufFrom;
-        cin.getline(bufFrom,256,'\n');
+        cout << "Enter the point from: ";
+        string bufFrom;
+        getline(cin,bufFrom);
         cout << endl;
-        cout << "Enter the point to: "
-        int bufTo;
-        cin.getline(bufTo,256,'\n');
+        cout << "Enter the point to: ";
+        string bufTo;
+        getline(cin,bufTo);
         cout << endl;
 
+	bool flag = false;
         for(int i = 0; i < sizeT; i++) {
                 if((bufFrom == arrTrain[i].get_train_city_from()) && (bufTo == arrTrain[i].get_train_city_to())) {
-                        cout << "Number of the direction: " << arrTrain[i].get_train_number();
-                        cout << ", Speed: " << arrTrain[i].get_train_speed();
-                        cout << ", From: " << arrTrain[i].get_train_city_from();
-                        cout << ", To: " << arrTrain[i].get_train_city_to();
-                        cout << ", Distance: " << arrTrain[i].get_distance();
-                        cout << ", Sending time: " << arrTrain[i].get_time_otb();
-                        cout << ", Arrival time: " << arrTrain[i].get_time_prib();
-                        cout << ", Travel time: " << arrTrain[i].get_time_puti();
-                        cout << ", Kupe capacity: " << arrTrain[i].get_capacity_kupe();
-                        cout << ", Plackart capacity: " << arrTrain[i].get_capacity_plackart();
-                        cout << ", Number of cars kupe: " << arrTrain[i].get_train_vagoni_kupe();
-                        cout << ", Number of cars plackart: " << arrTrain[i].get_train_vagoni_plackart();
-                        cout << ", Kupe cost: " << arrTrain[i].get_train_cost_kupe();
-                        cout << ", Plackart cost: " << arrTrain[i].get_train_cost_plackart() << endl;
-                        flag = true;
+			arrTrain[i].outTrain();
+			flag = true;
                         break;
                 }
         }

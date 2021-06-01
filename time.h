@@ -1,4 +1,6 @@
 #include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -11,8 +13,13 @@ private:
 	int m;
 
 public:
+Time(int a, int b, int c) {
+        d = a;
+        h = b;
+        m = c;
+}
+
 Time();
-Time(int a, int b, int c);
 
 int get_d() {return d;}
 int get_h() {return h;}
@@ -20,9 +27,6 @@ int get_m() {return m;}
 void set_d(int _d){d = _d;}
 void set_h(int _h){h = _h;}
 void set_m(int _m){m = _m;}
-
-int TtoM(Time t);
-Time MtoT(int t);
 
 friend Time operator+(const Time &t1, const Time &t2) {
 	Time result(((t1.d+t2.d)*1440 + (t1.h+t2.h)*60 +(t1.m+t2.m)) /1440,((t1.h+t2.h)*60+(t1.m+t2.m))/60,((t1.m+t2.m) %60));
