@@ -58,7 +58,7 @@ void Core::searchPassenger(){
 	}
 }
 
-void Core::outputPassenger(){
+/* void Core::outputPassenger(){
 	for(int i = 0; i < sizeP; i++) {
 		arrPassenger[i].outPassenger();
 		if(arrPassenger[i].get_condition() == 1){
@@ -153,7 +153,6 @@ void Core::addPassenger(){
 			flag1 = calcNumber(*pas);
 			flag2 = calcMesta(*pas);
 			if(flag1 == 0 || flag2 == 0){return;}
-			}
 			Time buf3_;
 			Time buf4_;
 			for(int i = 0; i < sizeT; i++) {
@@ -185,7 +184,7 @@ void Core::addPassenger(){
 			return;
 		}
 	}
-}
+} */
 
 int Core::calcNumber(Passenger &b) {
 	for(int i = 0; i < sizeT; i++) {
@@ -202,19 +201,19 @@ int Core::calcMesta(Passenger &t){
 	int kol=0;
 
 	Train buf;
-	for(i=0; i<sizeT; i++){
+	for(int i=0; i<sizeT; i++){
 		if(arrTrain[i].get_train_number() == t.get_train_number()){
 			buf = arrTrain[i];
 			break;
 		}
 	}
-	for(i=0; i<sizeP; i++){
+	for(int i=0; i<sizeP; i++){
 		if(buf.get_train_number() == arrPassenger[i].get_train_number() && buf.get_spot() == arrPassenger[i].get_spot() && arrPassenger[i].get_condition() == 0){
 			kol++;
 		}
 	}
 	if(t.get_spot() == 1){
-		if(kol>=(buf.get_capacity_plackart()*buf.get_vagoni_plackart())){
+		if(kol>=(buf.get_capacity_plackart()*buf.get_train_vagoni_plackart())){
 			cout<<"в плацкарте мест нет";
 			return 0;
 		}
