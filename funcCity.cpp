@@ -9,11 +9,11 @@ void Core::addCity() {
 	City bufC;
 
 	while(true){
-		cout << "Введите название города: ";
+		cout << "Введите название города: " << endl;
 		string buf_;
 		bool flag_ = true;
-		getline(cin,buf_);
-		cout << endl;
+		cin.get(); // fix
+		getline(cin,buf_,'\n');
 		for(int i = 0; i < sizeC; i++) {
 			if(arrCity[i].get_city_name() == buf_) {
 				flag_ = false;
@@ -30,7 +30,7 @@ void Core::addCity() {
 	}
 
 	float a,b;
-	cout << "Введите координаты в формате (x:y): ";
+	cout << "Введите координаты в формате x y: ";
 	cin >> a >> b;
 	cout << endl;
 	bufC.set_coordinates(a,b);
@@ -150,8 +150,9 @@ void Core::changeCity() {
 
         City bufC;
         while(true){
-                cout << "Введите новое название: ";
+                cout << "Введите новое название: " << endl;
                 string buff;
+		cin.get(); // fix
                 getline(cin,buff);
 		cout << endl;
 		if(buff != buf_) {
@@ -172,7 +173,7 @@ void Core::changeCity() {
         }
 
         float a,b;
-        cout << "Введите координаты в формате (x:y): ";
+        cout << "Введите координаты в формате x y: ";
         cin >> a >> b;
         cout << endl;
         bufC.set_coordinates(a,b);
@@ -235,9 +236,10 @@ void Core::searchCity() {
 		return;
 	}
 
-	cout << "Enter the name of the point:";
+	cout << "Enter the name of the point:" << endl;
 	string buf_;
 	bool flag_ = false;
+	cin.get(); // fix
 	getline(cin,buf_);
 	cout << endl;
 	for(int i = 0; i < sizeC; i++) {

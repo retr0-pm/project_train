@@ -18,7 +18,8 @@ void Core::searchPassenger(){
 	switch(a) {
 		case 1:
 		//	string buf1_;
-			cout<<"введие имя: ";
+			cout<<"введие имя: " << endl;
+			cin.get();
 			getline(cin,buf1_);
 			cout << endl;
 		//	int s = 0;
@@ -309,6 +310,7 @@ void Core::fArrCity(){
 	f.open(fCity,ios::in);
 	for (int i = 0; i < sizeC; i++) {
 		f >> arrCity[i];
+		f.get(); //fix
 	}
 	f.close();
 } //zanesenie iz faila v massiv gorodov
@@ -318,6 +320,7 @@ void Core::fArrTrain(){
 	f.open(fTrain,ios::in);
 	for (int i = 0; i < sizeT; i++) {
 		f >> arrTrain[i];
+		f.get(); //fix
 	}
 	f.close();
 } //zanesenie iz faila v massiv reisov
@@ -327,6 +330,7 @@ void Core::fArrPassenger(){
 	f.open(fPassenger,ios::in);
 	for (int i = 0; i < sizeP; i++) {
 		f >> arrPassenger[i];
+		f.get(); //fix
 	}
 	f.close();
 } //zanesenie iz faila v massiv passagirov

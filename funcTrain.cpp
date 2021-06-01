@@ -53,7 +53,8 @@ void Core::addTrain() {
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Sending point: ";
+                cout << "Sending point: " << endl;
+		cin.get();
                 getline(cin,buf_);
 		cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -73,7 +74,8 @@ void Core::addTrain() {
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Kuda edet: ";
+                cout << "Kuda edet: " << endl;
+		cin.get();
                 getline(cin,buf_);
                 cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -343,7 +345,8 @@ void Core::changeTrain() { //Change of direction by number of direction
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Sending point: ";
+                cout << "Sending point: " << endl;
+		cin.get();
                 getline(cin,buf_);
 		cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -363,7 +366,8 @@ void Core::changeTrain() { //Change of direction by number of direction
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Kuda edet: ";
+                cout << "Kuda edet: " << endl;
+		cin.get();
                 getline(cin,buf_);
                 cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -548,12 +552,14 @@ void Core::searchTrainNumber() {
 }
 
 void Core::searchTrainPoint() {
-        cout << "Enter the point from: ";
+        cout << "Enter the point from: " << endl;
         string bufFrom;
+	cin.get();
         getline(cin,bufFrom);
         cout << endl;
-        cout << "Enter the point to: ";
+        cout << "Enter the point to: " << endl;
         string bufTo;
+	cin.get();
         getline(cin,bufTo);
         cout << endl;
 

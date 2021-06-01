@@ -14,7 +14,8 @@ void Core::addPassenger() {
 	Passenger bufP;
 
 	string bufname;
-	cout << "Enter the passenger name: ";
+	cout << "Enter the passenger name: " << endl;
+	cin.get();
 	getline(cin, bufname);
 	bufP.set_name(bufname);
 
@@ -35,10 +36,12 @@ void Core::addPassenger() {
 	string bufA;
 	string bufB;
 	while(true) {
-		cout << "From: ";
+		cout << "From: " << endl;
+		cin.get();
 		getline(cin, bufA);
 		cout << endl;
-		cout << "To: ";
+		cout << "To: " << endl;
+		cin.get();
 		getline(cin, bufB);
 		cout << endl;
 		bool prov = false;
@@ -131,7 +134,8 @@ void Core::removePassenger() {
 
 	string bufname;
 	while(true) {
-		cout << "Imya kogo udalit:";
+		cout << "Imya kogo udalit:" << endl;
+		cin.get();
 		getline(cin,bufname);
 		cout << endl;
 		bool proverka = true;
