@@ -25,9 +25,9 @@ void Core::searchPassenger(){
 			for(int i = 0; i < sizeP; i++) {
 				if(arrPassenger[i].get_name() == buf1_){
 					arrPassenger[i].outPassenger();
-					if(arrPassenger[i].get_condition() == 1){
+					/*if(arrPassenger[i].get_condition() == 1){
 						calcPosition(arrPassenger[i]);
-					}
+					}*/
 					s++;
 					break;
 				}
@@ -45,9 +45,9 @@ void Core::searchPassenger(){
 					arrPassenger[i].outPassenger();
 					s++;
 				}
-				if(arrPassenger[i].get_condition() == 1){
+				/*if(arrPassenger[i].get_condition() == 1){
 					calcPosition(arrPassenger[i]);
-				}
+				}*/
 			}
 			if (s == 0 ){cout<<"ничего не найдени";}
 			break;
@@ -186,7 +186,7 @@ void Core::addPassenger(){
 	}
 } */
 
-int Core::calcNumber(Passenger &b) {
+/*int Core::calcNumber(Passenger &b) {
 	for(int i = 0; i < sizeT; i++) {
 		if ((arrTrain[i].get_train_city_to() == b.get_city_to()) && (arrTrain[i].get_train_city_from() == b.get_city_from())) {
 			b.train_number() = arrTraint.get_number();
@@ -264,12 +264,12 @@ void Core::calcPosition(Passenger &t){
 	float Yy=(buf1.get_city_y()+m*buf2.get_city_y())/(1+m);//final y of time's moment
 	cout <<"Координата по х, на данный момент:"<< Xx << endl;
 	cout <<"Координата по у, на данный момент:"<< Yy << endl;
-}
+}*/
 
 void Core::sizeCity(){
-	ofsteram f;
-	f.open(fCity);
-	size = 0;
+	fstream f;
+	f.open(fCity,ios::in);
+	int size = 0;
 	string b;
 	while(f.peek() != EOF){
 		getline (f,b);
@@ -279,9 +279,9 @@ void Core::sizeCity(){
 	f.close();
 } //Opredelenie razmera massiva gorodov
 void Core::sizeTrain(){
-	ofsteram f;
-	f.open(fTrain);
-	size = 0;
+	fstream f;
+	f.open(fTrain,ios::in);
+	int size = 0;
 	string b;
 	while(f.peek() != EOF){
 		getline (f,b);
@@ -291,9 +291,9 @@ void Core::sizeTrain(){
 	f.close();
 }  //Opredelenie razmera massiva reisov
 void Core::sizePassenger(){
-	ofsteram f;
-	f.open(fPassenger);
-	size = 0;
+	fstream f;
+	f.open(fPassenger,ios::in);
+	int size = 0;
 	string b;
 	while(f.peek() != EOF){
 		getline (f,b);
@@ -305,8 +305,8 @@ void Core::sizePassenger(){
 
 void Core::fArrCity(){
 	arrCity = new City[sizeC];
-	ofstream f;
-	f.open(fCity);
+	fstream f;
+	f.open(fCity,ios::in);
 	for (int i = 0; i < sizeC; i++) {
 		f >> arrCity[i];
 	}
@@ -314,25 +314,25 @@ void Core::fArrCity(){
 } //zanesenie iz faila v massiv gorodov
 void Core::fArrTrain(){
 	arrTrain = new Train[sizeT];
-	ofstream f;
-	f.open(fTain);
+	fstream f;
+	f.open(fTrain,ios::in);
 	for (int i = 0; i < sizeT; i++) {
 		f >> arrTrain[i];
 	}
 	f.close();
 } //zanesenie iz faila v massiv reisov
 void Core::fArrPassenger(){
-	ArrPassenger = new City[sizeP];
-	ofstream f;
-	f.open(fPassenger);
+	arrPassenger = new Passenger [sizeP];
+	fstream f;
+	f.open(fPassenger,ios::in);
 	for (int i = 0; i < sizeP; i++) {
-		f >> ArrPassenger[i];
+		f >> arrPassenger[i];
 	}
 	f.close();
 } //zanesenie iz faila v massiv passagirov
 void Core::getGT(){
-	ofsteram f;
-	f.open(fTime);
+	fstream f;
+	f.open(fTime,ios::in);
 	f >> gt;
 	f.close();
 } //zanesenie iz faila globalnogo vremeni

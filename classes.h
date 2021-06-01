@@ -21,7 +21,7 @@ public:
 
 	void outCity();
 
-	friend ostream &operator<<(ostream &out, const City &t){
+	friend ostream &operator<<(ostream &out, City &t){
 
 		out<<t.city_name<<"\n";
 		out<<t.city_x<<"\n";
