@@ -31,7 +31,7 @@ public:
 
 	}
 
-	friend istream &operator>>(ifstream &in, City &t){
+	friend istream &operator>>(istream &in, City &t){
 
 		getline(in,t.city_name);
 		in>>t.city_x;
@@ -81,24 +81,24 @@ public:
 
 	void outPassenger();
 
-	friend ostream &operator<<(ostream &out, Passenger &t){
+	friend ostream& operator<<(ostream &out, Passenger &t){
 
-		out<<t.name<<"\n";
-		out<<t.age<<"\n";
-		out<<t.train_number<<"\n";
-		out<<t.time_ot<<"\n";
-		out<<t.time_prib<<"\n";
-		out<<t.spot<<"\n";
-		out<<t.n_vagona<<"\n";
-		out<<t.n_mesta<<"\n";
-		out<<t.city_from<<"\n";
-		out<<t.city_to<<"\n";
-		out<<t.condition<<"\n";
+		out<<t.name <<"\n";
+		out<<t.age <<"\n";
+		out<<t.train_number <<"\n";
+		out<<t.time_ot <<"\n";
+		out<<t.time_prib <<"\n";
+		out<<t.spot <<"\n";
+		out<<t.n_vagona <<"\n";
+		out<<t.n_mesta <<"\n";
+		out<<t.city_from <<"\n";
+		out<<t.city_to <<"\n";
+		out<<t.condition <<"\n";
 
 		return out;
 
 	}
-	friend istream &operator>>(istream &in, Passenger &t){
+	friend istream& operator>>(istream &in, Passenger &t){
 
 		getline(in,t.name);
 		in>>t.age;

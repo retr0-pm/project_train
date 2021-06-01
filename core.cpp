@@ -73,12 +73,12 @@ void Core::removePassenger(){
 	cout<<"введие имя: ";
 	getline(cin,buf1_);
 	cout << endl;
-	ifstream f;
+	ofstream f;
 	f.open(fPassenger);
 	for(int i = 0; i < sizeP; i++) {
 		if(arrPassenger[i].get_name() != buf1_){
-			f << arrPassenger[i];
-		} else if(arrPassenger[i].get_conditions == 1) {
+			f<<arrPassenger[i];
+		} else if(arrPassenger[i].get_condition() == 1) {
 			cout<<"вы успешно убили человека"<<endl;
 		}
 	}
@@ -92,14 +92,14 @@ void Core::addPassenger(){
 		return;
 	}
 
-	Passenger pas;
+	Passenger *pas;
 	while(1){
-		string buf_;
+		char* buf_;
 		cout<<"введите имя: ";
 		cin.getline(buf_,256,'\n');
 		cout << endl;
 		if(buf_ != " "){
-			pas.set_name(buf_);
+			pas->set_name(buf_);
 			break;
 		}
 		else {
@@ -108,12 +108,12 @@ void Core::addPassenger(){
 	}
 
 	while(1){
-		int buf_
+		int buf_;
 		cout<<"введите возраст: ";
 		cin>>buf_;
 		cout<<endl;
 		if(buf_ > 0){
-			pas.set_age(buf_);
+			pas->set_age(buf_);
 			break;
 		}
 		else {
@@ -125,13 +125,13 @@ void Core::addPassenger(){
 		while(1){
 			int flag1, flag2;
 
-			string buf1_;
+			char* buf1_;
 			cout<<"введите город отбытия: ";
 			cin.getline(buf1_,256,'\n');
 			cout<<endl;
 
 			if(buf1_ == " "){
-				pas.set_city_from(buf1_);
+				pas->set_city_from(buf1_);
 			}else{cout<<"переданно неверное значение"<<endl; break;}
 
 			string buf2_;
@@ -139,7 +139,7 @@ void Core::addPassenger(){
 			cin>>buf2_;
 			cout<<endl;
 			if(buf2_ == " "){
-				pas.set_city_to(buf2_);
+				pas->set_city_to(buf2_);
 			}else{cout<<"переданно неверное значение"<<endl; break;}
 
 			int buf_;
@@ -147,17 +147,17 @@ void Core::addPassenger(){
 			cin>>buf_;
 			cout<<endl;
 			if(buf_ == 0 || buf_ ==1){
-				pas.set_spot(buf_);
+				pas->set_spot(buf_);
 			}else{cout<<"переданно неверное значение"<<endl; break;}
 
-			flag1 = calcNumber(pas);
-			flag2 = calcMesta(pas);
-			if(flag1 == 0 || flag == 0){return;}
+			flag1 = calcNumber(*pas);
+			flag2 = calcMesta(*pas);
+			if(flag1 == 0 || flag2 == 0){return;}
 			}
 			Time buf3_;
 			Time buf4_;
 			for(int i = 0; i < sizeT; i++) {
-				if (arrTrain[i].get_number() == pas.trian_nubmer) {
+				if (arrTrain[i].get_train_number() == pas->get_train_number()) {
 					buf3_ = arrTrain[i].get_time_otb();
 					buf4_ = arrTrain[i].get_time_puti();
 					break;
@@ -166,16 +166,16 @@ void Core::addPassenger(){
 			int m = TtoM(gt) - gt.get_d()*1440;
 			if(TtoM(buf3_) >= m){
 				buf3_.set_d(gt.get_d() + 1);
-				pas.set_time_otb(buf3_);
-				pas.set_condition(0);
-				pas.set_time_prib(buf3_ + buf4_);
+				pas->set_time_ot(buf3_);
+				pas->set_condition(0);
+				pas->set_time_prib(buf3_ + buf4_);
 			}else{
 				buf3_.set_d(gt.get_d());
-				pas.set_time_otb(buf3_);
-				pas.set_condition(0);
-				pas.set_time_prib(buf3_ + buf4_);
+				pas->set_time_ot(buf3_);
+				pas->set_condition(0);
+				pas->set_time_prib(buf3_ + buf4_);
 			}
-			ifstream f;
+			ofstream f;
 			f.open(fPassenger);
 			for(int i = 0; i < sizeP; i++) {
 				f << arrPassenger[i];

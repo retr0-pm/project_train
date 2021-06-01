@@ -11,7 +11,7 @@ private:
 	int m;
 
 public:
-
+Time();
 Time(int a, int b, int c);
 
 int get_d() {return d;}
