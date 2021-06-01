@@ -56,7 +56,6 @@ void Core::addTrain() {
                 bool flag = true;
                 cout << "Sending point: " << endl;
                 getline(cin,buf_);
-		cout << buf_ << endl;
                 for(int i = 0; i < sizeC; i++) {
                         if(buf_ == arrCity[i].get_city_name()){
                                 flag = false;
@@ -260,7 +259,7 @@ void Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 	f.open(fTrain);
         for(int i = 0; i < sizeT; i++) {
                 if(arrTrain[i].get_train_number() != buf_) {
-                        f << arrPassenger[i];
+                        f << arrTrain[i];
                 }
         }
 	f.close();
@@ -340,11 +339,11 @@ void Core::changeTrain() { //Change of direction by number of direction
                 }
         }
 
+	cin.get();
         while(true){
                 string buf_;
                 bool flag = true;
                 cout << "Sending point: " << endl;
-		cin.get();
                 getline(cin,buf_);
 		cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -352,7 +351,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                                 flag = false;
                         }
 		}
-                if(flag) {
+                if(!flag) {
                         tr.set_train_from(buf_);
                         break;
                 }
@@ -365,7 +364,6 @@ void Core::changeTrain() { //Change of direction by number of direction
                 string buf_;
                 bool flag = true;
                 cout << "Kuda edet: " << endl;
-		cin.get();
                 getline(cin,buf_);
                 cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -373,7 +371,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                                 flag = false;
                         }
                 }
-                if(flag) {
+                if(!flag) {
                         tr.set_train_to(buf_);
                         break;
                 }
@@ -550,14 +548,13 @@ void Core::searchTrainNumber() {
 }
 
 void Core::searchTrainPoint() {
+	cin.get();
         cout << "Enter the point from: " << endl;
         string bufFrom;
-	cin.get();
         getline(cin,bufFrom);
         cout << endl;
         cout << "Enter the point to: " << endl;
         string bufTo;
-	cin.get();
         getline(cin,bufTo);
         cout << endl;
 

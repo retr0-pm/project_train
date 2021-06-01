@@ -226,8 +226,8 @@ public:
 		in>>t.speed;
 		string bufs;
 		getline(in,bufs);
-		getline(in,t.from,'\n');
-		getline(in,t.to,'\n');
+		getline(in,t.from);
+		getline(in,t.to);
 		in>>t.distance;
 		int a,b,c;
 		in >> a >> b >> c;

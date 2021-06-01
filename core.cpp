@@ -143,7 +143,7 @@ void Core::fArrTrain(){
 	f.open(fTrain,ios::in);
 	for (int i = 0; i < sizeT; i++) {
 		f >> arrTrain[i];
-		f.get();
+		//f.get();
 	}
 	f.close();
 } //zanesenie iz faila v massiv reisov
