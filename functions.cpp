@@ -8,17 +8,15 @@
 using namespace std;
 
 void Core::checkTime() {
-	cout << "Global Time: " << gt.get_d() << gt.get_h() << gt.get_m() << endl;
+	cout << "Global Time: " << gt.get_d() << ":" << gt.get_h() << ":" << gt.get_m() << endl;
 }
 
 void Core::rewindTime() {
 	int _d, _h, _m;
 	Time shift;
 	cout << "Please enter time that you want to rewind:" << endl;
-
 	cout << "Days: ";
 	cin >> _d;
-	cout << endl;
 	shift.set_d(_d);
 
 	while(true) {
@@ -30,7 +28,7 @@ void Core::rewindTime() {
 			cout << endl;
 		}
 		else {
-			cout << "Incorrect value, please try again";
+			cout << "Incorrect value, please try again" << endl;
 		}
 	}
 
@@ -53,8 +51,11 @@ void Core::rewindTime() {
 	f << gt;
 	f.close();
 
+	if(sizeP < 1) {
+		return;
+	}
 	f.open(fPassenger);
-	for(int i = 0; i < sizeC; i++) {
+	for(int i = 0; i < sizeP; i++) {
 		Time buf_time_ot;
 		Time buf_time_prib;
 		buf_time_prib = arrPassenger[i].get_time_prib();
