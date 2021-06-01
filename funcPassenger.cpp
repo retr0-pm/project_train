@@ -165,12 +165,12 @@ void Core::outputPassenger() {
 		return;
 	}
 
-	for(int i = 0; i < sizeP; ) {
+	for(int i = 0; i < sizeP; i++ ) {
 		arrPassenger[i].outPassenger();
 	}
 }
 
-void Core::searchPassengerName() {
+/*void Core::searchPassengerName() {
         if(sizeP < 1) {
                 cout << "Pusto" << endl;
                 return;
@@ -184,7 +184,7 @@ void Core::searchPassengerTrain() {
                 return;
         }
 
-}
+}*/
 
 
 
