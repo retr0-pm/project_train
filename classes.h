@@ -37,11 +37,11 @@ public:
 
 	friend Time operator-(const Time &t1, const Time &t2) {
 		if(((t1.d- t2.d)*1440 + (t1.h-t2.h)*60 +(t1.m-t2.m)) > 0) {
-			Time result(((t1.d-t2.d)*1440 + (t1.h-t2.h)*60 +(t1.m-t2.m)) / 1440,((t1.h-t2.h)*60+(t1.m-t2.m))/60,((t1.m-t2.m) %60));
+			Time result(((t1.d-t2.d)*1440 + (t1.h-t2.h)*60 +(t1.m-t2.m)) / 1440,((((t1.h-t2.h)*60+(t1.m-t2.m))/60)%24),((t1.m-t2.m) %60));
 			return result;
 		}
 		else {
-			Time result(((t2.d-t1.d)*1440 + (t2.h-t1.h)*60 +(t2.m-t1.m)) / 1440,((t2.h-t1.h)*60+(t2.m-t1.m))/60,((t2.m-t1.m) %60));
+			Time result(((t2.d-t1.d)*1440 + (t2.h-t1.h)*60 +(t2.m-t1.m)) / 1440,((((t2.h-t1.h)*60+(t2.m-t1.m))/60)%24),((t2.m-t1.m) %60));
 			return result;
 		}
 	}
