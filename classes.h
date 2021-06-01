@@ -47,7 +47,11 @@ public:
 	}
 
 	friend ostream &operator<<(ostream &out, const Time &k) {
-		out << k.d << k.h << k.m;
+		out << k.d;
+		out << " ";
+		out << k.h;
+		out << " ";
+		out << k.m;
 		return out;
 	}
 
@@ -200,8 +204,8 @@ public:
 
 		out<<t.number<<"\n";
 		out<<t.speed<<"\n";
-		out<<t.from<<"\n";
-		out<<t.to<<"\n";
+		out<<t.from;
+		out<<t.to;
 		out<<t.distance<<"\n";
 		out<<t.t_otb<<"\n";
 		out<<t.t_prib<<"\n";
@@ -220,8 +224,10 @@ public:
 
 		in>>t.number;
 		in>>t.speed;
-		getline(in,t.from);
-		getline(in,t.to);
+		string bufs;
+		getline(in,bufs);
+		getline(in,t.from,'\n');
+		getline(in,t.to,'\n');
 		in>>t.distance;
 		int a,b,c;
 		in >> a >> b >> c;

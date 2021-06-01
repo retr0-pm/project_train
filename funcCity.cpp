@@ -156,7 +156,6 @@ void Core::changeCity() {
                 string buff;
 		//cin.get(); //fix
                 getline(cin,buff);
-		cout << buff << endl;//proverka
 		if(buff != buf_) {
                 	for(int i = 0; i < sizeC; i++) {
                         	if(arrCity[i].get_city_name() == buff) {
