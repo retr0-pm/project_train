@@ -8,18 +8,18 @@ using namespace std;
 void Core::addTrain() {
 
 	if(sizeC < 2) {
-		cout << "Not enought points" << endl;
+		cout << "Недостаточное количество пунктов" << endl;
 		return;
 	}
 
 	Train tr;
 
-	cout << "Enter info about this route:" << endl;
+	cout << "Введите информацию об этом рейсе: " << endl;
 
 	while(true){
 		int buf_;
 		bool flag = true;
-		cout << "Number of the route: ";
+		cout << "Номер рейса: ";
 		cin >> buf_;
 		cout << endl;
 		for(int i = 0; i < sizeT; i++) {
@@ -32,13 +32,13 @@ void Core::addTrain() {
 			break;
 		}
 		else {
-			cout << "This number already exist. Please try again" << endl;
+			cout << "Этот номер уже существует. Пожалуйста, попробуйте еще раз." << endl;
 		}
 	}
 
         while(true){
                 float buf_;
-                cout << "Speed: ";
+                cout << "Скорость: ";
                 cin >> buf_;
 		cout << endl;
                 if(buf_ > 0) {
@@ -46,7 +46,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "The speed must be over than 0" << endl;
+                        cout << "Скорость должна быть больше нуля" << endl;
                 }
         }
 
@@ -54,7 +54,7 @@ void Core::addTrain() {
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Sending point: " << endl;
+                cout << "Пункт отправления: " << endl;
                 getline(cin,buf_);
                 for(int i = 0; i < sizeC; i++) {
                         if(buf_ == arrCity[i].get_city_name()){
@@ -66,14 +66,14 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "This point doesn't exist. Please try again" << endl;
+                        cout << "Эта точка не существует. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Kuda edet: " << endl;
+                cout << "Пункт прибытия: " << endl;
                 getline(cin,buf_);
                 for(int i = 0; i < sizeC; i++) {
                         if(buf_ == arrCity[i].get_city_name()){
@@ -85,31 +85,31 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "This point doesn't exist. Please try again" << endl;
+                        cout << "Эта точка не существует. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
 	int buf_h, buf_m;
         while(true) {
-		cout << "Departure Hour: ";
+		cout << "Время отправления (часы): ";
 		cin >> buf_h;
 		cout << endl;
 		if((buf_h < 24) && (buf_h >= 0)) {
 			break;
 		}
 		else {
-			cout << "Incorrect input. Please try again" << endl;
+			cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
 		}
 	}
 	while(true) {
-		cout << "Departure Minute: ";
+		cout << "Время отправления (минуты): ";
 		cin >> buf_m;
 		cout << endl;
                 if((buf_m < 60) && (buf_m >= 0)) {
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
 	}
 
@@ -131,7 +131,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
 	}
 
@@ -145,7 +145,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -159,7 +159,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -173,7 +173,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -187,7 +187,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -201,7 +201,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -390,7 +390,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 			break;
 		}
 		else {
-			cout << "Incorrect input. Please try again" << endl;
+			cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
 		}
 	}
 
@@ -402,7 +402,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
 	}
 
@@ -423,7 +423,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
 	}
 
@@ -437,7 +437,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -451,7 +451,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -465,7 +465,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -479,7 +479,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -493,7 +493,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Incorrect input. Please try again" << endl;
+                        cout << "Ввод некорректен. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 

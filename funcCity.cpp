@@ -219,11 +219,11 @@ void Core::changeCity() {
 
 void Core::outputCity() {
 	if(sizeC < 1) {
-		cout << "The list of points is empty" << endl;
+		cout << "Список пунктов пуст" << endl;
 		return;
 	}
 
-	cout << "The list of points: " << endl;
+	cout << "Список пунктов: " << endl;
 	for(int i = 0; i < sizeC; i++) {
 		arrCity[i].outCity();
 	}
@@ -233,11 +233,11 @@ void Core::outputCity() {
 
 void Core::searchCity() {
 	if(sizeC < 1) {
-		cout << "The list of points is empty" << endl;
+		cout << "Список пунктов пуст" << endl;
 		return;
 	}
 
-	cout << "Enter the name of the point:" << endl;
+	cout << "Введите названия пункта:" << endl;
 	string buf_;
 	bool flag_ = false;
 	cin.get(); // fix
@@ -251,7 +251,7 @@ void Core::searchCity() {
 		}
 	}
 	if(!flag_) {
-		cout << "The point with this name doesn't exist" << endl;
+		cout << "Пункта с таким названием не найдено" << endl;
 	}
 
 	return;

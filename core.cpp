@@ -9,7 +9,7 @@ void Core::searchPassenger(){
 	if(sizeP == 0){cout<<"База данных о пассажирах пуста"<<endl; return;}
 	int a;
 	cout<<"1 - поиск по имени. 2 - поиск по номеру рейса. 0 - back" << endl;
-	cout << "Vash vibor: ";
+	cout << "Ваш выбор: ";
 	cin>>a;
 	cout << endl;
 	int s = 0;
