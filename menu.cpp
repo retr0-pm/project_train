@@ -26,24 +26,24 @@ void Menu::Start(Core &obj) {
 		int swp = -1;
 		switch(sw) {
 		case 0:
-			cout << "Eto Project Train" << endl;
-			cout << "Viberite svoe deystvie:" << endl;
-			cout << "0. Prosmotret instruciyu escho raz" << endl;
-			cout << "1. Rabota s BD punktami" << endl;
-			cout << "2. Rabota s BD reisov" << endl;
-			cout << "3. Rabota s BD passagirov" << endl;
-			cout << "4. Vremya" << endl;
-			cout << "5. Vihod" << endl;
+			cout << "Добро пожаловать." << endl;
+			cout << "Выберите действие:" << endl;
+			cout << "0. Посмотреть инструкцию еще раз" << endl;
+			cout << "1. Работа с базой данных городов" << endl;
+			cout << "2. Работа с базой данных рейсов" << endl;
+			cout << "3. Работа с базой данных пассажиров" << endl;
+			cout << "4. Время" << endl;
+			cout << "5. Выход" << endl;
 			break;
 		case 1:
-			cout << "Viberite deystvie iz predlozhennih:" << endl;
-			cout << "1. Dobavit punkt" << endl;
-                        cout << "2. Udalit punkt" << endl;
-                        cout << "3. Redaktirovat punkt" << endl;
-                        cout << "4. prosmotret vse" << endl;
-                        cout << "5. Nayti po nazaniyu" << endl;
-                        cout << "0. nazad" << endl;
-                        cout << "Vash vibor: ";
+			cout << "Выберите действие:" << endl;
+			cout << "1. Добавть город" << endl;
+                        cout << "2. Удалить город" << endl;
+                        cout << "3. Редактировать город" << endl;
+                        cout << "4. Вывести базу данных городов" << endl;
+                        cout << "5. Поиск городапо названию" << endl;
+                        cout << "0. назад" << endl;
+                        cout << "Ваш выбор: ";
 			cin >> swp;
 			cout << endl;
 			switch(swp) {
@@ -125,15 +125,15 @@ void Menu::Start(Core &obj) {
 
 			break;
 		case 2:
-			cout << "Viberite deystvie iz predlozhennih:" << endl;
-			cout << "1. Dobavit reis" << endl;
-                        cout << "2. Udalit reis" << endl;
-                        cout << "3. Redaktirovat reis" << endl;
-                        cout << "4. prosmotret vse" << endl;
-                        cout << "5. Nayti po nomeru" << endl;
-			cout << "6. Nayti po gorodam" << endl;
-                        cout << "0. nazad" << endl;
-                        cout << "Vash vibor: ";
+			cout << "Выберите действие::" << endl;
+			cout << "1. Добавить рейс" << endl;
+                        cout << "2. Удалить рейс" << endl;
+                        cout << "3. Редактировать рейс" << endl;
+                        cout << "4. Вывести базу данных городов" << endl;
+                        cout << "5. Поиск рейса по номеру" << endl;
+			cout << "6. Поиск оейса по городам" << endl;
+                        cout << "0. Назад" << endl;
+                        cout << "Ваш выбор: ";
 			cin >> swp;
 			cout << endl;
 			switch(swp) {
@@ -229,13 +229,13 @@ void Menu::Start(Core &obj) {
 			}
 			break;
 		case 3:
-                        cout << "Viberite deystvie iz predlozhennih:" << endl;
-                        cout << "1. Dobavit passagira" << endl;
-                        cout << "2. Udalit passagira" << endl;
-                        cout << "3. prosmotret vseh" << endl;
-                        cout << "4. Nayti passagira" << endl;
-                        cout << "0. nazad" << endl;
-                        cout << "Vash vibor: ";
+                        cout << "Выберите действие::" << endl;
+                        cout << "1. Добавить пассажира" << endl;
+                        cout << "2. Удалить пассажира" << endl;
+                        cout << "3. Вывести базу данных пассажиров" << endl;
+                        cout << "4. Найти пассажира" << endl;
+                        cout << "0. Назад" << endl;
+                        cout << "Ваш выбор: ";
                         cin >> swp;
                         cout << endl;
 			switch(swp) {
@@ -302,11 +302,11 @@ void Menu::Start(Core &obj) {
 			}
 			break;
 		case 4:
-			cout << "Viberite deystvie:" << endl;
-			cout << "1. Prosmotret tekushee vremya" << endl;
-                        cout << "2. Peremotat vremya" << endl;
-                        cout << "0. Nazad" << endl;
-			cout << "Vash vibor: ";
+			cout << "Выберите действие::" << endl;
+			cout << "1. осмотреть текущее время" << endl;
+                        cout << "2. Перемотка времени" << endl;
+                        cout << "0. Назад" << endl;
+			cout << "Ваш выбор: ";
 			cin >> swp;
 			cout << endl;
 			switch(swp) {
@@ -330,7 +330,7 @@ void Menu::Start(Core &obj) {
 			fl = true;
 			break;
 		default:
-			cout << "Takogo deystviya ne sushestvuet. Vvedite 0 chtobi posmotret insrukciyu" << endl;
+			cout << "Такого действия не существует. Ведите 0 чтобы зосмотреть инструкцию" << endl;
 			break;
 		}
 
@@ -338,7 +338,7 @@ void Menu::Start(Core &obj) {
                         break;
                 }
 
-		cout << "Pojaluysta, viberite deystvie (instucia - 0): ";
+		cout << "Выберите действие (инструкция - 0): ";
 		cin >> sw;
 		cout << endl;
 	}
