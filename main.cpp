@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-	if(argc != 4) {
+	if(argc != 5) {
 		cout << "Please enter four arguments:" << endl;
 		cout << "1 - BD punktov" << endl;
 		cout << "2 - BD reisov" << endl;
