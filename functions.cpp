@@ -104,6 +104,7 @@ Train Core::calcTime(Train &t) {
 	//calculation t_prib
 	_t_prib = t.get_time_otb() + _t_puti;
 	_t_prib.set_d(0);
+	_t_prib.set_h(_t_prib.get_h() % 24);
 	t.set_time_prib(_t_prib);
 
 	return t;

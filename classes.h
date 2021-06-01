@@ -204,8 +204,8 @@ public:
 
 		out<<t.number<<"\n";
 		out<<t.speed<<"\n";
-		out<<t.from;
-		out<<t.to;
+		out<<t.from << "\n";
+		out<<t.to << "\n";
 		out<<t.distance<<"\n";
 		out<<t.t_otb<<"\n";
 		out<<t.t_prib<<"\n";
