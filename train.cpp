@@ -6,18 +6,18 @@
 using namespace std;
 
 void Train::outTrain() {
-cout << "Number of the direction: " << number;
-cout << ", Speed: " << speed;
-cout << ", From: " << from;
-cout << ", To: " << to;
-cout << ", Distance: " << distance;
-cout << ", Sending time: " << t_otb;
-cout << ", Arrival time: " << t_prib;
-cout << ", Travel time: " << t_puti;
-cout << ", Kupe capacity: " << capacity_kupe;
-cout << ", Plackart capacity: " << capacity_plackart;
-cout << ", Number of cars kupe: " << vagoni_kupe;
-cout << ", Number of cars plackart: " << vagoni_plackart;
-cout << ", Kupe cost: " << cost_kupe;
-cout << ", Plackart cost: " << cost_plackart << endl;
+cout << "Номер рейса: " << number<<"\n";
+cout << "Скорость: " << speed<<"\n";
+cout << "Пункт отбытия: " << from<<"\n";
+cout << "Пунк прибытия: " << to<<"\n";
+cout << "Растояние: " << distance<<"\n";
+cout << "Время отбытия: " << t_otb<<"\n";
+cout << "Время прибытия: " << t_prib<<"\n";
+cout << "Время в пути: " << t_puti<<"\n";
+cout << "Вместимость купе: " << capacity_kupe<<"\n";
+cout << "Вместимость плацкарта: " << capacity_plackart<<"\n";
+cout << "Количество вагонов купе: " << vagoni_kupe<<"\n";
+cout << "Количество вагонов плацкарт: " << vagoni_plackart<<"\n";
+cout << "Стоимоть купе: " << cost_kupe<<"\n";
+cout << "Стоимоть плацкарта: " << cost_plackart << endl<<"\n";
 }
