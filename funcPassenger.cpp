@@ -8,7 +8,7 @@ using namespace std;
 void Core::addPassenger() {
 	if(sizeT < 1) {
 		cout << "Net marshrutov" << endl;
-		break;
+		return;
 	}
 
 	Passenger bufP;
@@ -76,14 +76,13 @@ void Core::addPassenger() {
 	int buf_n_p = 0;
 	int buf_v_k = 0;
 	int buf_v_p = 0;
-	for(int i = 0; i < sizeTrain; i++) {
+	for(int i = 0; i < sizeT; i++) {
 		if(arrTrain[i].get_train_number() == bufP.get_train_number()) {
 			buf_v_k = arrTrain[i].get_capacity_kupe();
-			buf_n_k = arrTraint[i].get_train_vagoni_kupe();
+			buf_n_k = arrTrain[i].get_train_vagoni_kupe();
 			buf_v_p = arrTrain[i].get_capacity_plackart();
 			buf_n_p = arrTrain[i].get_train_vagoni_plackart();
 			break;
-			}
 		}
 	}
 
@@ -115,8 +114,8 @@ void Core::addPassenger() {
 		}
 	}
 
-	ifstream f;
-	fopen(fPassenger);
+	ofstream f;
+	f.open(fPassenger);
 	for(int i = 0; i < sizeP; i++) {
 		f << arrTrain[i];
 	}
@@ -131,7 +130,7 @@ void Core::removePassenger() {
 	}
 
 	string bufname;
-	while(True) {
+	while(true) {
 		cout << "Imya kogo udalit:";
 		getline(cin,bufname);
 		cout << endl;
@@ -149,10 +148,10 @@ void Core::removePassenger() {
 		}
 	}
 
-	ifstream f;
-	fopen(fPassenger);
+	ofstream f;
+	f.open(fPassenger);
 	for(int i = 0; i < sizeP; i++) {
-		if(arrPassenger[i].get_name() != bufname;) {
+		if(arrPassenger[i].get_name() != bufname) {
 			f << arrPassenger[i];
 		}
 	}

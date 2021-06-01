@@ -1,4 +1,4 @@
-all: main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o fucnPassenger.o
+all: main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o funcPassenger.o
 	g++ main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o funcPassenger.o -o Project_Train
 
 main.o: main.cpp

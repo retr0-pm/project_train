@@ -1,5 +1,7 @@
 #include <iostream>
-#include "core.h"
+#include <fstream>
+#include <string>
+#include "menu.h"
 
 using namespace std;
 
@@ -97,7 +99,7 @@ void Menu::Start(Core &obj) {
                                         obj.fArrTrain();
                                         obj.fArrPassenger();
                                         obj.getGT();
-					obj.ouputCity();
+					obj.outputCity();
                                         obj.clArrCity();
                                         obj.clArrTrain();
                                         obj.clArrPassenger();
@@ -129,7 +131,7 @@ void Menu::Start(Core &obj) {
                         cout << "3. Redaktirovat reis" << endl;
                         cout << "4. prosmotret vse" << endl;
                         cout << "5. Nayti po nomeru" << endl;
-			cout < "6. Nayti po gorodam" << endl;
+			cout << "6. Nayti po gorodam" << endl;
                         cout << "0. nazad" << endl;
                         cout << "Vash vibor: ";
 			cin >> swp;
@@ -187,7 +189,7 @@ void Menu::Start(Core &obj) {
                                         obj.fArrTrain();
                                         obj.fArrPassenger();
                                         obj.getGT();
-					obj.ouputTrain();
+					obj.outputTrain();
                                         obj.clArrCity();
                                         obj.clArrTrain();
                                         obj.clArrPassenger();
@@ -275,7 +277,7 @@ void Menu::Start(Core &obj) {
                                         obj.fArrTrain();
                                         obj.fArrPassenger();
                                         obj.getGT();
-					obj.ouputPassenger();
+					obj.outputPassenger();
                                         obj.clArrCity();
                                         obj.clArrTrain();
                                         obj.clArrPassenger();
