@@ -317,6 +317,7 @@ void Menu::Start(Core &obj) {
 					obj.checkTime();
 					break;
 				case 2:
+					obj.sizePassenger();
 					obj.getGT();
 					obj.rewindTime();
 					obj.getGT();
