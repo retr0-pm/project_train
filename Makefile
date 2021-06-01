@@ -1,5 +1,5 @@
-all: main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o
-	g++ main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o -o Project_Train
+all: main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o fucnPassenger.o
+	g++ main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o funcPassenger.o -o Project_Train
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -30,6 +30,9 @@ time.o: time.cpp
 
 train.o: train.cpp
 	g++ -c train.cpp
+
+funcPassenger.o: funcPassenger.cpp
+	g++ -c funcPassenger.cpp
 
 clean:
 	rm -rf *.o Project_Train

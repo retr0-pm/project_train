@@ -188,7 +188,7 @@ void Core::addPassenger(){
 
 int Core::calcNumber(Passenger &b) {
 	for(int i = 0; i < sizeT; i++) {
-		if ((arrTrain[i].get_train_city_to() == b.get_city_to() && (arrTrain[i].get_train_city_from() == b.get_city_from())) {
+		if ((arrTrain[i].get_train_city_to() == b.get_city_to()) && (arrTrain[i].get_train_city_from() == b.get_city_from())) {
 			b.train_number() = arrTraint.get_number();
 			return 1;
 		}

@@ -44,7 +44,7 @@ friend ostream &operator<<(ostream &out, const Time &k) {
 	return out;
 }
 
-friend istream &operator>>(ifstream &in, Time &k) {
+friend istream &operator>>(istream &in, Time &k) {
 
 	in >> k.d >> k.h >> k.m;
 
