@@ -119,7 +119,7 @@ void Core::addPassenger() {
 	ofstream f;
 	f.open(fPassenger);
 	for(int i = 0; i < sizeP; i++) {
-		f << arrTrain[i];
+		f << arrPassenger[i];
 	}
 	f << bufP;
 	f.close();
