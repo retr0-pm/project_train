@@ -7,21 +7,21 @@ using namespace std;
 
 void Core::addPassenger() {
 	if(sizeT < 1) {
-		cout << "Net marshrutov" << endl;
+		cout << "Нет рейсов" << endl;
 		return;
 	}
 
 	Passenger bufP;
 
 	string bufname;
-	cout << "Enter the passenger name: " << endl;
+	cout << "Введите имя: " << endl;
 	cin.get();
 	getline(cin, bufname);
 	bufP.set_name(bufname);
 
 	while(true) {
 		int bufage;
-		cout << "Enter age: ";
+		cout << "Ведите возраст: ";
 		cin >> bufage;
 		cout << endl;
 		if(bufage >= 0) {
@@ -29,7 +29,7 @@ void Core::addPassenger() {
 			break;
 		}
 		else {
-			cout << "Age must be 0 or over 0" << endl;
+			cout << "Возораст должен быть больше 0" << endl;
 		}
 	}
 
@@ -37,10 +37,10 @@ void Core::addPassenger() {
 	string bufB;
 	cin.get();
 	while(true) {
-		cout << "From: " << endl;
+		cout << "Откуда: " << endl;
 		getline(cin, bufA);
 		cout << endl;
-		cout << "To: " << endl;
+		cout << "Куда: " << endl;
 		getline(cin, bufB);
 		cout << endl;
 		bool prov = false;
@@ -60,13 +60,13 @@ void Core::addPassenger() {
 			break;
 		}
 		else {
-			cout << "This route doesn't exist" << endl;
+			cout << "Такого рейса не существует" << endl;
 		}
 	}
 
 	while(true) {
 		int bufspot;
-		cout << "Enter the spot, 0 - kupe, 1 - plackart: ";
+		cout << "Выберете тип места, 0 - купе, 1 - плацкарт: ";
 		cin >> bufspot;
 		if((bufspot == 0) || (bufspot == 1)) {
 			bufP.set_spot(bufspot);
@@ -101,7 +101,7 @@ void Core::addPassenger() {
 			bufP.set_n_vagona(sch/buf_v_k + 1);
 		}
 		else {
-			cout << "Nedostatochno mest" << endl;
+			cout << "Все места заняты" << endl;
 			return;
 		}
 	}
@@ -111,7 +111,7 @@ void Core::addPassenger() {
                         bufP.set_n_vagona(sch/buf_v_p + buf_n_k + 1);
 		}
 		else {
-			cout << "Nedostatochno mest" << endl;
+			cout << "Все места заняты" << endl;
 			return;
 		}
 	}
@@ -127,14 +127,14 @@ void Core::addPassenger() {
 
 void Core::removePassenger() {
 	if(sizeP < 1) {
-		cout << "Nekogo udalat" << endl;
+		cout << "База данных пассажиров пуста" << endl;
 		return;
 	}
 
 	string bufname;
 	cin.get();
 	while(true) {
-		cout << "Imya kogo udalit:" << endl;
+		cout << "Введите имя:" << endl;
 		getline(cin,bufname);
 		cout << endl;
 		bool proverka = true;
@@ -147,7 +147,7 @@ void Core::removePassenger() {
 		}
 
 		if(proverka) {
-			cout << "Net takogo cheloveka. Poprobuyte esche raz" << endl;
+			cout << "Такого человека нет в базе данных. Попробуйте еще раз." << endl;
 		}
 	}
 
@@ -163,7 +163,7 @@ void Core::removePassenger() {
 
 void Core::outputPassenger() {
 	if(sizeP < 1) {
-		cout << "Pusto" << endl;
+		cout << "База данный пассажиров пуста" << endl;
 		return;
 	}
 

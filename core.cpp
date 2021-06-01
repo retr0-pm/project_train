@@ -18,7 +18,7 @@ void Core::searchPassenger(){
 	switch(a) {
 		case 1:
 		//	string buf1_;
-			cout<<"введие имя: " << endl;
+			cout<<"Введиnе имя: " << endl;
 			cin.get();
 			getline(cin,buf1_);
 			cout << endl;
@@ -37,7 +37,7 @@ void Core::searchPassenger(){
 			break;
 		case 2:
 		//	int buf1_;
-			cout<<"введие номер:";
+			cout<<"Введите номер:";
 			cin >> buf11_;
 			cout << endl;
 		//	int s = 0;

@@ -8,19 +8,19 @@
 using namespace std;
 
 void Core::checkTime() {
-	cout << "Global Time: " << gt.get_d() << ":" << gt.get_h() << ":" << gt.get_m() << endl;
+	cout << "Глобальное время: " << gt.get_d() << ":" << gt.get_h() << ":" << gt.get_m() << endl;
 }
 
 void Core::rewindTime() {
 	int _d, _h, _m;
 	Time shift;
-	cout << "Please enter time that you want to rewind:" << endl;
-	cout << "Days: ";
+	cout << "Введите время на которое хотите перемотать:" << endl;
+	cout << "Дни: ";
 	cin >> _d;
 	shift.set_d(_d);
 
 	while(true) {
-		cout << "Hours: ";
+		cout << "Часы: ";
 		cin >> _h;
 		if ((_h < 24) && (_h >= 0)) {
 			shift.set_h(_h);
@@ -28,12 +28,12 @@ void Core::rewindTime() {
 			cout << endl;
 		}
 		else {
-			cout << "Incorrect value, please try again" << endl;
+			cout << "Переданно неверное значение" << endl;
 		}
 	}
 
         while(true) {
-                cout << "Minutes: ";
+                cout << "Минуты: ";
                 cin >> _m;
                 if ((_m < 60) && (_m >= 0)) {
                         shift.set_m(_m);
@@ -41,7 +41,7 @@ void Core::rewindTime() {
                         cout << endl;
                 }
                 else {
-                        cout << "Incorrect value, please try again" << endl;
+                        cout << "Переданно неверное значение" << endl;
                 }
         }
 
