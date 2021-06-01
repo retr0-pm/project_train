@@ -35,13 +35,12 @@ void Core::addPassenger() {
 
 	string bufA;
 	string bufB;
+	cin.get();
 	while(true) {
 		cout << "From: " << endl;
-		cin.get();
 		getline(cin, bufA);
 		cout << endl;
 		cout << "To: " << endl;
-		cin.get();
 		getline(cin, bufB);
 		cout << endl;
 		bool prov = false;
@@ -133,9 +132,9 @@ void Core::removePassenger() {
 	}
 
 	string bufname;
+	cin.get();
 	while(true) {
 		cout << "Imya kogo udalit:" << endl;
-		cin.get();
 		getline(cin,bufname);
 		cout << endl;
 		bool proverka = true;
@@ -172,40 +171,6 @@ void Core::outputPassenger() {
 		arrPassenger[i].outPassenger();
 	}
 }
-
-/*void Core::searchPassengerName() {
-        if(sizeP < 1) {
-                cout << "Pusto" << endl;
-                return;
-	}
-
-}
-
-void Core::searchPassengerTrain() {
-        if(sizeP < 1) {
-                cout << "Pusto" << endl;
-                return;
-        }
-
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
