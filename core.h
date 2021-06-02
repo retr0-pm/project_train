@@ -5,46 +5,87 @@
 
 using namespace std;
 
+/**
+	\brief Основной класс.
+	Класс работающий с массивами объектов других классов.
+*/
 class Core {
 private:
-char *fCity;  //Названия файла БД gorodov
-char *fTrain;  //Названия файла БД reisov
-char *fPassenger;  //Названия файла БД passagirov
-char *fTime; // Nazvanie faila Globalnogo vremeni
-City *arrCity; //Массив, связанный с БД городов
-Train *arrTrain; //Массив, связанный с БД рейсов
-Passenger *arrPassenger;  //Массив, связанный с БД пассажиров
-int sizeT; // Кол-во объектов типа Train
-int sizeC; // Кол-во объектов типа City
-int sizeP; // Кол-во объектов типа Passenger
-Time gt; //Global Time - globalnoe vremya
+char *fCity; 
+char *fTrain;
+char *fPassenger; 
+char *fTime;
+City *arrCity;
+Train *arrTrain;
+Passenger *arrPassenger;
+int sizeT;
+int sizeC;
+int sizeP;
+Time gt;
 public:
 
 Core (char *_fCity, char *_fTrain, char *_fPassenger, char *_fTime);
-
+/**
+	\brief Проверяет открылсь ли файлы.
+	Проверяет открылись ли файлы, проверяет является ли файл содержащий время пустым, если да то вписывает туда  строчку "0 0 0".
+*/
 bool isitokay();
 
-void sizeCity(); //Opredelenie razmera massiva gorodov
-void sizeTrain(); //Opredelenie razmera massiva reisov
-void sizePassenger(); //Opredelenie razmera massiva passagirov
+/**
+	\brief Определяет размер массива пунктов. 
+*/
+void sizeCity();
+/**
+	\brief Определяет размер массива рейсов. 
+*/
+void sizeTrain();
+/**
+	\brief Определяет размер массива пассажиров. 
+*/
+void sizePassenger(); 
 
-void fArrCity(); //zanesenie iz faila v massiv gorodov
-void fArrTrain(); //zanesenie iz faila v massiv reisov
-void fArrPassenger(); //zanesenie iz faila v massiv passagirov
-void getGT(); //zanesenie iz faila globalnogo vremeni
+/**
+	\brief Занесение БД пунктов из файла в массив пунктов.
+*/
+void fArrCity();
+/**
+	\brief Занесение БД рейсов из файла в массив рейсов.
+*/
+void fArrTrain(); 
+/**
+	\brief Занесение БД пассажиров из файла в массив пассажиров.
+*/
+void fArrPassenger(); 
+/**
+	\brief Заносит из файла в переменную глобальное временя.
+*/
+void getGT(); 
 
-void clArrCity(); //ochistka pamyati massiva gorodov
-void clArrTrain(); //ochistka pamyati massiva reisov
-void clArrPassenger(); //ochistka pamyati massiva passagirov
+/**
+	\brief Отчистка массива городов.
+*/
+void clArrCity();
+/**
+	\brief Отчистка массива рейсов.
+*/
+void clArrTrain();
+/**
+	\brief Отчистка массива пассажиров.
+*/
+void clArrPassenger();
 
-//Train
-void addTrain(); //Dobavit'
-void removeTrain(); //Udalit'
-void changeTrain(); // Izmenit'
-void outputTrain(); // Vivesti polniy spisok
-void searchTrainNumber(); // Poisk reisa po nomeru
-void searchTrainPoint(); // Poisk reias po gorodam
 
+void addTrain();
+void removeTrain();
+void changeTrain();
+void outputTrain();
+void searchTrainNumber();
+void searchTrainPoint();
+
+/**
+	\brief Заполнает поля обекта класcа Train.
+	Заолняет поля которые дожны вычислятся автоматически.
+*/
 Train calcTime(Train &t); // Calulation distance, t_puti, t_prib
 
 //Passenger
@@ -54,20 +95,35 @@ void changePassenger();
 void outputPassenger();
 void searchPassenger();
 
-int calcNumber(Passenger &b); // Vichislenie nomera reisa po dvum gorodam
-void calcPosition(Passenger &t); // Vishislenie tekushey koordinati
-int calcMesta(Passenger &t); // Vichislenie nomera vagona i mesta v nem
+/**
+	\brief  Определяет номер рейса по 2-м городам.
+*/
+int calcNumber(Passenger &b);
+/**
+	\brief Вычисляет текущую координату.
+*/
+void calcPosition(Passenger &t);
+/**
+	\brief Вычисляет номер вагона в составе и номер места в вагоне. 
+*/
+int calcMesta(Passenger &t);
 
-//City
+
 void addCity();
 void removeCity();
 void changeCity();
 void outputCity();
 void searchCity();
 
-//Time
-void checkTime(); // Vivod tekushego vremeni
-void rewindTime(); // Smehenie tekushego vremeni
+
+void checkTime();
+void rewindTime();
+/**
+	\brief переводит время из формата Time в минуты.
+*/
 int TtoM(Time t);
+/**
+	\brief переводит время из минут в формат Time.
+*/
 Time MtoT(int t);
 };

@@ -62,11 +62,14 @@ public:
 	}
 };
 
+/**
+	\brief Класс описывающий пункт.
+*/
 class City {
 private:
-	string city_name; //название города
-	float city_x; //кооридната по оси ox этого города
-	float city_y; //кооридната по оси oy этого города
+	string city_name;
+	float city_x;
+	float city_y;
 
 public:
 	string get_city_name(){return city_name;}
@@ -76,6 +79,10 @@ public:
 	void set_city_name(string n){city_name = n;}
 	void set_coordinates(float a, float b){city_x = a;city_y = b;}
 
+
+	/**
+		\brief функция, выводящая на экран информацию об 1-м городе 
+	*/
 	void outCity();
 
 	friend ostream &operator<<(ostream &out, City &t){
@@ -98,19 +105,22 @@ public:
 	}
 };
 
+/**
+	\brief Класс описывает пассажира.	
+*/
 class Passenger{
 private:
-	string name; //
-	int age; // возраст пассажира
-	int train_number; // номер поезда (id маршрута) (*)
-	Time time_ot;//(*)
+	string name;
+	int age;
+	int train_number;
+	Time time_ot;
 	Time time_prib;
-	int spot; //Вид места пассажира, где 0 - купэ, 1 - плацкарт
-	int n_vagona; //номер вагона пассажира (*)
-	int n_mesta; //номер места пассажира в вагоне (*)
-	string city_from; //название города, откуда едет пассажир1
-	string city_to; //название города, в который едет пассажир1
-	int condition;//состояние пассажира 0-ждет, 1-едет, 2-приехал.
+	int spot;
+	int n_vagona;
+	int n_mesta;
+	string city_from;
+	string city_to;
+	int condition;
 public:
 	string get_name(){return name;}
 	int get_train_number(){return train_number;}
@@ -136,6 +146,9 @@ public:
 	void set_city_from(string a){city_from = a;}
 	void set_city_to(string a){city_to = a;}
 
+	/**
+		\brief функция, выводящая на экран иформацию об 1-м пассажире 
+	*/
 	void outPassenger();
 
 	friend ostream& operator<<(ostream &out, Passenger &t){
@@ -177,23 +190,29 @@ public:
 	}
 };
 
+/**
+	\brief Класс, описывающий рейс.
+*/
 class Train {
 private:
-    int number; // номер поезда (id маршрута)
-    float speed; // скорость поезда
-    string from; // город откуда
-    string to; // город куда
-    float distance; // расстояние между городами(*)
-    Time t_otb; // Vremya otbitie
-    Time t_prib; // Vremya pribitya (*)
-    Time t_puti; // Vremya peremeshenya iz A v B (*)
-    int capacity_kupe; // вместительность купе в 1 вагоне
-    int capacity_plackart; // вместительность плацкарта в 1 вагоне
-    int vagoni_plackart; //кол-во вагонов плацкарт
-    int vagoni_kupe;//кол-во вагонов купе
-    int cost_kupe; // цена купе
-    int cost_plackart; // цена плацкарта
+    int number;
+    float speed;
+    string from;
+    string to;
+    float distance;
+    Time t_otb;
+    Time t_prib;
+    Time t_puti; 
+    int capacity_kupe;
+    int capacity_plackart;
+    int vagoni_plackart;
+    int vagoni_kupe;
+    int cost_kupe;
+    int cost_plackart;
 public:
+	/**
+		\brief функция, выводящая информацию об 1-м рейсе 
+	*/
 	void outTrain();
 
 	friend ostream &operator<<(ostream &out, const Train &t){
