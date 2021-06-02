@@ -57,13 +57,13 @@ void Core::searchPassenger(){
 }
 
 void Core::calcPosition(Passenger &t){
-	/*Train buf;
+	Train buf;
 	for(int i=0; i<sizeT; i++){
 		if(arrTrain[i].get_train_number() == t.get_train_number()){
 			buf = arrTrain[i];
 			break;
 		}
-	}*/
+	}
 	City buf1, buf2;
 	for(int i=0; i<sizeC; i++){
 		if(arrCity[i].get_city_name() == buf.get_train_city_from()){
