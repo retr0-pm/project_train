@@ -1,4 +1,5 @@
 #include <string>
+#include<cmath>
 #include <iostream>
 #include <fstream>
 #include "core.h"
@@ -58,37 +59,37 @@ void Core::searchPassenger(){
 			break;
 	}
 }
-/*
+
 void Core::calcPosition(Passenger &t){
 	Train buf;
-	for(i=0; i<sizeT; i++){
+	for(int i=0; i<sizeT; i++){
 		if(arrTrain[i].get_train_number() == t.get_train_number()){
 			buf = arrTrain[i];
 			break;
 		}
 	}
 	City buf1, buf2;
-	for(i=0; i<sizeC; i++){
-		if(arrCity[i].get_city_name() == buf.get_city_from()){
+	for(int i=0; i<sizeC; i++){
+		if(arrCity[i].get_city_name() == buf.get_train_city_from()){
 			buf1 = arrCity[i];
 			break;
 		}
 	}
-	for(i=0; i<sizeC; i++){
-		if(arrCity[i].get_city_name() == buf.get_city_to()){
+	for(int i=0; i<sizeC; i++){
+		if(arrCity[i].get_city_name() == buf.get_train_city_to()){
 			buf2 = arrCity[i];
 			break;
 		}
 	}
 	Time t_in_d = gt-t.get_time_ot();
 	int minuts1 = TtoM(gt);
-	int minuts2 = TtoM(t_in_dTtoM);
-	float m=((minuts1-munuts2)*sqrt((buf2.get_city_x()-buf1.get_city_x())*(buf2.get_city_x()-buf1.get_city_x())+(buf2.get_city_y()-buf1.get_city_y())*(buf2.get_city_y-buf1.get_city_y)))/buf.get_speed();//koeff. for formula
+	int minuts2 = TtoM(t_in_d);
+	float m=((minuts1-minuts2)*sqrt((buf2.get_city_x()-buf1.get_city_x())*(buf2.get_city_x()-buf1.get_city_x())+(buf2.get_city_y()-buf1.get_city_y())*(buf2.get_city_y()-buf1.get_city_y())))/buf.get_train_speed();//koeff. for formula
 	float Xx=(buf1.get_city_x()+m*buf2.get_city_x())/(1+m);//final x of time's moment
 	float Yy=(buf1.get_city_y()+m*buf2.get_city_y())/(1+m);//final y of time's moment
 	cout <<"Координата по х, на данный момент:"<< Xx << endl;
 	cout <<"Координата по у, на данный момент:"<< Yy << endl;
-}*/
+}
 
 void Core::sizeCity(){
 	fstream f;

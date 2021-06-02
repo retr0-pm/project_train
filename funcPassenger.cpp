@@ -171,5 +171,8 @@ void Core::outputPassenger() {
 
 	for(int i = 0; i < sizeP; i++ ) {
 		arrPassenger[i].outPassenger();
+		if(arrPassenger[i].get_spot() == 1){
+			calcPosition(arrPassenger[i]);
+		}
 	}
 }
