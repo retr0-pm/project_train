@@ -23,7 +23,9 @@ int sizeC;
 int sizeP;
 Time gt;
 public:
-
+/**
+	\brief  Конструктор класса Core.
+*/
 Core (char *_fCity, char *_fTrain, char *_fPassenger, char *_fTime);
 /**
 	\brief Проверяет открылсь ли файлы.
@@ -84,11 +86,12 @@ void searchTrainPoint();
 
 /**
 	\brief Заполнает поля обекта класcа Train.
-	Заолняет поля которые дожны вычислятся автоматически.
+	\param t рейс
+	Заполняет поля которые дожны вычислятся автоматически.
 */
-Train calcTime(Train &t); // Calulation distance, t_puti, t_prib
+Train calcTime(Train &t);
 
-//Passenger
+
 void addPassenger();
 void removePassenger();
 void changePassenger();
@@ -97,14 +100,18 @@ void searchPassenger();
 
 /**
 	\brief  Определяет номер рейса по 2-м городам.
+	\param b Пассажир 
+	Определяет номер рейса по городам записанным в обекте класса пасажир. 
 */
 int calcNumber(Passenger &b);
 /**
 	\brief Вычисляет текущую координату.
+	\param t Пассажир 
 */
 void calcPosition(Passenger &t);
 /**
 	\brief Вычисляет номер вагона в составе и номер места в вагоне. 
+	\param t Пассажир
 */
 int calcMesta(Passenger &t);
 
@@ -120,10 +127,12 @@ void checkTime();
 void rewindTime();
 /**
 	\brief переводит время из формата Time в минуты.
+	\param t время
 */
 int TtoM(Time t);
 /**
 	\brief переводит время из минут в формат Time.
+	\param t минуты
 */
 Time MtoT(int t);
 };

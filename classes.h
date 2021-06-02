@@ -4,18 +4,26 @@
 
 using namespace std;
 
+/**
+	\brief Класс времени
+*/
 class Time {
 private:
 	int d;
 	int h;
 	int m;
 public:
+	/**
+		\brief конструктор с параметрами
+	*/
 	Time(int a, int b, int c) {
         	d = a;
         	h = b;
         	m = c;
 	}
-
+	/**
+		\brief конструктор по умолчанию
+	*/
 	Time() {
 		d = 0;
 		m = 0;
@@ -30,11 +38,20 @@ public:
 	void set_h(int _h){h = _h;}
 	void set_m(int _m){m = _m;}
 
+	/**
+		\brief перегрузка оператора сложения
+		\param t1 время
+		\param t2 время
+	*/
 	friend Time operator+(const Time &t1, const Time &t2) {
 		Time result(((t1.d+t2.d)*1440 + (t1.h+t2.h)*60 +(t1.m+t2.m)) /1440,((((t1.h+t2.h)*60+(t1.m+t2.m))/60)%24),((t1.m+t2.m) %60));
 		return result;
 	}
-
+	/**
+		\brief перегрузка оператора вычитания
+		\param t1 время
+		\param t2 время
+	*/
 	friend Time operator-(const Time &t1, const Time &t2) {
 		if(((t1.d- t2.d)*1440 + (t1.h-t2.h)*60 +(t1.m-t2.m)) > 0) {
 			Time result(((t1.d-t2.d)*1440 + (t1.h-t2.h)*60 +(t1.m-t2.m)) / 1440,((((t1.h-t2.h)*60+(t1.m-t2.m))/60)%24),((t1.m-t2.m) %60));
@@ -45,7 +62,11 @@ public:
 			return result;
 		}
 	}
-
+	/**
+		\brief перегрузка оператора вывода
+		\param stream поток
+		\param t  время
+	*/
 	friend ostream &operator<<(ostream &out, const Time &k) {
 		out << k.d;
 		out << " ";
@@ -54,7 +75,11 @@ public:
 		out << k.m;
 		return out;
 	}
-
+	/**
+		\brief перегрузка оператора ввода
+		\param stream поток
+		\param t  время
+	*/
 	friend istream &operator>>(istream &in, Time &k) {
 	in >> k.d >> k.h >> k.m;
 
@@ -84,7 +109,11 @@ public:
 		\brief функция, выводящая на экран информацию об 1-м городе 
 	*/
 	void outCity();
-
+	/**
+		\brief перегруза оператора вывода
+		\param steram поток данных
+		\param	t  пункт
+	*/
 	friend ostream &operator<<(ostream &out, City &t){
 
 		out<<t.city_name<<"\n";
@@ -94,7 +123,11 @@ public:
 		return out;
 
 	}
-
+	/**
+		\brief перегрузки перегрузка ввода
+		\param steram поток данных
+		\param	t  пункт
+	*/
 	friend istream &operator>>(istream &in, City &t){
 
 		getline(in,t.city_name);
@@ -150,7 +183,11 @@ public:
 		\brief функция, выводящая на экран иформацию об 1-м пассажире 
 	*/
 	void outPassenger();
-
+	/**
+		\brief перегрузка оператора вывода
+		\param stream поток
+		\param t  пассажир
+	*/
 	friend ostream& operator<<(ostream &out, Passenger &t){
 
 		out<<t.name <<"\n";
@@ -168,6 +205,11 @@ public:
 		return out;
 
 	}
+	/**
+		\brief перегрузка оператора ввода
+		\param stream поток
+		\param t  пассажир
+	*/
 	friend istream& operator>>(istream &in, Passenger &t){
 
 		string b;
@@ -214,7 +256,11 @@ public:
 		\brief функция, выводящая информацию об 1-м рейсе 
 	*/
 	void outTrain();
-
+	/**
+		\brief перегрузка оператора вывода
+		\param stream поток
+		\param t  рейс
+	*/
 	friend ostream &operator<<(ostream &out, const Train &t){
 
 		out<<t.number<<"\n";
@@ -234,7 +280,11 @@ public:
 
 		return out;
 	}
-
+	/**
+		\brief перегрузка оператора ввода
+		\param stream поток
+		\param t  рейс
+	*/
 	friend istream &operator>>(istream &in, Train &t){
 
 		in>>t.number;
