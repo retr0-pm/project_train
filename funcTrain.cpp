@@ -69,7 +69,6 @@ void Core::addTrain() {
                         cout << "Эта точка не существует. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
-
         while(true){
                 string buf_;
                 bool flag = true;
@@ -512,6 +511,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 	f.open(fPassenger);
         for(int i = 0; i < sizeP; i++) {
                 if(arrPassenger[i].get_train_number() != buff) {
+			arrPassenger[i].outPassenger();// deb
                         f << arrPassenger[i];
                 }
                 else {

@@ -10,7 +10,7 @@ void Passenger::outPassenger() {
 	cout << "Возраст: " << age<<"\n";
 	cout << "Рейс №: " << train_number<<"\n";
 	cout << "Время отправления: " << time_ot<<"\n";
-	cout << "Время прибытия: " << time_ot<<"\n";
+	cout << "Время прибытия: " << time_prib<<"\n";
 	if(spot == 0) {
                  	cout << "Купе"<<"\n";
 	}

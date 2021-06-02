@@ -157,23 +157,19 @@ public:
 	}
 	friend istream& operator>>(istream &in, Passenger &t){
 
+		string b;
+
 		getline(in,t.name);
 		in>>t.age;
 		in>>t.train_number;
-		int a,b,c;
-		in >> a >> b >> c;
-		t.time_ot.set_d(a);
-                t.time_ot.set_h(b);
-                t.time_ot.set_m(c);
-                in >> a >> b >> c;
-                t.time_prib.set_d(a);
-                t.time_prib.set_h(b);
-                t.time_prib.set_m(c);
+		in >> t.time_ot;
+		in >> t.time_prib;
 		in>>t.spot;
 		in>>t.n_vagona;
 		in>>t.n_mesta;
-		in>>t.city_from;
-		in>>t.city_to;
+		getline(in, b);
+		getline(in,t.city_from);
+		getline(in,t.city_to);
 		in>>t.condition;
 
 		return in;

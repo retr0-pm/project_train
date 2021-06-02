@@ -39,10 +39,8 @@ void Core::addPassenger() {
 	while(true) {
 		cout << "Откуда: " << endl;
 		getline(cin, bufA);
-		cout << endl;
 		cout << "Куда: " << endl;
 		getline(cin, bufB);
-		cout << endl;
 		bool prov = false;
 		for(int i = 0; i < sizeT; i++) {
 			if((arrTrain[i].get_train_city_from() == bufA) && (arrTrain[i].get_train_city_to() == bufB)) {
@@ -63,7 +61,7 @@ void Core::addPassenger() {
 			cout << "Такого рейса не существует" << endl;
 		}
 	}
-
+	cout << endl;
 	while(true) {
 		int bufspot;
 		cout << "Выберете тип места, 0 - купе, 1 - плацкарт: ";
