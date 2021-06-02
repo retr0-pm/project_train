@@ -52,7 +52,7 @@ void Core::removeCity() {
 	}
 
 	string buf_;
-	cout << "Ведите название города:" << endl;
+	cout << "Введите название города:" << endl;
 	cin.get();
 	getline(cin,buf_);
 	cout << endl;
@@ -122,7 +122,7 @@ void Core::changeCity() {
         }
 
         string buf_;
-        cout << "Ведите название города:" << endl;
+        cout << "Введите название города:" << endl;
 	cin.get();
         getline(cin,buf_);
         cout << endl;
@@ -256,28 +256,3 @@ void Core::searchCity() {
 
 	return;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

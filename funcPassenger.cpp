@@ -21,7 +21,7 @@ void Core::addPassenger() {
 
 	while(true) {
 		int bufage;
-		cout << "Ведите возраст: ";
+		cout << "Введите возраст: ";
 		cin >> bufage;
 		cout << endl;
 		if(bufage >= 0) {
@@ -171,23 +171,3 @@ void Core::outputPassenger() {
 		arrPassenger[i].outPassenger();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

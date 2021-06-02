@@ -4,6 +4,6 @@ Krutoy gorod
 Leninskiy
 124
 1241
-naz
-30
-10
+naz1
+40
+50

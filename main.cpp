@@ -7,17 +7,17 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 	if(argc != 5) {
-		cout << "Please enter four arguments:" << endl;
-		cout << "1 - BD punktov" << endl;
-		cout << "2 - BD reisov" << endl;
-		cout << "3 - BD passagirov" << endl;
-		cout << "4 - fail globalnogo vremeni" << endl;
+		cout << "Выберите с чем хотите работать:" << endl;
+		cout << "1 - База данный городов" << endl;
+		cout << "2 - База данных рейсов" << endl;
+		cout << "3 - База данных пассажиров" << endl;
+		cout << "4 - Глобальное время" << endl;
 		return 1;
 	}
 
 	Core fortune(argv[1],argv[2],argv[3],argv[4]);
 	if(!fortune.isitokay()) {
-		cout << "The program can't open this :'(" << endl;
+		cout << "Программа не может его открыть :'(" << endl;
 		return 2;
 	}
 
