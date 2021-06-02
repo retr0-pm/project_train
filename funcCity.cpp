@@ -237,7 +237,7 @@ void Core::searchCity() {
 		return;
 	}
 
-	cout << "Введите названия пункта:" << endl;
+	cout << "Введите названия пункта: " << endl;
 	string buf_;
 	bool flag_ = false;
 	cin.get(); // fix
