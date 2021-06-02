@@ -74,7 +74,7 @@ void Core::rewindTime() {
 		if(TtoM(buf_time_ot) > TtoM(gt)) {
 			arrPassenger[i].set_condition(0);
 		}
-		else if(TtoM(buf_time_prib) >= TtoM(gt)) {
+		else if(TtoM(buf_time_prib) <= TtoM(gt)) {
 			arrPassenger[i].set_condition(2);
 		}
 		else {
