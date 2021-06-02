@@ -16,7 +16,7 @@ Menu::~Menu() {
         system("clear");
         system("sl -l");
         system("clear");
-        system("figlet -ctk -f slant Come again :)");
+        system("figlet -ctk -f slant Come again !!");
 }
 
 void Menu::Start(Core &obj) {
