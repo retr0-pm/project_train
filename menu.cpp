@@ -318,10 +318,12 @@ void Menu::Start(Core &obj) {
 					break;
 				case 2:
 					obj.sizePassenger();
+					obj.fArrPassenger();
 					obj.getGT();
 					obj.rewindTime();
 					obj.getGT();
 					obj.checkTime();
+					obj.clArrPassenger();
 				default:
 					break;
 			}
