@@ -27,6 +27,9 @@ void Core::searchPassenger(){
 			for(int i = 0; i < sizeP; i++) {
 				if(arrPassenger[i].get_name() == buf1_){
 					arrPassenger[i].outPassenger();
+					if(arrPassenger[i].get_condition() == 1){
+						calcPosition(arrPassenger[i]);
+					}
 					/*if(arrPassenger[i].get_condition() == 1){
 						calcPosition(arrPassenger[i]);
 					}*/
@@ -46,6 +49,9 @@ void Core::searchPassenger(){
 				if(arrPassenger[i].get_train_number() == buf11_){
 					arrPassenger[i].outPassenger();
 					s++;
+					if(arrPassenger[i].get_condition() == 1){
+						calcPosition(arrPassenger[i]);
+					}
 				}
 				/*if(arrPassenger[i].get_condition() == 1){
 					calcPosition(arrPassenger[i]);
