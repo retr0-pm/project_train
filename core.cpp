@@ -1,5 +1,5 @@
 #include <string>
-#include<cmath>
+#include <cmath>
 #include <iostream>
 #include <fstream>
 #include "core.h"
@@ -7,7 +7,7 @@
 using namespace std;
 
 void Core::searchPassenger(){
-	if(sizeP == 0){cout<<"База данных о пассажирах пуста"<<endl; return;}
+	if(sizeP == 0){cout<<"Список пассажиров пуст"<<endl; return;}
 	int a;
 	cout<<"1 - поиск по имени. 2 - поиск по номеру рейса. 0 - back" << endl;
 	cout << "Ваш выбор: ";
@@ -18,33 +18,26 @@ void Core::searchPassenger(){
 	int buf11_;
 	switch(a) {
 		case 1:
-		//	string buf1_;
 			cout<<"Введите имя: " << endl;
 			cin.get();
 			getline(cin,buf1_);
 			cout << endl;
-		//	int s = 0;
 			for(int i = 0; i < sizeP; i++) {
 				if(arrPassenger[i].get_name() == buf1_){
 					arrPassenger[i].outPassenger();
 					if(arrPassenger[i].get_condition() == 1){
 						calcPosition(arrPassenger[i]);
 					}
-					/*if(arrPassenger[i].get_condition() == 1){
-						calcPosition(arrPassenger[i]);
-					}*/
 					s++;
 					break;
 				}
 			}
-			if(s == 0){cout<<"ничего не найдени";}
+			if(s == 0){cout<<"Ничего не найдено" << endl;}
 			break;
 		case 2:
-		//	int buf1_;
 			cout<<"Введите номер:";
 			cin >> buf11_;
 			cout << endl;
-		//	int s = 0;
 			for(int i = 0; i < sizeP; i++) {
 				if(arrPassenger[i].get_train_number() == buf11_){
 					arrPassenger[i].outPassenger();
@@ -53,11 +46,8 @@ void Core::searchPassenger(){
 						calcPosition(arrPassenger[i]);
 					}
 				}
-				/*if(arrPassenger[i].get_condition() == 1){
-					calcPosition(arrPassenger[i]);
-				}*/
 			}
-			if (s == 0 ){cout<<"ничего не найдени";}
+			if (s == 0 ){cout<<"Ничего не найдено" << endl;}
 			break;
 		case 0:
 			break;
@@ -93,8 +83,8 @@ void Core::calcPosition(Passenger &t){
 	float m=((minuts1-minuts2)*sqrt((buf2.get_city_x()-buf1.get_city_x())*(buf2.get_city_x()-buf1.get_city_x())+(buf2.get_city_y()-buf1.get_city_y())*(buf2.get_city_y()-buf1.get_city_y())))/buf.get_train_speed();//koeff. for formula
 	float Xx=(buf1.get_city_x()+m*buf2.get_city_x())/(1+m);//final x of time's moment
 	float Yy=(buf1.get_city_y()+m*buf2.get_city_y())/(1+m);//final y of time's moment
-	cout <<"Координата по х, на данный момент:"<< Xx << endl;
-	cout <<"Координата по у, на данный момент:"<< Yy << endl;
+	cout <<"Координата х на данный момент:"<< Xx << endl;
+	cout <<"Координата у на данный момент:"<< Yy << endl;
 }
 
 void Core::sizeCity(){

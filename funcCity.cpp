@@ -9,7 +9,7 @@ void Core::addCity() {
 	City bufC;
 
 	while(true){
-		cout << "Введите название города: " << endl;
+		cout << "Введите название пункта: " << endl;
 		string buf_;
 		bool flag_ = true;
 		cin.get(); // fix
@@ -25,7 +25,7 @@ void Core::addCity() {
 			break;
 		}
 		else {
-			cout << "Город с таким название уже имеется в базе данных." << endl;
+			cout << "Пункт с таким названием уже существует. Пожалуйста, попробуйте ещё раз" << endl;
 		}
 	}
 
@@ -47,12 +47,12 @@ void Core::addCity() {
 
 void Core::removeCity() {
 	if(sizeC < 1) {
-		cout << "База данных городов пуста" << endl;
+		cout << "База данных пунктов пуста" << endl;
 		return;
 	}
 
 	string buf_;
-	cout << "Введите название города:" << endl;
+	cout << "Введите название пункта:" << endl;
 	cin.get();
 	getline(cin,buf_);
 	cout << endl;
@@ -65,7 +65,7 @@ void Core::removeCity() {
 		}
 	}
 	if(!flag_) {
-		cout << "Данного города нет в базе данных" << endl;
+		cout << "Данного пункта нет в базе данных" << endl;
 		return;
 	}
 
@@ -76,7 +76,7 @@ void Core::removeCity() {
 		}
 	}
 	if(!flag_) {
-		cout << "Вы не можете удалить этот город сейчас. Попробуйте позже." << endl;
+		cout << "Вы не можете удалить этот пункт сейчас. Попробуйте позже." << endl;
 		return;
 	}
 
@@ -117,12 +117,12 @@ void Core::removeCity() {
 
 void Core::changeCity() {
         if(sizeC < 1) {
-                cout << "База данных городов пуста" << endl;
+                cout << "База данных городов пунктов" << endl;
                 return;
         }
 
         string buf_;
-        cout << "Введите название города:" << endl;
+        cout << "Введите название пункта:" << endl;
 	cin.get();
         getline(cin,buf_);
         cout << endl;
@@ -135,7 +135,7 @@ void Core::changeCity() {
                 }
         }
         if(!flag_) {
-                cout << "Данного города нет в базе данных" << endl;
+                cout << "Данного пункта нет в базе данных" << endl;
                 return;
         }
 
@@ -146,7 +146,7 @@ void Core::changeCity() {
                 }
         }
         if(!flag_) {
-                cout << "Вы не можете изменить этот город сейчас. Попробуйте позже." << endl;
+                cout << "Вы не можете изменить этот пункт сейчас. Попробуйте позже." << endl;
                 return;
         }
 
@@ -169,7 +169,7 @@ void Core::changeCity() {
                         break;
                 }
                 else {
-                        cout << "Город с таким название уже имеется в базе данных." << endl;
+                        cout << "Пункт с таким названием уже существует. Пожалуйста, попробуйте ещё раз" << endl;
                 }
         }
 

@@ -7,7 +7,7 @@ using namespace std;
 
 void Core::addPassenger() {
 	if(sizeT < 1) {
-		cout << "Нет рейсов" << endl;
+		cout << "Список рейсов пуст" << endl;
 		return;
 	}
 
@@ -29,7 +29,7 @@ void Core::addPassenger() {
 			break;
 		}
 		else {
-			cout << "Возораст должен быть больше 0" << endl;
+			cout << "Возраст должен быть не меньше 0" << endl;
 		}
 	}
 
@@ -37,9 +37,9 @@ void Core::addPassenger() {
 	string bufB;
 	cin.get();
 	while(true) {
-		cout << "Откуда: " << endl;
+		cout << "Пункт отправления: " << endl;
 		getline(cin, bufA);
-		cout << "Куда: " << endl;
+		cout << "Пункт назначения: " << endl;
 		getline(cin, bufB);
 		bool prov = false;
 		for(int i = 0; i < sizeT; i++) {
@@ -58,7 +58,7 @@ void Core::addPassenger() {
 			break;
 		}
 		else {
-			cout << "Такого рейса не существует" << endl;
+			cout << "Такого рейса не существует. Пожалуйста, попробуйте ещё раз" << endl;
 		}
 	}
 	cout << endl;
@@ -99,7 +99,7 @@ void Core::addPassenger() {
 			bufP.set_n_vagona(sch/buf_v_k + 1);
 		}
 		else {
-			cout << "Все места заняты" << endl;
+			cout << "К сожалению, все места заняты" << endl;
 			return;
 		}
 	}
@@ -109,7 +109,7 @@ void Core::addPassenger() {
                         bufP.set_n_vagona(sch/buf_v_p + buf_n_k + 1);
 		}
 		else {
-			cout << "Все места заняты" << endl;
+			cout << "К сожалению, все места заняты" << endl;
 			return;
 		}
 	}
@@ -144,7 +144,7 @@ void Core::removePassenger() {
 		}
 
 		if(proverka) {
-			cout << "Такого человека нет в базе данных. Попробуйте еще раз." << endl;
+			cout << "Пассажир с таким именем не найден. Попробуйте еще раз." << endl;
 		}
 		else {
 			break;
@@ -163,7 +163,7 @@ void Core::removePassenger() {
 
 void Core::outputPassenger() {
 	if(sizeP < 1) {
-		cout << "База данный пассажиров пуста" << endl;
+		cout << "База данных пассажиров пуста" << endl;
 		return;
 	}
 

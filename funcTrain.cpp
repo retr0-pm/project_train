@@ -8,7 +8,7 @@ using namespace std;
 void Core::addTrain() {
 
 	if(sizeC < 2) {
-		cout << "Недостаточное количество городов" << endl;
+		cout << "Для этого действие нужно хотя бы 2 пункта" << endl;
 		return;
 	}
 
@@ -32,7 +32,7 @@ void Core::addTrain() {
 			break;
 		}
 		else {
-			cout << "Этот номер уже существует. Пожалуйста, попробуйте еще раз." << endl;
+			cout << "Этот номер уже занят. Пожалуйста, попробуйте еще раз." << endl;
 		}
 	}
 
@@ -66,13 +66,13 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Эта точка не существует. Пожалуйста, попробуйте еще раз." << endl;
+                        cout << "Пункта с таким названием не существует. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Пункт прибытия: " << endl;
+                cout << "Пункт назначения: " << endl;
                 getline(cin,buf_);
                 for(int i = 0; i < sizeC; i++) {
                         if(buf_ == arrCity[i].get_city_name()){
@@ -84,7 +84,7 @@ void Core::addTrain() {
                         break;
                 }
                 else {
-                        cout << "Эта точка не существует. Пожалуйста, попробуйте еще раз." << endl;
+                        cout << "Пункта с таким названием не существует. Пожалуйста, попробуйте еще раз." << endl;
                 }
         }
 
@@ -150,7 +150,7 @@ void Core::addTrain() {
 
         while(true) {
                 int buf_;
-                cout << "Вместительность купе: ";
+                cout << "Вместительность вагона купе: ";
                 cin >> buf_;
                 cout << endl;
                 if(buf_ > 0) {
@@ -164,7 +164,7 @@ void Core::addTrain() {
 
         while(true) {
                 int buf_;
-                cout << "Вместительность плацкарта: ";
+                cout << "Вместительность вагона плацкарт: ";
                 cin >> buf_;
                 cout << endl;
                 if(buf_ > 0) {
@@ -178,7 +178,7 @@ void Core::addTrain() {
 
         while(true) {
                 int buf_;
-                cout << "Цена купе: ";
+                cout << "Цена за билет в вагоне купе: ";
                 cin >> buf_;
                 cout << endl;
                 if(buf_ > 0) {
@@ -231,7 +231,7 @@ void Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 		}
 	}
 	if(!flag) {
-		cout << "Рейса с таки номером нет" << endl;
+		cout << "Рейса с таким номером не существует" << endl;
 		return;
 	}
 
@@ -242,7 +242,7 @@ void Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 		}
 	}
 	if(!flag) {
-		cout << "Вы не можите удалить этот рейс. Попробуйте позже" << endl;
+		cout << "Вы не можете удалить этот рейс. Попробуйте позже" << endl;
 		return;
 	}
 
@@ -283,7 +283,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                 }
         }
         if(!flag) {
-                cout << "Рейса с таким номером нет" << endl;
+                cout << "Рейса с таким номером не существует" << endl;
                 return;
         }
 
@@ -294,7 +294,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                 }
         }
         if(!flag) {
-                cout << "Вы не можите изменить этот рейс. Попробуйте позже" << endl;
+                cout << "Вы не можете изменить этот рейс. Попробуйте позже" << endl;
                 return;
         }
 
@@ -320,7 +320,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 			break;
 		}
 		else {
-			cout << "Такой номер занят. Поробуйте еще раз" << endl;
+			cout << "Этот номер занят. Поробуйте еще раз" << endl;
 		}
 	}
 
@@ -342,7 +342,7 @@ void Core::changeTrain() { //Change of direction by number of direction
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Пунк отправления: " << endl;
+                cout << "Пункт отправления: " << endl;
                 getline(cin,buf_);
 		cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -355,14 +355,14 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Такого города нет в базе данных. Попробуйте еще раз" << endl;
+                        cout << "Пункта с таким названием не существует. Попробуйте еще раз" << endl;
                 }
         }
 
         while(true){
                 string buf_;
                 bool flag = true;
-                cout << "Пунк прибытия: " << endl;
+                cout << "Пункт назначения: " << endl;
                 getline(cin,buf_);
                 cout << endl;
                 for(int i = 0; i < sizeC; i++) {
@@ -375,14 +375,14 @@ void Core::changeTrain() { //Change of direction by number of direction
                         break;
                 }
                 else {
-                        cout << "Такого города нет в базе данных или города поторяются. Попробуйте еще раз" << endl;
+                        cout << "Пункта с таким именем не существует. Попробуйте еще раз" << endl;
                 }
         }
 
 
 	int buf_h, buf_m;
         while(true) {
-		cout << "Часы отправления: ";
+		cout << "Время отправления (часы): ";
 		cin >> buf_h;
 		cout << endl;
 		if((buf_h < 24) && (buf_h >= 0)) {
@@ -394,7 +394,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 	}
 
 	while(true) {
-		cout << "Минуты отправления: ";
+		cout << "Время отправления (минуты): ";
 		cin >> buf_m;
 		cout << endl;
                 if((buf_m < 60) && (buf_m >= 0)) {
@@ -442,7 +442,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 
         while(true) {
                 int buf_;
-                cout << "Вместительность купе: ";
+                cout << "Вместительность вагона купе: ";
                 cin >> buf_;
                 cout << endl;
                 if(buf_ > 0) {
@@ -456,7 +456,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 
         while(true) {
                 int buf_;
-                cout << "Вместительность плацкарта: ";
+                cout << "Вместительность вагона плацкарт: ";
                 cin >> buf_;
                 cout << endl;
                 if(buf_ > 0) {
@@ -470,7 +470,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 
         while(true) {
                 int buf_;
-                cout << "Цена купе: ";
+                cout << "Цена за билет купе: ";
                 cin >> buf_;
                 cout << endl;
                 if(buf_ > 0) {
@@ -484,7 +484,7 @@ void Core::changeTrain() { //Change of direction by number of direction
 
         while(true) {
                 int buf_;
-                cout << "цена плацкарта: ";
+                cout << "Цена за билет плацкарт: ";
                 cin >> buf_;
                 cout << endl;
                 if(buf_ > 0) {
@@ -515,7 +515,7 @@ void Core::changeTrain() { //Change of direction by number of direction
                         f << arrPassenger[i];
                 }
                 else {
-			cout << "Этот человек будет удален из базы даннх пассажиров - ";
+			cout << "Этот человек будет удален из базы данных пассажиров - ";
 			arrPassenger[i].outPassenger();
                 }
         }
@@ -543,17 +543,17 @@ void Core::searchTrainNumber() {
 		}
 	}
 	if(!flag) {
-		cout << "Рейса с таким номером нет" << endl;
+		cout << "Рейса с таким номером не существует" << endl;
 	}
 }
 
 void Core::searchTrainPoint() {
 	cin.get();
-        cout << "Введите пункт отбытия: " << endl;
+        cout << "Введите пункт отпрвления: " << endl;
         string bufFrom;
         getline(cin,bufFrom);
         cout << endl;
-        cout << "Введите пункт прибытия: " << endl;
+        cout << "Введите пункт назначения: " << endl;
         string bufTo;
         getline(cin,bufTo);
         cout << endl;
