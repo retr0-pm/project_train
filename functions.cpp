@@ -15,9 +15,18 @@ void Core::rewindTime() {
 	int _d, _h, _m;
 	Time shift;
 	cout << "Перемотка времени:" << endl;
-	cout << "Дни: ";
-	cin >> _d;
-	shift.set_d(_d);
+
+	while(true) {
+		cout << "Дни: ";
+		cin >> _d;
+		if(_d >= 0) {
+			shift.set_d(_d);
+			break;
+		}
+		else {
+			cout << "Передано неверное значение" << endl;
+		}
+	}
 
 	while(true) {
 		cout << "Часы: ";
