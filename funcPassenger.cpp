@@ -136,7 +136,6 @@ void Core::removePassenger() {
 	while(true) {
 		cout << "Введите имя:" << endl;
 		getline(cin,bufname);
-		cout << endl;
 		bool proverka = true;
 
 		for(int i = 0; i < sizeP; i++) {
@@ -148,6 +147,9 @@ void Core::removePassenger() {
 
 		if(proverka) {
 			cout << "Такого человека нет в базе данных. Попробуйте еще раз." << endl;
+		}
+		else {
+			break;
 		}
 	}
 
