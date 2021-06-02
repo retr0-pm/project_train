@@ -81,12 +81,9 @@ void Core::calcPosition(Passenger &t){
 	float pu = TtoM(t.get_time_prib() - t.get_time_ot());
 	float pr = TtoM(gt - t.get_time_ot());
 
-	//float m=((minuts1-minuts2)*sqrt((buf2.get_city_x()-buf1.get_city_x())*(buf2.get_city_x()-buf1.get_city_x())+(buf2.get_city_y()-buf1.get_city_y())*(buf2.get_city_y()-buf1.get_city_y())))/buf.get_train_speed();//koeff. for formula
 	float m = pr/pu;
-	/*float Xx=(buf1.get_city_x()+m*buf2.get_city_x())/(1+m);
-	float Yy=(buf1.get_city_y()+m*buf2.get_city_y())/(1+m);*/
-	float Xx = ((buf2.get_city_x() - buf1.get_city_x()) * m);
-	float Yy = ((buf2.get_city_y() - buf1.get_city_y()) * m);
+	float Xx = buf1.get_city_x() + ((buf2.get_city_x() - buf1.get_city_x()) * m);
+	float Yy = buf1.get_city_y() + ((buf2.get_city_y() - buf1.get_city_y()) * m);
 	cout <<"Координата х на данный момент:"<< Xx << endl;
 	cout <<"Координата у на данный момент:"<< Yy << endl;
 }

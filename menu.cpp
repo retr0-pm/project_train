@@ -320,7 +320,6 @@ void Menu::Start(Core &obj) {
 					obj.fArrPassenger();
 					obj.getGT();
 					obj.rewindTime();
-					obj.getGT();
 					obj.checkTime();
 					obj.clArrPassenger();
 				default:

@@ -6,7 +6,9 @@
 using namespace std;
 
 int Core::TtoM(Time t) {
-	return (t.get_d() * 1440 + t.get_h() * 60 + t.get_m());
+	int res;
+	res = t.get_d() * 1440 + t.get_h() * 60 + t.get_m();
+	return res;
 }
 
 Time Core::MtoT(int t) {

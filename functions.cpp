@@ -66,6 +66,7 @@ void Core::rewindTime() {
 
 	f.open(fPassenger);
 	for(int i = 0; i < sizeP; i++) {
+
 		Time buf_time_ot;
 		Time buf_time_prib;
 		buf_time_prib = arrPassenger[i].get_time_prib();
@@ -74,10 +75,10 @@ void Core::rewindTime() {
 		if(TtoM(buf_time_ot) > TtoM(gt)) {
 			arrPassenger[i].set_condition(0);
 		}
-		else if((TtoM(gt) <= TtoM(buf_time_prib)) && (TtoM(gt) >= TtoM(buf_time_ot))) {
+		if((TtoM(gt) <= TtoM(buf_time_prib)) && (TtoM(gt) >= TtoM(buf_time_ot))) {
 			arrPassenger[i].set_condition(1);
 		}
-		else {
+		if(TtoM(gt) > TtoM(buf_time_prib)) {
 			arrPassenger[i].set_condition(2);
 		}
 		f << arrPassenger[i];

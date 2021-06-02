@@ -26,8 +26,8 @@ public:
 	*/
 	Time() {
 		d = 0;
-		m = 0;
 		h = 0;
+		m = 0;
 	}
 
 	int get_d() {return d;}
@@ -159,7 +159,7 @@ public:
 	int get_train_number(){return train_number;}
 	int get_age(){return age;}
 	Time get_time_ot(){return time_ot;}
-	Time get_time_prib(){return time_ot;}
+	Time get_time_prib(){return time_prib;}
 	int get_spot(){return spot;}
 	int get_n_vagona(){return n_vagona;}
 	int get_n_mesta(){return n_mesta;}
