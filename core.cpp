@@ -81,8 +81,8 @@ void Core::calcPosition(Passenger &t){
 	int minuts1 = TtoM(gt);
 	int minuts2 = TtoM(t_in_d);
 	float m=((minuts1-minuts2)*sqrt((buf2.get_city_x()-buf1.get_city_x())*(buf2.get_city_x()-buf1.get_city_x())+(buf2.get_city_y()-buf1.get_city_y())*(buf2.get_city_y()-buf1.get_city_y())))/buf.get_train_speed();//koeff. for formula
-	float Xx=(buf1.get_city_x()+m*buf2.get_city_x())/(1+m);//final x of time's moment
-	float Yy=(buf1.get_city_y()+m*buf2.get_city_y())/(1+m);//final y of time's moment
+	float Xx=(buf1.get_city_x()+m*buf2.get_city_x())/(1+m);
+	float Yy=(buf1.get_city_y()+m*buf2.get_city_y())/(1+m);
 	cout <<"Координата х на данный момент:"<< Xx << endl;
 	cout <<"Координата у на данный момент:"<< Yy << endl;
 }
@@ -98,7 +98,8 @@ void Core::sizeCity(){
 	}
 	sizeC=size/3;
 	f.close();
-} //Opredelenie razmera massiva gorodov
+}
+
 void Core::sizeTrain(){
 	fstream f;
 	f.open(fTrain,ios::in);
@@ -110,7 +111,8 @@ void Core::sizeTrain(){
 	}
 	sizeT=size/14;
 	f.close();
-}  //Opredelenie razmera massiva reisov
+}
+
 void Core::sizePassenger(){
 	fstream f;
 	f.open(fPassenger,ios::in);
@@ -122,7 +124,7 @@ void Core::sizePassenger(){
 	}
 	sizeP=size/11;
 	f.close();
-}  //Opredelenie razmera massiva passagirov
+}
 
 void Core::fArrCity(){
 	arrCity = new City[sizeC];
@@ -133,17 +135,19 @@ void Core::fArrCity(){
 		f.get();
 	}
 	f.close();
-} //zanesenie iz faila v massiv gorodov
+}
+
 void Core::fArrTrain(){
 	arrTrain = new Train[sizeT];
 	fstream f;
 	f.open(fTrain,ios::in);
 	for (int i = 0; i < sizeT; i++) {
 		f >> arrTrain[i];
-		//f.get();
+
 	}
 	f.close();
-} //zanesenie iz faila v massiv reisov
+}
+
 void Core::fArrPassenger(){
 	arrPassenger = new Passenger [sizeP];
 	fstream f;
@@ -153,23 +157,26 @@ void Core::fArrPassenger(){
 		f.get();
 	}
 	f.close();
-} //zanesenie iz faila v massiv passagirov
+}
+
 void Core::getGT(){
 	fstream f;
 	f.open(fTime,ios::in);
 	f >> gt;
 	f.close();
-} //zanesenie iz faila globalnogo vremeni
+}
+
 void Core::clArrCity(){
 	delete [] arrCity;
-} //ochistka pamyati massiva gorodov
+}
+
 void Core::clArrTrain(){
 	delete [] arrTrain;
 }
-//ochistka pamyati massiva reisov
+
 void Core::clArrPassenger(){
 	delete [] arrPassenger;
-} //ochistka pamyati massiva passagirov
+}
 
 Core::Core(char *_fCity, char *_fTrain, char *_fPassenger, char *_fTime) {
 	fCity = _fCity;

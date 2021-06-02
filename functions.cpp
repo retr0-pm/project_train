@@ -80,14 +80,12 @@ void Core::rewindTime() {
 		else {
 			arrPassenger[i].set_condition(1);
 		}
-		arrPassenger[i].outPassenger();
 		f << arrPassenger[i];
 	}
 	f.close();
 }
 
 Train Core::calcTime(Train &t) {
-	//calculation distance
 	float x1,x2,y1,y2;
 	for(int i = 0; i < sizeC; i++) {
 		if (t.get_train_city_from() == arrCity[i].get_city_name()) {
@@ -105,7 +103,6 @@ Train Core::calcTime(Train &t) {
 	_distance = sqrt(pow((x1-x2),2) + pow((y1-y2),2));
 	t.set_distance(_distance);
 
-	//calculation t_puti
 	int tm;
 	Time _t_puti;
 	Time _t_prib;
@@ -113,7 +110,6 @@ Train Core::calcTime(Train &t) {
 	_t_puti = MtoT(tm);
 	t.set_time_puti(_t_puti);
 
-	//calculation t_prib
 	_t_prib = t.get_time_otb() + _t_puti;
 	_t_prib.set_d(0);
 	_t_prib.set_h(_t_prib.get_h() % 24);

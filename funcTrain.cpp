@@ -212,7 +212,7 @@ void Core::addTrain() {
 	f << tr;
 }
 
-void Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(obj.removeTrain())
+void Core::removeTrain() {
 	if(sizeT == 0) {
 		cout << "База данных рейсов пуста" << endl;
 		return;
@@ -264,7 +264,7 @@ void Core::removeTrain() { //udalenie po nomeru marshruta, vizov cherez while(ob
 	f.close();
 }
 
-void Core::changeTrain() { //Change of direction by number of direction
+void Core::changeTrain() {
 	if(sizeT == 0) {
 		cout << "База данных рейсов пуста" << endl;
 		return;
@@ -511,7 +511,6 @@ void Core::changeTrain() { //Change of direction by number of direction
 	f.open(fPassenger);
         for(int i = 0; i < sizeP; i++) {
                 if(arrPassenger[i].get_train_number() != buff) {
-			arrPassenger[i].outPassenger();// deb
                         f << arrPassenger[i];
                 }
                 else {

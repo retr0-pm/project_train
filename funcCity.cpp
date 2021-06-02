@@ -12,7 +12,7 @@ void Core::addCity() {
 		cout << "Введите название пункта: " << endl;
 		string buf_;
 		bool flag_ = true;
-		cin.get(); // fix
+		cin.get();
 		getline(cin,buf_,'\n');
 		for(int i = 0; i < sizeC; i++) {
 			if(arrCity[i].get_city_name() == buf_) {
@@ -154,7 +154,7 @@ void Core::changeCity() {
         while(true){
                 cout << "Введите новое название: " << endl;
                 string buff;
-		//cin.get(); //fix
+
                 getline(cin,buff);
 		if(buff != buf_) {
                 	for(int i = 0; i < sizeC; i++) {
@@ -240,7 +240,7 @@ void Core::searchCity() {
 	cout << "Введите названия пункта: " << endl;
 	string buf_;
 	bool flag_ = false;
-	cin.get(); // fix
+	cin.get();
 	getline(cin,buf_);
 	cout << endl;
 	for(int i = 0; i < sizeC; i++) {
