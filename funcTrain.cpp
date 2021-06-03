@@ -220,7 +220,7 @@ void Core::removeTrain() {
 
 	int buf_;
 	bool flag = false;
-	cout << "Введите номер рейса";
+	cout << "Введите номер рейса: ";
 	cin >> buf_;
 	cout << endl;
 
@@ -230,17 +230,19 @@ void Core::removeTrain() {
 			break;
 		}
 	}
+
 	if(!flag) {
 		cout << "Рейса с таким номером не существует" << endl;
 		return;
 	}
 
 	for(int i = 0; i < sizeP; i++) {
-		if((arrPassenger[i].get_condition() < 2) && (arrPassenger[i].get_train_number())) {
+		if((arrPassenger[i].get_condition() < 2) && (arrPassenger[i].get_train_number() == buf_)) {
 			flag = false;
 			break;
 		}
 	}
+
 	if(!flag) {
 		cout << "Вы не можете удалить этот рейс. Попробуйте позже" << endl;
 		return;
@@ -288,7 +290,7 @@ void Core::changeTrain() {
         }
 
         for(int i = 0; i < sizeP; i++) {
-                if((arrPassenger[i].get_condition() < 2) && (arrPassenger[i].get_train_number())) {
+                if((arrPassenger[i].get_condition() < 2) && (arrPassenger[i].get_train_number() == buff)) {
                         flag = false;
                         break;
                 }

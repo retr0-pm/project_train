@@ -124,7 +124,7 @@ void Menu::Start(Core &obj) {
 
 			break;
 		case 2:
-			cout << "Выберите действие::" << endl;
+			cout << "Выберите действие: " << endl;
 			cout << "1. Добавить рейс" << endl;
                         cout << "2. Удалить рейс" << endl;
                         cout << "3. Редактировать рейс" << endl;
