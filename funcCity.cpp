@@ -8,11 +8,11 @@ using namespace std;
 void Core::addCity() {
 	City bufC;
 
+	cin.get();
 	while(true){
 		cout << "Введите название пункта: " << endl;
 		string buf_;
 		bool flag_ = true;
-		cin.get();
 		getline(cin,buf_,'\n');
 		for(int i = 0; i < sizeC; i++) {
 			if(arrCity[i].get_city_name() == buf_) {
@@ -101,6 +101,7 @@ void Core::removeCity() {
 	}
 	f.close();
 
+	f.open(fPassenger);
 	for (int i = 0; i < sizeP; i++) {
                 if((arrPassenger[i].get_city_from() != buf_) && (arrPassenger[i].get_city_to() != buf_)) {
                         f << arrTrain[i];
@@ -117,7 +118,7 @@ void Core::removeCity() {
 
 void Core::changeCity() {
         if(sizeC < 1) {
-                cout << "База данных городов пунктов" << endl;
+                cout << "База данных пунктов пуста" << endl;
                 return;
         }
 
@@ -203,6 +204,7 @@ void Core::changeCity() {
         }
         f.close();
 
+	f.open(fPassenger);
         for (int i = 0; i < sizeP; i++) {
                 if((arrPassenger[i].get_city_from() != buf_) && (arrPassenger[i].get_city_to() != buf_)) {
                         f << arrTrain[i];

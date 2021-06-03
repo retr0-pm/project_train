@@ -525,6 +525,12 @@ void Core::changeTrain() {
 
 void Core::outputTrain() {
 	cout << "Список рейсов:" << endl;
+
+	if(sizeT < 0) {
+		cout << "Список пуст" << endl;
+		return;
+	}
+
 	for(int i = 0; i < sizeT; i++) {
 		arrTrain[i].outTrain();
 	}
