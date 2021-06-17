@@ -1,7 +1,10 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-#include "classes.h"
+#include "time.h"
+#include "passenger.h"
+#include "train.h"
+#include "city.h"
 
 using namespace std;
 

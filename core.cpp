@@ -78,8 +78,8 @@ void Core::calcPosition(Passenger &t){
 		}
 	}
 
-	float pu = TtoM(t.get_time_prib() - t.get_time_ot());
-	float pr = TtoM(gt - t.get_time_ot());
+	float pu = TtoM(*t.get_time_prib() - *t.get_time_ot());
+	float pr = TtoM(gt - *t.get_time_ot());
 
 	float m = pr/pu;
 	float Xx = buf1.get_city_x() + ((buf2.get_city_x() - buf1.get_city_x()) * m);

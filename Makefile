@@ -1,8 +1,11 @@
-all: main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o funcPassenger.o
-	g++ main.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o time.o train.o funcPassenger.o -o Project_Train
+all: main.o time.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o train.o funcPassenger.o
+	g++ main.o time.o city.o core.o funcCity.o funcTrain.o functions.o menu.o passenger.o train.o funcPassenger.o -o Project_Train
 
 main.o: main.cpp
 	g++ -c main.cpp
+
+time.o: time.cpp
+	g++ -c time.cpp
 
 city.o: city.cpp
 	g++ -c city.cpp
@@ -25,9 +28,6 @@ menu.o: menu.cpp
 passenger.o: passenger.cpp
 	g++ -c passenger.cpp
 
-time.o: time.cpp
-	g++ -c time.cpp
-
 train.o: train.cpp
 	g++ -c train.cpp
 
@@ -36,3 +36,9 @@ funcPassenger.o: funcPassenger.cpp
 
 clean:
 	rm -rf *.o Project_Train
+
+refresh:
+	rm -rf *.o Project_Train
+	clear
+	make
+
