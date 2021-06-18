@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "time.h"
 
 using namespace std;
 
@@ -89,7 +90,6 @@ public:
 		Time *bt = new Time;
 		in >> *bt;
 		t.time_ot = bt;
-		delete bt;
 		Time *bt1 = new Time;
 		in >> *bt1;
 		t.time_prib = bt1;
