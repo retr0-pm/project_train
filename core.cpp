@@ -77,7 +77,6 @@ void Core::calcPosition(Passenger &t){
 			break;
 		}
 	}
-
 	float pu = TtoM(*t.get_time_prib() - *t.get_time_ot());
 	float pr = TtoM(gt - *t.get_time_ot());
 
