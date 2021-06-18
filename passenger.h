@@ -16,8 +16,8 @@ private:
 	string name;
 	int age;
 	int train_number;
-	Time *time_ot;
-	Time *time_prib;
+	Time time_ot;
+	Time time_prib;
 	int spot;
 	int n_vagona;
 	int n_mesta;
@@ -28,8 +28,8 @@ public:
 	string get_name(){return name;}
 	int get_train_number(){return train_number;}
 	int get_age(){return age;}
-	Time *get_time_ot(){return time_ot;}
-	Time *get_time_prib(){return time_prib;}
+	Time get_time_ot(){return time_ot;}
+	Time get_time_prib(){return time_prib;}
 	int get_spot(){return spot;}
 	int get_n_vagona(){return n_vagona;}
 	int get_n_mesta(){return n_mesta;}
@@ -40,8 +40,8 @@ public:
 	void set_condition(int a){condition = a;}
 	void set_n_mesta(int a){n_mesta = a;}
 	void set_n_vagona(int a){n_vagona = a;}
-	void set_time_ot(Time *t){time_ot = t;}
-	void set_time_prib(Time *t){time_prib = t;}
+	void set_time_ot(Time t){time_ot = t;}
+	void set_time_prib(Time t){time_prib = t;}
 	void set_train_number(int a){ train_number = a;}
 	void set_name(string a){name = a;}
 	void set_age(int a){age = a;}
@@ -87,13 +87,8 @@ public:
 		getline(in,t.name);
 		in>>t.age;
 		in>>t.train_number;
-		Time *bt = new Time;
-		in >> *bt;
-		t.time_ot = bt;
-		Time *bt1 = new Time;
-		in >> *bt1;
-		t.time_prib = bt1;
-		delete bt1;
+		in >> t.time_ot;
+		in >> t.time_prib;
 		in>>t.spot;
 		in>>t.n_vagona;
 		in>>t.n_mesta;

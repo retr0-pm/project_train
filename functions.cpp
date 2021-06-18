@@ -69,8 +69,8 @@ void Core::rewindTime() {
 
 		Time buf_time_ot;
 		Time buf_time_prib;
-		buf_time_prib = *arrPassenger[i].get_time_prib();
-		buf_time_ot = *arrPassenger[i].get_time_ot();
+		buf_time_prib = arrPassenger[i].get_time_prib();
+		buf_time_ot = arrPassenger[i].get_time_ot();
 
 		if(TtoM(buf_time_ot) > TtoM(gt)) {
 			arrPassenger[i].set_condition(0);
@@ -109,12 +109,12 @@ Train Core::calcTime(Train &t) {
 	Time _t_prib;
 	tm = _distance / (t.get_train_speed() / 60);
 	_t_puti = MtoT(tm);
-	t.set_time_puti(&_t_puti);
+	t.set_time_puti(_t_puti);
 
-	_t_prib = *t.get_time_otb() + _t_puti;
+	_t_prib = t.get_time_otb() + _t_puti;
 	_t_prib.set_d(0);
 	_t_prib.set_h(_t_prib.get_h() % 24);
-	t.set_time_prib(&_t_prib);
+	t.set_time_prib(_t_prib);
 
 	return t;
 }

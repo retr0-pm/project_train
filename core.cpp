@@ -77,14 +77,14 @@ void Core::calcPosition(Passenger &t){
 			break;
 		}
 	}
-	float pu = TtoM(*t.get_time_prib() - *t.get_time_ot());
-	float pr = TtoM(gt - *t.get_time_ot());
+	float pu = TtoM(t.get_time_prib() - t.get_time_ot());
+	float pr = TtoM(gt - t.get_time_ot());
 
 	float m = pr/pu;
 	float Xx = buf1.get_city_x() + ((buf2.get_city_x() - buf1.get_city_x()) * m);
 	float Yy = buf1.get_city_y() + ((buf2.get_city_y() - buf1.get_city_y()) * m);
-	cout <<"Координата х на данный момент:"<< Xx << endl;
-	cout <<"Координата у на данный момент:"<< Yy << endl;
+	cout <<"Координата х на данный момент: "<< Xx << endl;
+	cout <<"Координата у на данный момент: "<< Yy << endl;
 }
 
 void Core::sizeCity(){

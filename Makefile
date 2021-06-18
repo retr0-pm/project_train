@@ -39,3 +39,5 @@ clean:
 
 refresh:
 	rm -rf *.o Project_Train
+	clear
+	make

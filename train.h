@@ -17,9 +17,9 @@ private:
     string from;
     string to;
     float distance;
-    Time *t_otb;
-    Time *t_prib;
-    Time *t_puti;
+    Time t_otb;
+    Time t_prib;
+    Time t_puti;
     int capacity_kupe;
     int capacity_plackart;
     int vagoni_plackart;
@@ -69,9 +69,9 @@ public:
 		getline(in,t.from);
 		getline(in,t.to);
 		in>>t.distance;
-		in >> *t.t_otb;
-		in >> *t.t_prib;
-		in >> *t.t_puti;
+		in >> t.t_otb;
+		in >> t.t_prib;
+		in >> t.t_puti;
 		in>>t.capacity_kupe;
 		in>>t.capacity_plackart;
 		in>>t.vagoni_plackart;
@@ -87,9 +87,9 @@ public:
 	string get_train_city_from(){return from;}
 	string get_train_city_to(){return to;}
 	float get_distance(){return distance;}
-	Time *get_time_otb(){return t_otb;}
-	Time *get_time_prib(){return t_prib;}
-        Time *get_time_puti(){return t_puti;}
+	Time get_time_otb(){return t_otb;}
+	Time get_time_prib(){return t_prib;}
+        Time get_time_puti(){return t_puti;}
         int get_capacity_kupe(){return capacity_kupe;}
         int get_capacity_plackart(){return capacity_plackart;}
 	int get_train_vagoni_plackart(){return  vagoni_plackart;}
@@ -102,9 +102,9 @@ public:
 	void set_train_from(string a){from = a;}
 	void set_train_to(string a){to = a;}
 	void set_distance(float a){distance = a;}
-	void set_time_otb(Time *t){t_otb = t;}
-	void set_time_prib(Time *t){t_prib = t;}
-	void set_time_puti(Time *t) {t_puti = t;}
+	void set_time_otb(Time t){t_otb = t;}
+	void set_time_prib(Time t){t_prib = t;}
+	void set_time_puti(Time t) {t_puti = t;}
 	void set_capacity_kupe(int a){capacity_kupe = a;}
 	void set_capacity_plackart(int a){capacity_plackart = a;}
 	void set_train_vagoni_kupe(int a){vagoni_kupe = a;}

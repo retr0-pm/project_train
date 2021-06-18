@@ -116,7 +116,7 @@ void Core::addTrain() {
 	bufff.set_h(buf_h);
 	bufff.set_m(buf_m);
 
-	tr.set_time_otb(&bufff);
+	tr.set_time_otb(bufff);
 
 	tr = calcTime(tr);
 
@@ -410,7 +410,7 @@ void Core::changeTrain() {
         Time bufff;
         bufff.set_h(buf_h);
         bufff.set_m(buf_m);
-        tr.set_time_otb(&bufff);
+        tr.set_time_otb(bufff);
 
 	tr = calcTime(tr);
 

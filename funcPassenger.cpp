@@ -49,12 +49,12 @@ void Core::addPassenger() {
 				bufP.set_city_to(bufB);
 				bufP.set_train_number(arrTrain[i].get_train_number());
 				Time a;
-				a = *arrTrain[i].get_time_otb();
+				a = arrTrain[i].get_time_otb();
 				a = MtoT((gt.get_d()+1) * 1440 + TtoM(a));
-				bufP.set_time_ot(&a);
+				bufP.set_time_ot(a);
 				Time b;
-				b =*bufP.get_time_ot() + *arrTrain[i].get_time_puti();
-				bufP.set_time_prib(&b);
+				b = bufP.get_time_ot() + arrTrain[i].get_time_puti();
+				bufP.set_time_prib(b);
 				bufP.set_condition(0);
 				break;
 			}
