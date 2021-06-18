@@ -85,10 +85,4 @@ public:
 	return in;
 	}
 
-        friend *istream &operator>>(istream &in, Time *k) {
-        in >> k->d >> k->h >> k->m;
-
-        return in;
-        }
-
 };

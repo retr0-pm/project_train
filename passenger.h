@@ -86,10 +86,14 @@ public:
 		getline(in,t.name);
 		in>>t.age;
 		in>>t.train_number;
-		Time *bt;
+		Time *bt = new Time;
 		in >> *bt;
 		t.time_ot = bt;
-		in >> t.time_prib;
+		delete bt;
+		Time *bt1 = new Time;
+		in >> *bt1;
+		t.time_prib = bt1;
+		delete bt1;
 		in>>t.spot;
 		in>>t.n_vagona;
 		in>>t.n_mesta;
